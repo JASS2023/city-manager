@@ -13,7 +13,6 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            Button("Add construction site", action: interface.planningConstructionSite)
             TabView {
                 TileRowList()
                     .tabItem {
@@ -26,6 +25,10 @@ struct ContentView: View {
                 TestImagesView()
                     .tabItem {
                         Label("Third", systemImage: "3.circle")
+                    }
+                Button("Add construction site", action: interface.planningConstructionSite)
+                    .tabItem {
+                        Label("Forth", systemImage: "4.circle")
                     }
             }
             .navigationTitle("Tiles")
