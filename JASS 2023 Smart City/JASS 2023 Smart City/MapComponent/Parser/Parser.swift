@@ -48,7 +48,7 @@ enum Parser {
 
     private static func combineTilesAndFrames(tiles: inout [String: Tile], frames: [String: Frame]) {
         for (key, frame) in frames {
-            tiles[key]?.yaw = Int(frame.pose.yaw)
+            tiles[key]?.yaw = frame.pose.yaw
         }
     }
     

@@ -13,6 +13,9 @@
 		9752F0A029D18A18003DF523 /* TestImagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9752F09F29D18A18003DF523 /* TestImagesView.swift */; };
 		9752F0A329D1B8ED003DF523 /* frames.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 9752F0A129D1B8ED003DF523 /* frames.yaml */; };
 		9752F0A429D1B8ED003DF523 /* tiles.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 9752F0A229D1B8ED003DF523 /* tiles.yaml */; };
+		9752F0A829D1C112003DF523 /* MapGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9752F0A729D1C112003DF523 /* MapGridView.swift */; };
+		9752F0AA29D1C7F3003DF523 /* TileCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9752F0A929D1C7F3003DF523 /* TileCellView.swift */; };
+		9752F0AD29D1EC2F003DF523 /* TileListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9752F0AC29D1EC2F003DF523 /* TileListView.swift */; };
 		97BEA10229D16E61006CA71A /* JASS_2023_Smart_CityApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BEA10129D16E61006CA71A /* JASS_2023_Smart_CityApp.swift */; };
 		97BEA10429D16E61006CA71A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BEA10329D16E61006CA71A /* ContentView.swift */; };
 		97BEA10629D16E63006CA71A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97BEA10529D16E63006CA71A /* Assets.xcassets */; };
@@ -29,6 +32,9 @@
 		9752F09F29D18A18003DF523 /* TestImagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestImagesView.swift; sourceTree = "<group>"; };
 		9752F0A129D1B8ED003DF523 /* frames.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = frames.yaml; sourceTree = "<group>"; };
 		9752F0A229D1B8ED003DF523 /* tiles.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = tiles.yaml; sourceTree = "<group>"; };
+		9752F0A729D1C112003DF523 /* MapGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapGridView.swift; sourceTree = "<group>"; };
+		9752F0A929D1C7F3003DF523 /* TileCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileCellView.swift; sourceTree = "<group>"; };
+		9752F0AC29D1EC2F003DF523 /* TileListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileListView.swift; sourceTree = "<group>"; };
 		97BEA0FE29D16E61006CA71A /* JASS 2023 Smart City.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JASS 2023 Smart City.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		97BEA10129D16E61006CA71A /* JASS_2023_Smart_CityApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JASS_2023_Smart_CityApp.swift; sourceTree = "<group>"; };
 		97BEA10329D16E61006CA71A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,8 +77,10 @@
 		9752F0A529D1BBF1003DF523 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9752F02F29D17F80003DF523 /* TileRowView.swift */,
+				9752F0AB29D1EC16003DF523 /* TileList */,
 				9752F09F29D18A18003DF523 /* TestImagesView.swift */,
+				9752F0A729D1C112003DF523 /* MapGridView.swift */,
+				9752F0A929D1C7F3003DF523 /* TileCellView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -84,6 +92,15 @@
 				9752F09D29D1890A003DF523 /* TileImage.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		9752F0AB29D1EC16003DF523 /* TileList */ = {
+			isa = PBXGroup;
+			children = (
+				9752F02F29D17F80003DF523 /* TileRowView.swift */,
+				9752F0AC29D1EC2F003DF523 /* TileListView.swift */,
+			);
+			path = TileList;
 			sourceTree = "<group>";
 		};
 		97BEA0F529D16E61006CA71A = {
@@ -214,9 +231,12 @@
 				9752F03029D17F80003DF523 /* TileRowView.swift in Sources */,
 				97BEA11729D1761E006CA71A /* Parser.swift in Sources */,
 				9752F09E29D1890A003DF523 /* TileImage.swift in Sources */,
+				9752F0A829D1C112003DF523 /* MapGridView.swift in Sources */,
+				9752F0AA29D1C7F3003DF523 /* TileCellView.swift in Sources */,
 				9752F0A029D18A18003DF523 /* TestImagesView.swift in Sources */,
 				97BEA11429D175E2006CA71A /* Tile.swift in Sources */,
 				97BEA10429D16E61006CA71A /* ContentView.swift in Sources */,
+				9752F0AD29D1EC2F003DF523 /* TileListView.swift in Sources */,
 				97BEA10229D16E61006CA71A /* JASS_2023_Smart_CityApp.swift in Sources */,
 				9752F03329D1869B003DF523 /* CityModel.swift in Sources */,
 			);

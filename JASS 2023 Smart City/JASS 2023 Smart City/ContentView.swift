@@ -12,16 +12,23 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            
-            List {
-                ForEach(Array(self.model.tiles.keys), id: \.self) { key in
-                    TileRowView(key: key, tile: self.model.tiles[key] ?? Tile.defaultTile)
-                }
+            TabView {
+                TileRowList()
+                    .tabItem {
+                        Label("First", systemImage: "1.circle")
+                    }
+                MapGridView()
+                    .tabItem {
+                        Label("Second", systemImage: "2.circle")
+                    }
+                TestImagesView()
+                    .tabItem {
+                        Label("Third", systemImage: "3.circle")
+                    }
             }
-             
-            //TestImages()
             .navigationTitle("Tiles")
         }
+        .navigationViewStyle(.stack)
         .task {
             self.model.tiles = Parser.parse(tilesYAML: "tiles", framesYAML: "frames") ?? ["defaultTile" : Tile.defaultTile]
         }

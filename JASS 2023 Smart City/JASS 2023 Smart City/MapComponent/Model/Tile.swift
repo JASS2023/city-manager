@@ -17,11 +17,11 @@ enum TileType: String, Codable {
 }
 
 // Define the Tile data structure
-struct Tile: Codable {
+struct Tile: Codable, Hashable {
     let i: Int
     let j: Int
     let type: TileType
-    var yaw: Int? // This will be filled in later from the second YAML file
+    var yaw: Double?
 }
 
 extension Tile {
