@@ -9,10 +9,12 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var model: CityModel
+    var interface = Interface()
     
     var body: some View {
         NavigationView {
-            
+            Button("Add construction site", action: interface.planningConstructionSite)
+
             List {
                 ForEach(Array(self.model.tiles.keys), id: \.self) { key in
                     TileRowView(key: key, tile: self.model.tiles[key] ?? Tile.defaultTile)
