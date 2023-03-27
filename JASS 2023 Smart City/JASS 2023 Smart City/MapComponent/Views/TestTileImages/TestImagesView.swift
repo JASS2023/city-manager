@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+// Not really needed, just for further exploration
 struct TestImagesView: View {
     var body: some View {
         ScrollView {

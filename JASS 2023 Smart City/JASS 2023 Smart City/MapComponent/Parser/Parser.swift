@@ -8,6 +8,7 @@
 import Foundation
 import Yams
 
+// Used to parse the YAML tile data structure to Swift maps
 enum Parser {
     private static func parseTilesYAML(_ yaml: String) throws -> [String: Tile] {
         let decoded = try Yams.load(yaml: yaml) as! [String: [String: [String: Any]]]

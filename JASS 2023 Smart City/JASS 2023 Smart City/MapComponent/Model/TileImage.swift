@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+// Defines the different images available
 enum ImageAsset: String, CaseIterable {
     case brush
     case copy
@@ -60,6 +61,7 @@ enum ImageAsset: String, CaseIterable {
     case t_light_ahead
     case yield
     
+    // Access the image to render in a View
     var image: Image {
         .init("\(rawValue)", bundle: .main)
     }

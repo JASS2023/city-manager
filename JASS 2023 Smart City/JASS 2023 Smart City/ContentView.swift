@@ -18,7 +18,7 @@ struct ContentView: View {
                     .tabItem {
                         Label("First", systemImage: "1.circle")
                     }
-                MapGridView()
+                MapGridView(cityModel: model)
                     .tabItem {
                         Label("Second", systemImage: "2.circle")
                     }
@@ -31,7 +31,7 @@ struct ContentView: View {
                         Label("Forth", systemImage: "4.circle")
                     }
             }
-            .navigationTitle("Tiles")
+            .navigationTitle("JASS 2023 Cyprus - City Manager")
         }
         .navigationViewStyle(.stack)
         .task {

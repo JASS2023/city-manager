@@ -20,6 +20,7 @@
 		9790C7A729D212240051C8BD /* Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9790C7A429D212240051C8BD /* Interface.swift */; };
 		9790C7A829D212240051C8BD /* ConstructionSIteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9790C7A529D212240051C8BD /* ConstructionSIteData.swift */; };
 		9790C7AB29D213130051C8BD /* Starscream in Frameworks */ = {isa = PBXBuildFile; productRef = 9790C7AA29D213130051C8BD /* Starscream */; };
+		9790C7AE29D213E40051C8BD /* MapGridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9790C7AD29D213E40051C8BD /* MapGridViewModel.swift */; };
 		97BEA10229D16E61006CA71A /* JASS_2023_Smart_CityApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BEA10129D16E61006CA71A /* JASS_2023_Smart_CityApp.swift */; };
 		97BEA10429D16E61006CA71A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BEA10329D16E61006CA71A /* ContentView.swift */; };
 		97BEA10629D16E63006CA71A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97BEA10529D16E63006CA71A /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 		9790C7A329D212240051C8BD /* WebSocketMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocketMessage.swift; sourceTree = "<group>"; };
 		9790C7A429D212240051C8BD /* Interface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interface.swift; sourceTree = "<group>"; };
 		9790C7A529D212240051C8BD /* ConstructionSIteData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstructionSIteData.swift; sourceTree = "<group>"; };
+		9790C7AD29D213E40051C8BD /* MapGridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapGridViewModel.swift; sourceTree = "<group>"; };
 		97BEA0FE29D16E61006CA71A /* JASS 2023 Smart City.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JASS 2023 Smart City.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		97BEA10129D16E61006CA71A /* JASS_2023_Smart_CityApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JASS_2023_Smart_CityApp.swift; sourceTree = "<group>"; };
 		97BEA10329D16E61006CA71A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -85,10 +87,9 @@
 		9752F0A529D1BBF1003DF523 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9790C7AF29D217C30051C8BD /* TestTileImages */,
+				9790C7AC29D2135E0051C8BD /* Map */,
 				9752F0AB29D1EC16003DF523 /* TileList */,
-				9752F09F29D18A18003DF523 /* TestImagesView.swift */,
-				9752F0A729D1C112003DF523 /* MapGridView.swift */,
-				9752F0A929D1C7F3003DF523 /* TileCellView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -119,6 +120,24 @@
 				9790C7A529D212240051C8BD /* ConstructionSIteData.swift */,
 			);
 			path = Interfaces;
+			sourceTree = "<group>";
+		};
+		9790C7AC29D2135E0051C8BD /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				9752F0A729D1C112003DF523 /* MapGridView.swift */,
+				9752F0A929D1C7F3003DF523 /* TileCellView.swift */,
+				9790C7AD29D213E40051C8BD /* MapGridViewModel.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		9790C7AF29D217C30051C8BD /* TestTileImages */ = {
+			isa = PBXGroup;
+			children = (
+				9752F09F29D18A18003DF523 /* TestImagesView.swift */,
+			);
+			path = TestTileImages;
 			sourceTree = "<group>";
 		};
 		97BEA0F529D16E61006CA71A = {
@@ -256,6 +275,7 @@
 				9752F0AA29D1C7F3003DF523 /* TileCellView.swift in Sources */,
 				9790C7A629D212240051C8BD /* WebSocketMessage.swift in Sources */,
 				9752F0A029D18A18003DF523 /* TestImagesView.swift in Sources */,
+				9790C7AE29D213E40051C8BD /* MapGridViewModel.swift in Sources */,
 				97BEA11429D175E2006CA71A /* Tile.swift in Sources */,
 				97BEA10429D16E61006CA71A /* ContentView.swift in Sources */,
 				9790C7A729D212240051C8BD /* Interface.swift in Sources */,

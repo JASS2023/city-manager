@@ -21,15 +21,6 @@ struct TileCellView: View {
     }
     
     var body: some View {
-        
-        
-        /*
-        VStack {
-            Text("i: \(tile.i)")
-                .font(.headline)
-            Text("j: \(tile.j)")
-                .font(.subheadline)
-        }*/
         tileImage
             .resizable()
             .rotationEffect(Angle(degrees: tile.yaw ?? 0), anchor: .center)
