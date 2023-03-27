@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct TestImages: View {
+struct TestImagesView: View {
     var body: some View {
         ScrollView {
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))]) {

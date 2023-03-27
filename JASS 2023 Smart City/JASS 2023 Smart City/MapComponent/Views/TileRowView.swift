@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct TileRow: View {
+struct TileRowView: View {
     let key: String
     let tile: Tile
 

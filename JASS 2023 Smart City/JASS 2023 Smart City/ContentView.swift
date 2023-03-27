@@ -15,7 +15,7 @@ struct ContentView: View {
             
             List {
                 ForEach(Array(self.model.tiles.keys), id: \.self) { key in
-                    TileRow(key: key, tile: self.model.tiles[key] ?? Tile.defaultTile)
+                    TileRowView(key: key, tile: self.model.tiles[key] ?? Tile.defaultTile)
                 }
             }
              
