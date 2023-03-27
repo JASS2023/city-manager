@@ -16,6 +16,10 @@
 		9752F0A829D1C112003DF523 /* MapGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9752F0A729D1C112003DF523 /* MapGridView.swift */; };
 		9752F0AA29D1C7F3003DF523 /* TileCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9752F0A929D1C7F3003DF523 /* TileCellView.swift */; };
 		9752F0AD29D1EC2F003DF523 /* TileListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9752F0AC29D1EC2F003DF523 /* TileListView.swift */; };
+		9790C7A629D212240051C8BD /* WebSocketMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9790C7A329D212240051C8BD /* WebSocketMessage.swift */; };
+		9790C7A729D212240051C8BD /* Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9790C7A429D212240051C8BD /* Interface.swift */; };
+		9790C7A829D212240051C8BD /* ConstructionSIteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9790C7A529D212240051C8BD /* ConstructionSIteData.swift */; };
+		9790C7AB29D213130051C8BD /* Starscream in Frameworks */ = {isa = PBXBuildFile; productRef = 9790C7AA29D213130051C8BD /* Starscream */; };
 		97BEA10229D16E61006CA71A /* JASS_2023_Smart_CityApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BEA10129D16E61006CA71A /* JASS_2023_Smart_CityApp.swift */; };
 		97BEA10429D16E61006CA71A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BEA10329D16E61006CA71A /* ContentView.swift */; };
 		97BEA10629D16E63006CA71A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97BEA10529D16E63006CA71A /* Assets.xcassets */; };
@@ -35,6 +39,9 @@
 		9752F0A729D1C112003DF523 /* MapGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapGridView.swift; sourceTree = "<group>"; };
 		9752F0A929D1C7F3003DF523 /* TileCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileCellView.swift; sourceTree = "<group>"; };
 		9752F0AC29D1EC2F003DF523 /* TileListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileListView.swift; sourceTree = "<group>"; };
+		9790C7A329D212240051C8BD /* WebSocketMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocketMessage.swift; sourceTree = "<group>"; };
+		9790C7A429D212240051C8BD /* Interface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interface.swift; sourceTree = "<group>"; };
+		9790C7A529D212240051C8BD /* ConstructionSIteData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstructionSIteData.swift; sourceTree = "<group>"; };
 		97BEA0FE29D16E61006CA71A /* JASS 2023 Smart City.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JASS 2023 Smart City.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		97BEA10129D16E61006CA71A /* JASS_2023_Smart_CityApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JASS_2023_Smart_CityApp.swift; sourceTree = "<group>"; };
 		97BEA10329D16E61006CA71A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -50,6 +57,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				97BEA11129D1755F006CA71A /* Yams in Frameworks */,
+				9790C7AB29D213130051C8BD /* Starscream in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +111,16 @@
 			path = TileList;
 			sourceTree = "<group>";
 		};
+		9790C7A229D212240051C8BD /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				9790C7A329D212240051C8BD /* WebSocketMessage.swift */,
+				9790C7A429D212240051C8BD /* Interface.swift */,
+				9790C7A529D212240051C8BD /* ConstructionSIteData.swift */,
+			);
+			path = Interfaces;
+			sourceTree = "<group>";
+		};
 		97BEA0F529D16E61006CA71A = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				9752F03129D18688003DF523 /* Model */,
+				9790C7A229D212240051C8BD /* Interfaces */,
 				9752F02E29D17F62003DF523 /* MapComponent */,
 				97BEA10129D16E61006CA71A /* JASS_2023_Smart_CityApp.swift */,
 				97BEA10329D16E61006CA71A /* ContentView.swift */,
@@ -168,6 +187,7 @@
 			name = "JASS 2023 Smart City";
 			packageProductDependencies = (
 				97BEA11029D1755F006CA71A /* Yams */,
+				9790C7AA29D213130051C8BD /* Starscream */,
 			);
 			productName = "JASS 2023 Smart City";
 			productReference = 97BEA0FE29D16E61006CA71A /* JASS 2023 Smart City.app */;
@@ -199,6 +219,7 @@
 			mainGroup = 97BEA0F529D16E61006CA71A;
 			packageReferences = (
 				97BEA10F29D1755F006CA71A /* XCRemoteSwiftPackageReference "Yams" */,
+				9790C7A929D213130051C8BD /* XCRemoteSwiftPackageReference "Starscream" */,
 			);
 			productRefGroup = 97BEA0FF29D16E61006CA71A /* Products */;
 			projectDirPath = "";
@@ -233,10 +254,13 @@
 				9752F09E29D1890A003DF523 /* TileImage.swift in Sources */,
 				9752F0A829D1C112003DF523 /* MapGridView.swift in Sources */,
 				9752F0AA29D1C7F3003DF523 /* TileCellView.swift in Sources */,
+				9790C7A629D212240051C8BD /* WebSocketMessage.swift in Sources */,
 				9752F0A029D18A18003DF523 /* TestImagesView.swift in Sources */,
 				97BEA11429D175E2006CA71A /* Tile.swift in Sources */,
 				97BEA10429D16E61006CA71A /* ContentView.swift in Sources */,
+				9790C7A729D212240051C8BD /* Interface.swift in Sources */,
 				9752F0AD29D1EC2F003DF523 /* TileListView.swift in Sources */,
+				9790C7A829D212240051C8BD /* ConstructionSIteData.swift in Sources */,
 				97BEA10229D16E61006CA71A /* JASS_2023_Smart_CityApp.swift in Sources */,
 				9752F03329D1869B003DF523 /* CityModel.swift in Sources */,
 			);
@@ -441,6 +465,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		9790C7A929D213130051C8BD /* XCRemoteSwiftPackageReference "Starscream" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/daltoniam/Starscream";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 		97BEA10F29D1755F006CA71A /* XCRemoteSwiftPackageReference "Yams" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jpsim/Yams.git";
@@ -452,6 +484,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		9790C7AA29D213130051C8BD /* Starscream */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9790C7A929D213130051C8BD /* XCRemoteSwiftPackageReference "Starscream" */;
+			productName = Starscream;
+		};
 		97BEA11029D1755F006CA71A /* Yams */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 97BEA10F29D1755F006CA71A /* XCRemoteSwiftPackageReference "Yams" */;
