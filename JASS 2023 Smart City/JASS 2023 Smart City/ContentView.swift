@@ -8,14 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var model: CityModel
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationView {
+            
+            List {
+                ForEach(Array(self.model.tiles.keys), id: \.self) { key in
+                    TileRow(key: key, tile: self.model.tiles[key] ?? Tile.defaultTile)
+                }
+            }
+             
+            //TestImages()
+            .navigationTitle("Tiles")
         }
-        .padding()
+        .task {
+            self.model.tiles = Parser.parse(tilesYAML: "tiles", framesYAML: "frames") ?? ["defaultTile" : Tile.defaultTile]
+        }
     }
 }
 

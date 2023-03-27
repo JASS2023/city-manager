@@ -1,0 +1,1601 @@
+tiles:
+  map_1/tile_0_0:
+    i: 0
+    j: 0
+    type: asphalt
+  map_1/tile_0_1:
+    i: 0
+    j: 1
+    type: asphalt
+  map_1/tile_0_10:
+    i: 0
+    j: 10
+    type: asphalt
+  map_1/tile_0_11:
+    i: 0
+    j: 11
+    type: asphalt
+  map_1/tile_0_12:
+    i: 0
+    j: 12
+    type: asphalt
+  map_1/tile_0_13:
+    i: 0
+    j: 13
+    type: asphalt
+  map_1/tile_0_14:
+    i: 0
+    j: 14
+    type: asphalt
+  map_1/tile_0_15:
+    i: 0
+    j: 15
+    type: asphalt
+  map_1/tile_0_16:
+    i: 0
+    j: 16
+    type: asphalt
+  map_1/tile_0_17:
+    i: 0
+    j: 17
+    type: asphalt
+  map_1/tile_0_18:
+    i: 0
+    j: 18
+    type: asphalt
+  map_1/tile_0_19:
+    i: 0
+    j: 19
+    type: asphalt
+  map_1/tile_0_2:
+    i: 0
+    j: 2
+    type: asphalt
+  map_1/tile_0_3:
+    i: 0
+    j: 3
+    type: asphalt
+  map_1/tile_0_4:
+    i: 0
+    j: 4
+    type: asphalt
+  map_1/tile_0_5:
+    i: 0
+    j: 5
+    type: asphalt
+  map_1/tile_0_6:
+    i: 0
+    j: 6
+    type: asphalt
+  map_1/tile_0_7:
+    i: 0
+    j: 7
+    type: asphalt
+  map_1/tile_0_8:
+    i: 0
+    j: 8
+    type: asphalt
+  map_1/tile_0_9:
+    i: 0
+    j: 9
+    type: asphalt
+  map_1/tile_10_0:
+    i: 10
+    j: 0
+    type: asphalt
+  map_1/tile_10_1:
+    i: 10
+    j: 1
+    type: asphalt
+  map_1/tile_10_10:
+    i: 10
+    j: 10
+    type: straight
+  map_1/tile_10_11:
+    i: 10
+    j: 11
+    type: straight
+  map_1/tile_10_12:
+    i: 10
+    j: 12
+    type: 3way
+  map_1/tile_10_13:
+    i: 10
+    j: 13
+    type: asphalt
+  map_1/tile_10_14:
+    i: 10
+    j: 14
+    type: asphalt
+  map_1/tile_10_15:
+    i: 10
+    j: 15
+    type: asphalt
+  map_1/tile_10_16:
+    i: 10
+    j: 16
+    type: asphalt
+  map_1/tile_10_17:
+    i: 10
+    j: 17
+    type: asphalt
+  map_1/tile_10_18:
+    i: 10
+    j: 18
+    type: asphalt
+  map_1/tile_10_19:
+    i: 10
+    j: 19
+    type: asphalt
+  map_1/tile_10_2:
+    i: 10
+    j: 2
+    type: asphalt
+  map_1/tile_10_3:
+    i: 10
+    j: 3
+    type: asphalt
+  map_1/tile_10_4:
+    i: 10
+    j: 4
+    type: asphalt
+  map_1/tile_10_5:
+    i: 10
+    j: 5
+    type: asphalt
+  map_1/tile_10_6:
+    i: 10
+    j: 6
+    type: 3way
+  map_1/tile_10_7:
+    i: 10
+    j: 7
+    type: straight
+  map_1/tile_10_8:
+    i: 10
+    j: 8
+    type: straight
+  map_1/tile_10_9:
+    i: 10
+    j: 9
+    type: 3way
+  map_1/tile_11_0:
+    i: 11
+    j: 0
+    type: asphalt
+  map_1/tile_11_1:
+    i: 11
+    j: 1
+    type: asphalt
+  map_1/tile_11_10:
+    i: 11
+    j: 10
+    type: asphalt
+  map_1/tile_11_11:
+    i: 11
+    j: 11
+    type: asphalt
+  map_1/tile_11_12:
+    i: 11
+    j: 12
+    type: straight
+  map_1/tile_11_13:
+    i: 11
+    j: 13
+    type: asphalt
+  map_1/tile_11_14:
+    i: 11
+    j: 14
+    type: asphalt
+  map_1/tile_11_15:
+    i: 11
+    j: 15
+    type: asphalt
+  map_1/tile_11_16:
+    i: 11
+    j: 16
+    type: asphalt
+  map_1/tile_11_17:
+    i: 11
+    j: 17
+    type: asphalt
+  map_1/tile_11_18:
+    i: 11
+    j: 18
+    type: asphalt
+  map_1/tile_11_19:
+    i: 11
+    j: 19
+    type: asphalt
+  map_1/tile_11_2:
+    i: 11
+    j: 2
+    type: asphalt
+  map_1/tile_11_3:
+    i: 11
+    j: 3
+    type: asphalt
+  map_1/tile_11_4:
+    i: 11
+    j: 4
+    type: asphalt
+  map_1/tile_11_5:
+    i: 11
+    j: 5
+    type: asphalt
+  map_1/tile_11_6:
+    i: 11
+    j: 6
+    type: straight
+  map_1/tile_11_7:
+    i: 11
+    j: 7
+    type: asphalt
+  map_1/tile_11_8:
+    i: 11
+    j: 8
+    type: asphalt
+  map_1/tile_11_9:
+    i: 11
+    j: 9
+    type: straight
+  map_1/tile_12_0:
+    i: 12
+    j: 0
+    type: asphalt
+  map_1/tile_12_1:
+    i: 12
+    j: 1
+    type: asphalt
+  map_1/tile_12_10:
+    i: 12
+    j: 10
+    type: straight
+  map_1/tile_12_11:
+    i: 12
+    j: 11
+    type: straight
+  map_1/tile_12_12:
+    i: 12
+    j: 12
+    type: curve
+  map_1/tile_12_13:
+    i: 12
+    j: 13
+    type: asphalt
+  map_1/tile_12_14:
+    i: 12
+    j: 14
+    type: asphalt
+  map_1/tile_12_15:
+    i: 12
+    j: 15
+    type: asphalt
+  map_1/tile_12_16:
+    i: 12
+    j: 16
+    type: asphalt
+  map_1/tile_12_17:
+    i: 12
+    j: 17
+    type: asphalt
+  map_1/tile_12_18:
+    i: 12
+    j: 18
+    type: asphalt
+  map_1/tile_12_19:
+    i: 12
+    j: 19
+    type: asphalt
+  map_1/tile_12_2:
+    i: 12
+    j: 2
+    type: asphalt
+  map_1/tile_12_3:
+    i: 12
+    j: 3
+    type: asphalt
+  map_1/tile_12_4:
+    i: 12
+    j: 4
+    type: asphalt
+  map_1/tile_12_5:
+    i: 12
+    j: 5
+    type: asphalt
+  map_1/tile_12_6:
+    i: 12
+    j: 6
+    type: curve
+  map_1/tile_12_7:
+    i: 12
+    j: 7
+    type: straight
+  map_1/tile_12_8:
+    i: 12
+    j: 8
+    type: straight
+  map_1/tile_12_9:
+    i: 12
+    j: 9
+    type: 3way
+  map_1/tile_13_0:
+    i: 13
+    j: 0
+    type: asphalt
+  map_1/tile_13_1:
+    i: 13
+    j: 1
+    type: asphalt
+  map_1/tile_13_10:
+    i: 13
+    j: 10
+    type: asphalt
+  map_1/tile_13_11:
+    i: 13
+    j: 11
+    type: asphalt
+  map_1/tile_13_12:
+    i: 13
+    j: 12
+    type: asphalt
+  map_1/tile_13_13:
+    i: 13
+    j: 13
+    type: asphalt
+  map_1/tile_13_14:
+    i: 13
+    j: 14
+    type: asphalt
+  map_1/tile_13_15:
+    i: 13
+    j: 15
+    type: asphalt
+  map_1/tile_13_16:
+    i: 13
+    j: 16
+    type: asphalt
+  map_1/tile_13_17:
+    i: 13
+    j: 17
+    type: asphalt
+  map_1/tile_13_18:
+    i: 13
+    j: 18
+    type: asphalt
+  map_1/tile_13_19:
+    i: 13
+    j: 19
+    type: asphalt
+  map_1/tile_13_2:
+    i: 13
+    j: 2
+    type: asphalt
+  map_1/tile_13_3:
+    i: 13
+    j: 3
+    type: asphalt
+  map_1/tile_13_4:
+    i: 13
+    j: 4
+    type: asphalt
+  map_1/tile_13_5:
+    i: 13
+    j: 5
+    type: asphalt
+  map_1/tile_13_6:
+    i: 13
+    j: 6
+    type: asphalt
+  map_1/tile_13_7:
+    i: 13
+    j: 7
+    type: asphalt
+  map_1/tile_13_8:
+    i: 13
+    j: 8
+    type: asphalt
+  map_1/tile_13_9:
+    i: 13
+    j: 9
+    type: asphalt
+  map_1/tile_14_0:
+    i: 14
+    j: 0
+    type: asphalt
+  map_1/tile_14_1:
+    i: 14
+    j: 1
+    type: asphalt
+  map_1/tile_14_10:
+    i: 14
+    j: 10
+    type: asphalt
+  map_1/tile_14_11:
+    i: 14
+    j: 11
+    type: asphalt
+  map_1/tile_14_12:
+    i: 14
+    j: 12
+    type: asphalt
+  map_1/tile_14_13:
+    i: 14
+    j: 13
+    type: asphalt
+  map_1/tile_14_14:
+    i: 14
+    j: 14
+    type: asphalt
+  map_1/tile_14_15:
+    i: 14
+    j: 15
+    type: asphalt
+  map_1/tile_14_16:
+    i: 14
+    j: 16
+    type: asphalt
+  map_1/tile_14_17:
+    i: 14
+    j: 17
+    type: asphalt
+  map_1/tile_14_18:
+    i: 14
+    j: 18
+    type: asphalt
+  map_1/tile_14_19:
+    i: 14
+    j: 19
+    type: asphalt
+  map_1/tile_14_2:
+    i: 14
+    j: 2
+    type: asphalt
+  map_1/tile_14_3:
+    i: 14
+    j: 3
+    type: asphalt
+  map_1/tile_14_4:
+    i: 14
+    j: 4
+    type: asphalt
+  map_1/tile_14_5:
+    i: 14
+    j: 5
+    type: asphalt
+  map_1/tile_14_6:
+    i: 14
+    j: 6
+    type: asphalt
+  map_1/tile_14_7:
+    i: 14
+    j: 7
+    type: asphalt
+  map_1/tile_14_8:
+    i: 14
+    j: 8
+    type: asphalt
+  map_1/tile_14_9:
+    i: 14
+    j: 9
+    type: asphalt
+  map_1/tile_15_0:
+    i: 15
+    j: 0
+    type: asphalt
+  map_1/tile_15_1:
+    i: 15
+    j: 1
+    type: asphalt
+  map_1/tile_15_10:
+    i: 15
+    j: 10
+    type: asphalt
+  map_1/tile_15_11:
+    i: 15
+    j: 11
+    type: asphalt
+  map_1/tile_15_12:
+    i: 15
+    j: 12
+    type: asphalt
+  map_1/tile_15_13:
+    i: 15
+    j: 13
+    type: asphalt
+  map_1/tile_15_14:
+    i: 15
+    j: 14
+    type: asphalt
+  map_1/tile_15_15:
+    i: 15
+    j: 15
+    type: asphalt
+  map_1/tile_15_16:
+    i: 15
+    j: 16
+    type: asphalt
+  map_1/tile_15_17:
+    i: 15
+    j: 17
+    type: asphalt
+  map_1/tile_15_18:
+    i: 15
+    j: 18
+    type: asphalt
+  map_1/tile_15_19:
+    i: 15
+    j: 19
+    type: asphalt
+  map_1/tile_15_2:
+    i: 15
+    j: 2
+    type: asphalt
+  map_1/tile_15_3:
+    i: 15
+    j: 3
+    type: asphalt
+  map_1/tile_15_4:
+    i: 15
+    j: 4
+    type: asphalt
+  map_1/tile_15_5:
+    i: 15
+    j: 5
+    type: asphalt
+  map_1/tile_15_6:
+    i: 15
+    j: 6
+    type: asphalt
+  map_1/tile_15_7:
+    i: 15
+    j: 7
+    type: asphalt
+  map_1/tile_15_8:
+    i: 15
+    j: 8
+    type: asphalt
+  map_1/tile_15_9:
+    i: 15
+    j: 9
+    type: asphalt
+  map_1/tile_16_0:
+    i: 16
+    j: 0
+    type: asphalt
+  map_1/tile_16_1:
+    i: 16
+    j: 1
+    type: asphalt
+  map_1/tile_16_10:
+    i: 16
+    j: 10
+    type: asphalt
+  map_1/tile_16_11:
+    i: 16
+    j: 11
+    type: asphalt
+  map_1/tile_16_12:
+    i: 16
+    j: 12
+    type: asphalt
+  map_1/tile_16_13:
+    i: 16
+    j: 13
+    type: asphalt
+  map_1/tile_16_14:
+    i: 16
+    j: 14
+    type: asphalt
+  map_1/tile_16_15:
+    i: 16
+    j: 15
+    type: asphalt
+  map_1/tile_16_16:
+    i: 16
+    j: 16
+    type: asphalt
+  map_1/tile_16_17:
+    i: 16
+    j: 17
+    type: asphalt
+  map_1/tile_16_18:
+    i: 16
+    j: 18
+    type: asphalt
+  map_1/tile_16_19:
+    i: 16
+    j: 19
+    type: asphalt
+  map_1/tile_16_2:
+    i: 16
+    j: 2
+    type: asphalt
+  map_1/tile_16_3:
+    i: 16
+    j: 3
+    type: asphalt
+  map_1/tile_16_4:
+    i: 16
+    j: 4
+    type: asphalt
+  map_1/tile_16_5:
+    i: 16
+    j: 5
+    type: asphalt
+  map_1/tile_16_6:
+    i: 16
+    j: 6
+    type: asphalt
+  map_1/tile_16_7:
+    i: 16
+    j: 7
+    type: asphalt
+  map_1/tile_16_8:
+    i: 16
+    j: 8
+    type: asphalt
+  map_1/tile_16_9:
+    i: 16
+    j: 9
+    type: asphalt
+  map_1/tile_17_0:
+    i: 17
+    j: 0
+    type: asphalt
+  map_1/tile_17_1:
+    i: 17
+    j: 1
+    type: asphalt
+  map_1/tile_17_10:
+    i: 17
+    j: 10
+    type: asphalt
+  map_1/tile_17_11:
+    i: 17
+    j: 11
+    type: asphalt
+  map_1/tile_17_12:
+    i: 17
+    j: 12
+    type: asphalt
+  map_1/tile_17_13:
+    i: 17
+    j: 13
+    type: asphalt
+  map_1/tile_17_14:
+    i: 17
+    j: 14
+    type: asphalt
+  map_1/tile_17_15:
+    i: 17
+    j: 15
+    type: asphalt
+  map_1/tile_17_16:
+    i: 17
+    j: 16
+    type: asphalt
+  map_1/tile_17_17:
+    i: 17
+    j: 17
+    type: asphalt
+  map_1/tile_17_18:
+    i: 17
+    j: 18
+    type: asphalt
+  map_1/tile_17_19:
+    i: 17
+    j: 19
+    type: asphalt
+  map_1/tile_17_2:
+    i: 17
+    j: 2
+    type: asphalt
+  map_1/tile_17_3:
+    i: 17
+    j: 3
+    type: asphalt
+  map_1/tile_17_4:
+    i: 17
+    j: 4
+    type: asphalt
+  map_1/tile_17_5:
+    i: 17
+    j: 5
+    type: asphalt
+  map_1/tile_17_6:
+    i: 17
+    j: 6
+    type: asphalt
+  map_1/tile_17_7:
+    i: 17
+    j: 7
+    type: asphalt
+  map_1/tile_17_8:
+    i: 17
+    j: 8
+    type: asphalt
+  map_1/tile_17_9:
+    i: 17
+    j: 9
+    type: asphalt
+  map_1/tile_18_0:
+    i: 18
+    j: 0
+    type: asphalt
+  map_1/tile_18_1:
+    i: 18
+    j: 1
+    type: asphalt
+  map_1/tile_18_10:
+    i: 18
+    j: 10
+    type: asphalt
+  map_1/tile_18_11:
+    i: 18
+    j: 11
+    type: asphalt
+  map_1/tile_18_12:
+    i: 18
+    j: 12
+    type: asphalt
+  map_1/tile_18_13:
+    i: 18
+    j: 13
+    type: asphalt
+  map_1/tile_18_14:
+    i: 18
+    j: 14
+    type: asphalt
+  map_1/tile_18_15:
+    i: 18
+    j: 15
+    type: asphalt
+  map_1/tile_18_16:
+    i: 18
+    j: 16
+    type: asphalt
+  map_1/tile_18_17:
+    i: 18
+    j: 17
+    type: asphalt
+  map_1/tile_18_18:
+    i: 18
+    j: 18
+    type: asphalt
+  map_1/tile_18_19:
+    i: 18
+    j: 19
+    type: asphalt
+  map_1/tile_18_2:
+    i: 18
+    j: 2
+    type: asphalt
+  map_1/tile_18_3:
+    i: 18
+    j: 3
+    type: asphalt
+  map_1/tile_18_4:
+    i: 18
+    j: 4
+    type: asphalt
+  map_1/tile_18_5:
+    i: 18
+    j: 5
+    type: asphalt
+  map_1/tile_18_6:
+    i: 18
+    j: 6
+    type: asphalt
+  map_1/tile_18_7:
+    i: 18
+    j: 7
+    type: asphalt
+  map_1/tile_18_8:
+    i: 18
+    j: 8
+    type: asphalt
+  map_1/tile_18_9:
+    i: 18
+    j: 9
+    type: asphalt
+  map_1/tile_19_0:
+    i: 19
+    j: 0
+    type: asphalt
+  map_1/tile_19_1:
+    i: 19
+    j: 1
+    type: asphalt
+  map_1/tile_19_10:
+    i: 19
+    j: 10
+    type: asphalt
+  map_1/tile_19_11:
+    i: 19
+    j: 11
+    type: asphalt
+  map_1/tile_19_12:
+    i: 19
+    j: 12
+    type: asphalt
+  map_1/tile_19_13:
+    i: 19
+    j: 13
+    type: asphalt
+  map_1/tile_19_14:
+    i: 19
+    j: 14
+    type: asphalt
+  map_1/tile_19_15:
+    i: 19
+    j: 15
+    type: asphalt
+  map_1/tile_19_16:
+    i: 19
+    j: 16
+    type: asphalt
+  map_1/tile_19_17:
+    i: 19
+    j: 17
+    type: asphalt
+  map_1/tile_19_18:
+    i: 19
+    j: 18
+    type: asphalt
+  map_1/tile_19_19:
+    i: 19
+    j: 19
+    type: asphalt
+  map_1/tile_19_2:
+    i: 19
+    j: 2
+    type: asphalt
+  map_1/tile_19_3:
+    i: 19
+    j: 3
+    type: asphalt
+  map_1/tile_19_4:
+    i: 19
+    j: 4
+    type: asphalt
+  map_1/tile_19_5:
+    i: 19
+    j: 5
+    type: asphalt
+  map_1/tile_19_6:
+    i: 19
+    j: 6
+    type: asphalt
+  map_1/tile_19_7:
+    i: 19
+    j: 7
+    type: asphalt
+  map_1/tile_19_8:
+    i: 19
+    j: 8
+    type: asphalt
+  map_1/tile_19_9:
+    i: 19
+    j: 9
+    type: asphalt
+  map_1/tile_1_0:
+    i: 1
+    j: 0
+    type: asphalt
+  map_1/tile_1_1:
+    i: 1
+    j: 1
+    type: asphalt
+  map_1/tile_1_10:
+    i: 1
+    j: 10
+    type: straight
+  map_1/tile_1_11:
+    i: 1
+    j: 11
+    type: curve
+  map_1/tile_1_12:
+    i: 1
+    j: 12
+    type: asphalt
+  map_1/tile_1_13:
+    i: 1
+    j: 13
+    type: asphalt
+  map_1/tile_1_14:
+    i: 1
+    j: 14
+    type: curve
+  map_1/tile_1_15:
+    i: 1
+    j: 15
+    type: straight
+  map_1/tile_1_16:
+    i: 1
+    j: 16
+    type: 3way
+  map_1/tile_1_17:
+    i: 1
+    j: 17
+    type: straight
+  map_1/tile_1_18:
+    i: 1
+    j: 18
+    type: curve
+  map_1/tile_1_19:
+    i: 1
+    j: 19
+    type: asphalt
+  map_1/tile_1_2:
+    i: 1
+    j: 2
+    type: asphalt
+  map_1/tile_1_3:
+    i: 1
+    j: 3
+    type: asphalt
+  map_1/tile_1_4:
+    i: 1
+    j: 4
+    type: asphalt
+  map_1/tile_1_5:
+    i: 1
+    j: 5
+    type: asphalt
+  map_1/tile_1_6:
+    i: 1
+    j: 6
+    type: asphalt
+  map_1/tile_1_7:
+    i: 1
+    j: 7
+    type: curve
+  map_1/tile_1_8:
+    i: 1
+    j: 8
+    type: straight
+  map_1/tile_1_9:
+    i: 1
+    j: 9
+    type: 3way
+  map_1/tile_2_0:
+    i: 2
+    j: 0
+    type: asphalt
+  map_1/tile_2_1:
+    i: 2
+    j: 1
+    type: asphalt
+  map_1/tile_2_10:
+    i: 2
+    j: 10
+    type: asphalt
+  map_1/tile_2_11:
+    i: 2
+    j: 11
+    type: curve
+  map_1/tile_2_12:
+    i: 2
+    j: 12
+    type: curve
+  map_1/tile_2_13:
+    i: 2
+    j: 13
+    type: asphalt
+  map_1/tile_2_14:
+    i: 2
+    j: 14
+    type: straight
+  map_1/tile_2_15:
+    i: 2
+    j: 15
+    type: asphalt
+  map_1/tile_2_16:
+    i: 2
+    j: 16
+    type: straight
+  map_1/tile_2_17:
+    i: 2
+    j: 17
+    type: asphalt
+  map_1/tile_2_18:
+    i: 2
+    j: 18
+    type: straight
+  map_1/tile_2_19:
+    i: 2
+    j: 19
+    type: asphalt
+  map_1/tile_2_2:
+    i: 2
+    j: 2
+    type: asphalt
+  map_1/tile_2_3:
+    i: 2
+    j: 3
+    type: asphalt
+  map_1/tile_2_4:
+    i: 2
+    j: 4
+    type: asphalt
+  map_1/tile_2_5:
+    i: 2
+    j: 5
+    type: asphalt
+  map_1/tile_2_6:
+    i: 2
+    j: 6
+    type: asphalt
+  map_1/tile_2_7:
+    i: 2
+    j: 7
+    type: straight
+  map_1/tile_2_8:
+    i: 2
+    j: 8
+    type: asphalt
+  map_1/tile_2_9:
+    i: 2
+    j: 9
+    type: straight
+  map_1/tile_3_0:
+    i: 3
+    j: 0
+    type: asphalt
+  map_1/tile_3_1:
+    i: 3
+    j: 1
+    type: asphalt
+  map_1/tile_3_10:
+    i: 3
+    j: 10
+    type: asphalt
+  map_1/tile_3_11:
+    i: 3
+    j: 11
+    type: asphalt
+  map_1/tile_3_12:
+    i: 3
+    j: 12
+    type: straight
+  map_1/tile_3_13:
+    i: 3
+    j: 13
+    type: asphalt
+  map_1/tile_3_14:
+    i: 3
+    j: 14
+    type: straight
+  map_1/tile_3_15:
+    i: 3
+    j: 15
+    type: asphalt
+  map_1/tile_3_16:
+    i: 3
+    j: 16
+    type: straight
+  map_1/tile_3_17:
+    i: 3
+    j: 17
+    type: asphalt
+  map_1/tile_3_18:
+    i: 3
+    j: 18
+    type: straight
+  map_1/tile_3_19:
+    i: 3
+    j: 19
+    type: asphalt
+  map_1/tile_3_2:
+    i: 3
+    j: 2
+    type: asphalt
+  map_1/tile_3_3:
+    i: 3
+    j: 3
+    type: asphalt
+  map_1/tile_3_4:
+    i: 3
+    j: 4
+    type: asphalt
+  map_1/tile_3_5:
+    i: 3
+    j: 5
+    type: asphalt
+  map_1/tile_3_6:
+    i: 3
+    j: 6
+    type: asphalt
+  map_1/tile_3_7:
+    i: 3
+    j: 7
+    type: straight
+  map_1/tile_3_8:
+    i: 3
+    j: 8
+    type: asphalt
+  map_1/tile_3_9:
+    i: 3
+    j: 9
+    type: straight
+  map_1/tile_4_0:
+    i: 4
+    j: 0
+    type: asphalt
+  map_1/tile_4_1:
+    i: 4
+    j: 1
+    type: asphalt
+  map_1/tile_4_10:
+    i: 4
+    j: 10
+    type: asphalt
+  map_1/tile_4_11:
+    i: 4
+    j: 11
+    type: asphalt
+  map_1/tile_4_12:
+    i: 4
+    j: 12
+    type: 3way
+  map_1/tile_4_13:
+    i: 4
+    j: 13
+    type: straight
+  map_1/tile_4_14:
+    i: 4
+    j: 14
+    type: 3way
+  map_1/tile_4_15:
+    i: 4
+    j: 15
+    type: asphalt
+  map_1/tile_4_16:
+    i: 4
+    j: 16
+    type: 3way
+  map_1/tile_4_17:
+    i: 4
+    j: 17
+    type: straight
+  map_1/tile_4_18:
+    i: 4
+    j: 18
+    type: 3way
+  map_1/tile_4_19:
+    i: 4
+    j: 19
+    type: asphalt
+  map_1/tile_4_2:
+    i: 4
+    j: 2
+    type: asphalt
+  map_1/tile_4_3:
+    i: 4
+    j: 3
+    type: asphalt
+  map_1/tile_4_4:
+    i: 4
+    j: 4
+    type: asphalt
+  map_1/tile_4_5:
+    i: 4
+    j: 5
+    type: asphalt
+  map_1/tile_4_6:
+    i: 4
+    j: 6
+    type: asphalt
+  map_1/tile_4_7:
+    i: 4
+    j: 7
+    type: 3way
+  map_1/tile_4_8:
+    i: 4
+    j: 8
+    type: straight
+  map_1/tile_4_9:
+    i: 4
+    j: 9
+    type: curve
+  map_1/tile_5_0:
+    i: 5
+    j: 0
+    type: asphalt
+  map_1/tile_5_1:
+    i: 5
+    j: 1
+    type: asphalt
+  map_1/tile_5_10:
+    i: 5
+    j: 10
+    type: asphalt
+  map_1/tile_5_11:
+    i: 5
+    j: 11
+    type: asphalt
+  map_1/tile_5_12:
+    i: 5
+    j: 12
+    type: straight
+  map_1/tile_5_13:
+    i: 5
+    j: 13
+    type: asphalt
+  map_1/tile_5_14:
+    i: 5
+    j: 14
+    type: straight
+  map_1/tile_5_15:
+    i: 5
+    j: 15
+    type: asphalt
+  map_1/tile_5_16:
+    i: 5
+    j: 16
+    type: straight
+  map_1/tile_5_17:
+    i: 5
+    j: 17
+    type: asphalt
+  map_1/tile_5_18:
+    i: 5
+    j: 18
+    type: straight
+  map_1/tile_5_19:
+    i: 5
+    j: 19
+    type: asphalt
+  map_1/tile_5_2:
+    i: 5
+    j: 2
+    type: asphalt
+  map_1/tile_5_3:
+    i: 5
+    j: 3
+    type: asphalt
+  map_1/tile_5_4:
+    i: 5
+    j: 4
+    type: asphalt
+  map_1/tile_5_5:
+    i: 5
+    j: 5
+    type: asphalt
+  map_1/tile_5_6:
+    i: 5
+    j: 6
+    type: asphalt
+  map_1/tile_5_7:
+    i: 5
+    j: 7
+    type: straight
+  map_1/tile_5_8:
+    i: 5
+    j: 8
+    type: asphalt
+  map_1/tile_5_9:
+    i: 5
+    j: 9
+    type: asphalt
+  map_1/tile_6_0:
+    i: 6
+    j: 0
+    type: asphalt
+  map_1/tile_6_1:
+    i: 6
+    j: 1
+    type: asphalt
+  map_1/tile_6_10:
+    i: 6
+    j: 10
+    type: 3way
+  map_1/tile_6_11:
+    i: 6
+    j: 11
+    type: straight
+  map_1/tile_6_12:
+    i: 6
+    j: 12
+    type: curve
+  map_1/tile_6_13:
+    i: 6
+    j: 13
+    type: asphalt
+  map_1/tile_6_14:
+    i: 6
+    j: 14
+    type: straight
+  map_1/tile_6_15:
+    i: 6
+    j: 15
+    type: asphalt
+  map_1/tile_6_16:
+    i: 6
+    j: 16
+    type: straight
+  map_1/tile_6_17:
+    i: 6
+    j: 17
+    type: asphalt
+  map_1/tile_6_18:
+    i: 6
+    j: 18
+    type: straight
+  map_1/tile_6_19:
+    i: 6
+    j: 19
+    type: asphalt
+  map_1/tile_6_2:
+    i: 6
+    j: 2
+    type: asphalt
+  map_1/tile_6_3:
+    i: 6
+    j: 3
+    type: asphalt
+  map_1/tile_6_4:
+    i: 6
+    j: 4
+    type: asphalt
+  map_1/tile_6_5:
+    i: 6
+    j: 5
+    type: asphalt
+  map_1/tile_6_6:
+    i: 6
+    j: 6
+    type: asphalt
+  map_1/tile_6_7:
+    i: 6
+    j: 7
+    type: curve
+  map_1/tile_6_8:
+    i: 6
+    j: 8
+    type: straight
+  map_1/tile_6_9:
+    i: 6
+    j: 9
+    type: straight
+  map_1/tile_7_0:
+    i: 7
+    j: 0
+    type: asphalt
+  map_1/tile_7_1:
+    i: 7
+    j: 1
+    type: asphalt
+  map_1/tile_7_10:
+    i: 7
+    j: 10
+    type: straight
+  map_1/tile_7_11:
+    i: 7
+    j: 11
+    type: asphalt
+  map_1/tile_7_12:
+    i: 7
+    j: 12
+    type: asphalt
+  map_1/tile_7_13:
+    i: 7
+    j: 13
+    type: asphalt
+  map_1/tile_7_14:
+    i: 7
+    j: 14
+    type: curve
+  map_1/tile_7_15:
+    i: 7
+    j: 15
+    type: straight
+  map_1/tile_7_16:
+    i: 7
+    j: 16
+    type: 3way
+  map_1/tile_7_17:
+    i: 7
+    j: 17
+    type: straight
+  map_1/tile_7_18:
+    i: 7
+    j: 18
+    type: curve
+  map_1/tile_7_19:
+    i: 7
+    j: 19
+    type: asphalt
+  map_1/tile_7_2:
+    i: 7
+    j: 2
+    type: asphalt
+  map_1/tile_7_3:
+    i: 7
+    j: 3
+    type: asphalt
+  map_1/tile_7_4:
+    i: 7
+    j: 4
+    type: asphalt
+  map_1/tile_7_5:
+    i: 7
+    j: 5
+    type: asphalt
+  map_1/tile_7_6:
+    i: 7
+    j: 6
+    type: asphalt
+  map_1/tile_7_7:
+    i: 7
+    j: 7
+    type: asphalt
+  map_1/tile_7_8:
+    i: 7
+    j: 8
+    type: asphalt
+  map_1/tile_7_9:
+    i: 7
+    j: 9
+    type: asphalt
+  map_1/tile_8_0:
+    i: 8
+    j: 0
+    type: asphalt
+  map_1/tile_8_1:
+    i: 8
+    j: 1
+    type: asphalt
+  map_1/tile_8_10:
+    i: 8
+    j: 10
+    type: 3way
+  map_1/tile_8_11:
+    i: 8
+    j: 11
+    type: straight
+  map_1/tile_8_12:
+    i: 8
+    j: 12
+    type: curve
+  map_1/tile_8_13:
+    i: 8
+    j: 13
+    type: asphalt
+  map_1/tile_8_14:
+    i: 8
+    j: 14
+    type: asphalt
+  map_1/tile_8_15:
+    i: 8
+    j: 15
+    type: asphalt
+  map_1/tile_8_16:
+    i: 8
+    j: 16
+    type: asphalt
+  map_1/tile_8_17:
+    i: 8
+    j: 17
+    type: asphalt
+  map_1/tile_8_18:
+    i: 8
+    j: 18
+    type: asphalt
+  map_1/tile_8_19:
+    i: 8
+    j: 19
+    type: asphalt
+  map_1/tile_8_2:
+    i: 8
+    j: 2
+    type: asphalt
+  map_1/tile_8_3:
+    i: 8
+    j: 3
+    type: asphalt
+  map_1/tile_8_4:
+    i: 8
+    j: 4
+    type: asphalt
+  map_1/tile_8_5:
+    i: 8
+    j: 5
+    type: asphalt
+  map_1/tile_8_6:
+    i: 8
+    j: 6
+    type: curve
+  map_1/tile_8_7:
+    i: 8
+    j: 7
+    type: straight
+  map_1/tile_8_8:
+    i: 8
+    j: 8
+    type: straight
+  map_1/tile_8_9:
+    i: 8
+    j: 9
+    type: straight
+  map_1/tile_9_0:
+    i: 9
+    j: 0
+    type: asphalt
+  map_1/tile_9_1:
+    i: 9
+    j: 1
+    type: asphalt
+  map_1/tile_9_10:
+    i: 9
+    j: 10
+    type: asphalt
+  map_1/tile_9_11:
+    i: 9
+    j: 11
+    type: asphalt
+  map_1/tile_9_12:
+    i: 9
+    j: 12
+    type: straight
+  map_1/tile_9_13:
+    i: 9
+    j: 13
+    type: asphalt
+  map_1/tile_9_14:
+    i: 9
+    j: 14
+    type: asphalt
+  map_1/tile_9_15:
+    i: 9
+    j: 15
+    type: asphalt
+  map_1/tile_9_16:
+    i: 9
+    j: 16
+    type: asphalt
+  map_1/tile_9_17:
+    i: 9
+    j: 17
+    type: asphalt
+  map_1/tile_9_18:
+    i: 9
+    j: 18
+    type: asphalt
+  map_1/tile_9_19:
+    i: 9
+    j: 19
+    type: asphalt
+  map_1/tile_9_2:
+    i: 9
+    j: 2
+    type: asphalt
+  map_1/tile_9_3:
+    i: 9
+    j: 3
+    type: asphalt
+  map_1/tile_9_4:
+    i: 9
+    j: 4
+    type: asphalt
+  map_1/tile_9_5:
+    i: 9
+    j: 5
+    type: asphalt
+  map_1/tile_9_6:
+    i: 9
+    j: 6
+    type: straight
+  map_1/tile_9_7:
+    i: 9
+    j: 7
+    type: asphalt
+  map_1/tile_9_8:
+    i: 9
+    j: 8
+    type: asphalt
+  map_1/tile_9_9:
+    i: 9
+    j: 9
+    type: asphalt

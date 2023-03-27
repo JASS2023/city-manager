@@ -7,18 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9752F03029D17F80003DF523 /* TileRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9752F02F29D17F80003DF523 /* TileRow.swift */; };
+		9752F03329D1869B003DF523 /* CityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9752F03229D1869B003DF523 /* CityModel.swift */; };
+		9752F09E29D1890A003DF523 /* TileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9752F09D29D1890A003DF523 /* TileImage.swift */; };
+		9752F0A029D18A18003DF523 /* TestImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9752F09F29D18A18003DF523 /* TestImages.swift */; };
+		9752F0A329D1B8ED003DF523 /* frames.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 9752F0A129D1B8ED003DF523 /* frames.yaml */; };
+		9752F0A429D1B8ED003DF523 /* tiles.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 9752F0A229D1B8ED003DF523 /* tiles.yaml */; };
 		97BEA10229D16E61006CA71A /* JASS_2023_Smart_CityApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BEA10129D16E61006CA71A /* JASS_2023_Smart_CityApp.swift */; };
 		97BEA10429D16E61006CA71A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BEA10329D16E61006CA71A /* ContentView.swift */; };
 		97BEA10629D16E63006CA71A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97BEA10529D16E63006CA71A /* Assets.xcassets */; };
 		97BEA10929D16E63006CA71A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97BEA10829D16E63006CA71A /* Preview Assets.xcassets */; };
+		97BEA11129D1755F006CA71A /* Yams in Frameworks */ = {isa = PBXBuildFile; productRef = 97BEA11029D1755F006CA71A /* Yams */; };
+		97BEA11429D175E2006CA71A /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BEA11329D175E2006CA71A /* Tile.swift */; };
+		97BEA11729D1761E006CA71A /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BEA11629D1761E006CA71A /* Parser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9752F02F29D17F80003DF523 /* TileRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileRow.swift; sourceTree = "<group>"; };
+		9752F03229D1869B003DF523 /* CityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityModel.swift; sourceTree = "<group>"; };
+		9752F09D29D1890A003DF523 /* TileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileImage.swift; sourceTree = "<group>"; };
+		9752F09F29D18A18003DF523 /* TestImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestImages.swift; sourceTree = "<group>"; };
+		9752F0A129D1B8ED003DF523 /* frames.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = frames.yaml; sourceTree = "<group>"; };
+		9752F0A229D1B8ED003DF523 /* tiles.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = tiles.yaml; sourceTree = "<group>"; };
 		97BEA0FE29D16E61006CA71A /* JASS 2023 Smart City.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JASS 2023 Smart City.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		97BEA10129D16E61006CA71A /* JASS_2023_Smart_CityApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JASS_2023_Smart_CityApp.swift; sourceTree = "<group>"; };
 		97BEA10329D16E61006CA71A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		97BEA10529D16E63006CA71A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97BEA10829D16E63006CA71A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		97BEA11329D175E2006CA71A /* Tile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
+		97BEA11629D1761E006CA71A /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,12 +43,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97BEA11129D1755F006CA71A /* Yams in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9752F02E29D17F62003DF523 /* MapComponent */ = {
+			isa = PBXGroup;
+			children = (
+				9752F02F29D17F80003DF523 /* TileRow.swift */,
+				9752F09F29D18A18003DF523 /* TestImages.swift */,
+			);
+			path = MapComponent;
+			sourceTree = "<group>";
+		};
+		9752F03129D18688003DF523 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9752F03229D1869B003DF523 /* CityModel.swift */,
+				97BEA11329D175E2006CA71A /* Tile.swift */,
+				9752F09D29D1890A003DF523 /* TileImage.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		97BEA0F529D16E61006CA71A = {
 			isa = PBXGroup;
 			children = (
@@ -51,9 +88,14 @@
 		97BEA10029D16E61006CA71A /* JASS 2023 Smart City */ = {
 			isa = PBXGroup;
 			children = (
+				9752F03129D18688003DF523 /* Model */,
+				9752F02E29D17F62003DF523 /* MapComponent */,
+				97BEA11229D1756B006CA71A /* Parser */,
 				97BEA10129D16E61006CA71A /* JASS_2023_Smart_CityApp.swift */,
 				97BEA10329D16E61006CA71A /* ContentView.swift */,
 				97BEA10529D16E63006CA71A /* Assets.xcassets */,
+				9752F0A129D1B8ED003DF523 /* frames.yaml */,
+				9752F0A229D1B8ED003DF523 /* tiles.yaml */,
 				97BEA10729D16E63006CA71A /* Preview Content */,
 			);
 			path = "JASS 2023 Smart City";
@@ -65,6 +107,14 @@
 				97BEA10829D16E63006CA71A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		97BEA11229D1756B006CA71A /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				97BEA11629D1761E006CA71A /* Parser.swift */,
+			);
+			path = Parser;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +133,9 @@
 			dependencies = (
 			);
 			name = "JASS 2023 Smart City";
+			packageProductDependencies = (
+				97BEA11029D1755F006CA71A /* Yams */,
+			);
 			productName = "JASS 2023 Smart City";
 			productReference = 97BEA0FE29D16E61006CA71A /* JASS 2023 Smart City.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +164,9 @@
 				Base,
 			);
 			mainGroup = 97BEA0F529D16E61006CA71A;
+			packageReferences = (
+				97BEA10F29D1755F006CA71A /* XCRemoteSwiftPackageReference "Yams" */,
+			);
 			productRefGroup = 97BEA0FF29D16E61006CA71A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,6 +181,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9752F0A429D1B8ED003DF523 /* tiles.yaml in Resources */,
+				9752F0A329D1B8ED003DF523 /* frames.yaml in Resources */,
 				97BEA10929D16E63006CA71A /* Preview Assets.xcassets in Resources */,
 				97BEA10629D16E63006CA71A /* Assets.xcassets in Resources */,
 			);
@@ -137,8 +195,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9752F03029D17F80003DF523 /* TileRow.swift in Sources */,
+				97BEA11729D1761E006CA71A /* Parser.swift in Sources */,
+				9752F09E29D1890A003DF523 /* TileImage.swift in Sources */,
+				9752F0A029D18A18003DF523 /* TestImages.swift in Sources */,
+				97BEA11429D175E2006CA71A /* Tile.swift in Sources */,
 				97BEA10429D16E61006CA71A /* ContentView.swift in Sources */,
 				97BEA10229D16E61006CA71A /* JASS_2023_Smart_CityApp.swift in Sources */,
+				9752F03329D1869B003DF523 /* CityModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +403,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		97BEA10F29D1755F006CA71A /* XCRemoteSwiftPackageReference "Yams" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jpsim/Yams.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		97BEA11029D1755F006CA71A /* Yams */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 97BEA10F29D1755F006CA71A /* XCRemoteSwiftPackageReference "Yams" */;
+			productName = Yams;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 97BEA0F629D16E61006CA71A /* Project object */;
 }

@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct JASS_2023_Smart_CityApp: App {
+    @StateObject var model: CityModel = .shared
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(model)
         }
     }
 }
