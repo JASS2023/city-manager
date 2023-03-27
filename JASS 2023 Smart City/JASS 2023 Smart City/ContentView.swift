@@ -9,9 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var model: CityModel
+    var interface = Interface()
     
     var body: some View {
         NavigationView {
+            Button("Add construction site", action: interface.planningConstructionSite)
             TabView {
                 TileRowList()
                     .tabItem {
