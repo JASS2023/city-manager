@@ -36,6 +36,8 @@ struct ContentView: View {
         .navigationViewStyle(.stack)
         .task {
             self.model.tiles = Parser.parse(tilesYAML: "tiles", framesYAML: "frames") ?? ["defaultTile" : Tile.defaultTile]
+            
+            
         }
     }
 }

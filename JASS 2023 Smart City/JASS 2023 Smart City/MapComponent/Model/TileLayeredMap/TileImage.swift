@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 // Defines the different images available
-enum ImageAsset: String, CaseIterable {
+enum TileType: String, CaseIterable, Codable {
     case brush
     case copy
     case cut

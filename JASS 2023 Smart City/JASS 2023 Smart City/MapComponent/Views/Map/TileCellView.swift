@@ -10,18 +10,9 @@ import SwiftUI
 
 struct TileCellView: View {
     let tile: Tile
-
-    var tileImage: Image {
-        switch tile.type {
-        case .asphalt: return ImageAsset.asphalt.image
-        case .curve: return ImageAsset.curve.image
-        case .straight: return ImageAsset.straight.image
-        case .threeWay: return ImageAsset.threeWay.image
-        }
-    }
     
     var body: some View {
-        tileImage
+        tile.image
             .resizable()
             .rotationEffect(Angle(degrees: tile.yaw ?? 0), anchor: .center)
             .aspectRatio(contentMode: .fit)

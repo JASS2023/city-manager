@@ -13,7 +13,7 @@ struct TestImagesView: View {
     var body: some View {
         ScrollView {
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))]) {
-                ForEach(ImageAsset.allCases, id: \.self) { asset in
+                ForEach(TileType.allCases, id: \.self) { asset in
                     asset.image
                         .resizable()
                         .scaledToFit()
