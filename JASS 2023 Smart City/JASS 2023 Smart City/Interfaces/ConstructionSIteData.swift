@@ -26,6 +26,10 @@ struct RespondConstructionSite: Codable {
     let coordinates: [Coordinate]
 }
 
+struct DuckieMockData: Codable {
+    let coordinates: Coordinate
+}
+
 struct Coordinate: Codable {
     let x: Int
     let y: Int
@@ -35,3 +39,4 @@ struct TrafficLights: Codable {
     let id1: UUID
     let id2: UUID
 }
+
