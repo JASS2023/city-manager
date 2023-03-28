@@ -10,5 +10,5 @@ import Foundation
 class CityModel: ObservableObject {
     static var shared = CityModel()
     
-    @Published var tiles: [String : Tile] = [:]
+    @Published var tiles: [String : TileCell] = [:]
 }

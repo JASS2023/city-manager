@@ -10,7 +10,7 @@ import Yams
 import SwiftUI
 
 // Define the Tile data structure
-class Tile: Cell, Codable, Equatable, Hashable {
+class TileCell: Cell, Codable, Equatable, Hashable {
     let i: Int
     let j: Int
     let type: TileType
@@ -29,7 +29,7 @@ class Tile: Cell, Codable, Equatable, Hashable {
         self.quadrent = quadrent
     }
     
-    static func == (lhs: Tile, rhs: Tile) -> Bool {
+    static func == (lhs: TileCell, rhs: TileCell) -> Bool {
         lhs.i == rhs.i && lhs.j == rhs.j && lhs.type == rhs.type && lhs.yaw == rhs.yaw && lhs.quadrent == rhs.quadrent
     }
     
@@ -42,9 +42,9 @@ class Tile: Cell, Codable, Equatable, Hashable {
     }
 }
 
-extension Tile {
-    public static var defaultTile: Tile {
-        Tile(i: 0, j: 0, type: .asphalt, quadrent: .none)
+extension TileCell {
+    public static var defaultTile: TileCell {
+        TileCell(i: 0, j: 0, type: .asphalt, quadrent: .none)
     }
 }
 

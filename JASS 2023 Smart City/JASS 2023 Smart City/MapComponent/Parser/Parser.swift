@@ -10,12 +10,12 @@ import Yams
 
 // Used to parse the YAML tile data structure to Swift maps
 enum Parser {
-    private static func parseTilesYAML(_ yaml: String) throws -> [String: Tile] {
+    private static func parseTilesYAML(_ yaml: String) throws -> [String: TileCell] {
         let decoded = try Yams.load(yaml: yaml) as! [String: [String: [String: Any]]]
-        var tiles: [String: Tile] = [:]
+        var tiles: [String: TileCell] = [:]
         
         for (key, value) in decoded["tiles"]! {
-            let tile = Tile(
+            let tile = TileCell(
                 i: value["i"] as! Int,
                 j: value["j"] as! Int,
                 type: TileType(rawValue: value["type"] as! String)!
@@ -47,13 +47,13 @@ enum Parser {
         return frames
     }
 
-    private static func combineTilesAndFrames(tiles: inout [String: Tile], frames: [String: Frame]) {
+    private static func combineTilesAndFrames(tiles: inout [String: TileCell], frames: [String: Frame]) {
         for (key, frame) in frames {
             tiles[key]?.yaw = frame.pose.yaw
         }
     }
     
-    static func parse(tilesYAML: String, framesYAML: String) -> [String: Tile]? {
+    static func parse(tilesYAML: String, framesYAML: String) -> [String: TileCell]? {
         guard let tilesUrl = Bundle.main.url(forResource: tilesYAML, withExtension: "yaml"),
               let framesUrl = Bundle.main.url(forResource: framesYAML, withExtension: "yaml"),
               let tilesYAMLContent = try? String(contentsOf: tilesUrl, encoding: .utf8),

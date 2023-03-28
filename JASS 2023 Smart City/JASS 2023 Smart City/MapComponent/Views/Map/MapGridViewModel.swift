@@ -20,7 +20,7 @@ class MapGridViewModel: MapGridViewModelProtocol {
         self.model = model
     }
     
-    var sortedTiles: [Tile] {
+    var sortedTiles: [TileCell] {
         self.model.tiles.values.sorted { (tile1, tile2) -> Bool in
             // Sort tiles according to the global coordinate system
             if tile1.j == tile2.j {

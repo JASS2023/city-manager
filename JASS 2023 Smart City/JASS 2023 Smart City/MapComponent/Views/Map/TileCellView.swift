@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct TileCellView: View {
-    let tile: Tile
+    let tile: TileCell
     
     var body: some View {
         tile.image

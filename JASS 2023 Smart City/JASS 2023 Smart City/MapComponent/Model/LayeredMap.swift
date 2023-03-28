@@ -9,13 +9,17 @@ import Foundation
 import SwiftUI
 
 class LayeredMap: ObservableObject {
-    let layers: [Int : any Layer] = [:]
+    let layers: [Int : any Layer]
+    
+    init(layers: [Int : any Layer] = [:]) {
+        self.layers = layers
+    }
 }
 
 protocol Layer: ObservableObject {
-    associatedtype Cell
+    associatedtype CellType: Cell
     
-    var data: [Cell] { get }
+    var data: [CellType] { get }
     var name: String { get }
     var overrideLowerLayers: Bool { get }
 }

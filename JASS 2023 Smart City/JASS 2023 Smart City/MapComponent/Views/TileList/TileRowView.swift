@@ -10,7 +10,7 @@ import SwiftUI
 
 struct TileRowView: View {
     let key: String
-    let tile: Tile
+    let tile: TileCell
 
     var body: some View {
         HStack {
