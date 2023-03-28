@@ -35,6 +35,11 @@ class WebsocketConnection {
                         print("🚥 Traffic light changes!")
                     case Topics.StatusVehicle.rawValue:
                         print("🚗 Duckie update")
+                        /*
+                        if let jsonVehicleData = message.data.data(using: .utf8), let vehicleData = try? decoder.decode(DuckieMockData.self, from: jsonVehicleData) {
+                            CityModel.shared.map.layers[1].data.append(DuckieCell(i: vehicleData.coordinates.x, j: vehicleData.coordinates.y))
+                        }
+                         */
                     default:
                         break
                     }

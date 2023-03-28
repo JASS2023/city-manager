@@ -38,3 +38,4 @@ enum PlanConstructionSite {
         let id1, id2: UUID
     }
 }
+
