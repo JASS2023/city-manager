@@ -10,18 +10,21 @@ import Foundation
 class LayeredMapCell: ObservableObject, Hashable, Equatable {
     @Published var tileCell: TileCell
     @Published var duckieCell: DuckieCell?
+    @Published var constructionCell: ConstructionCell?
     
-    init(tileCell: TileCell, duckieCell: DuckieCell?) {
+    init(tileCell: TileCell, duckieCell: DuckieCell?, constructionCell: ConstructionCell?) {
         self.tileCell = tileCell
         self.duckieCell = duckieCell
+        self.constructionCell = constructionCell
     }
     
     static func == (lhs: LayeredMapCell, rhs: LayeredMapCell) -> Bool {
-        lhs.tileCell == rhs.tileCell && lhs.duckieCell == rhs.duckieCell
+        lhs.tileCell == rhs.tileCell && lhs.duckieCell == rhs.duckieCell && lhs.constructionCell == rhs.constructionCell
     }
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(tileCell)
         hasher.combine(duckieCell)
+        hasher.combine(constructionCell)
     }
 }

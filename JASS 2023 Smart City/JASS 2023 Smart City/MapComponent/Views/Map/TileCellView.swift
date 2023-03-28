@@ -23,6 +23,14 @@ struct TileCellView: View {
                 //.cornerRadius(8)
                 //.padding(4)
             
+            if let constructionCell = cell.constructionCell {
+                constructionCell.image
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .background(Color(UIColor.red.withAlphaComponent(0.8)))
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            }
+            
             if let duckieCell = cell.duckieCell {
                 duckieCell.image
                     .resizable()

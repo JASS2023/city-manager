@@ -25,7 +25,11 @@ struct MapGridView: View {
                     duckieCell.i == tilecell.i && duckieCell.j == tilecell.j
                 }
                 
-                return .init(tileCell: tilecell, duckieCell: duckieCell)
+                let constructionCell = self.model.constructionCells.first { constructionCell in
+                    constructionCell.i == tilecell.i && constructionCell.j == tilecell.j
+                }
+                
+                return .init(tileCell: tilecell, duckieCell: duckieCell, constructionCell: constructionCell)
             }
     }
     

@@ -26,8 +26,11 @@ class MapGridViewModel: MapGridViewModelProtocol {
                 let duckieCell = self.model.duckieCells.first { duckieCell in
                     duckieCell.i == tilecell.i && duckieCell.j == tilecell.j
                 }
+                let constructionCell = self.model.constructionCells.first { constructionCell in
+                    constructionCell.i == tilecell.i && constructionCell.j == tilecell.j
+                }
                 
-                return .init(tileCell: tilecell, duckieCell: duckieCell)
+                return .init(tileCell: tilecell, duckieCell: duckieCell, constructionCell: constructionCell)
             }
     }
     
