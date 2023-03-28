@@ -39,12 +39,20 @@ struct ContentView: View {
             let duckieCells = [
                 DuckieCell.defaultTile
             ]
+            
+            let constructionCells = [
+                ConstructionCell.defaultTile
+            ]
              
             self.model.map = LayeredMap(layers: [
                 TileLayer(data: Array(tileCells.values)),
+                ConstructionLayer(data: constructionCells),
                 DuckieLayer(data: duckieCells)
             ])
             
+//            let layer: DuckieLayer = self.model.map.getLayer()
+//            layer.addNewCell(cell: DuckieCell(i: 10, j: 10))
+//            
             /*
             DispatchQueue.main.schedule(after: .init(.now() + .seconds(2)), tolerance: .zero, options: .none) {
                 self.model.map.layers[1] = DuckieLayer(data: [.init(i: 8, j: 10)])

@@ -23,6 +23,13 @@ struct TileCellView: View {
                 //.cornerRadius(8)
                 //.padding(4)
             
+            if let constructionCell = cell.constructionCell {
+                constructionCell.image
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            }
+            
             if let duckieCell = cell.duckieCell {
                 duckieCell.image
                     .resizable()

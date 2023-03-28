@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2419277529D3755B0072F411 /* ConstructionLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2419277329D3755B0072F411 /* ConstructionLayer.swift */; };
+		2419277629D3755B0072F411 /* ConstructionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2419277429D3755B0072F411 /* ConstructionCell.swift */; };
 		9752F03029D17F80003DF523 /* TileRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9752F02F29D17F80003DF523 /* TileRowView.swift */; };
 		9752F03329D1869B003DF523 /* CityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9752F03229D1869B003DF523 /* CityModel.swift */; };
 		9752F09E29D1890A003DF523 /* TileType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9752F09D29D1890A003DF523 /* TileType.swift */; };
@@ -39,6 +41,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2419277329D3755B0072F411 /* ConstructionLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConstructionLayer.swift; path = ../../../../../../Desktop/ConstructionLayer.swift; sourceTree = "<group>"; };
+		2419277429D3755B0072F411 /* ConstructionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConstructionCell.swift; path = ../../../../../../Desktop/ConstructionCell.swift; sourceTree = "<group>"; };
 		9752F02F29D17F80003DF523 /* TileRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileRowView.swift; sourceTree = "<group>"; };
 		9752F03229D1869B003DF523 /* CityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityModel.swift; sourceTree = "<group>"; };
 		9752F09D29D1890A003DF523 /* TileType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileType.swift; sourceTree = "<group>"; };
@@ -82,6 +86,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2419276E29D374FC0072F411 /* ConstructionLayer */ = {
+			isa = PBXGroup;
+			children = (
+				2419277429D3755B0072F411 /* ConstructionCell.swift */,
+				2419277329D3755B0072F411 /* ConstructionLayer.swift */,
+			);
+			path = ConstructionLayer;
+			sourceTree = "<group>";
+		};
 		9752F02E29D17F62003DF523 /* MapComponent */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +126,7 @@
 		9752F0A629D1BC17003DF523 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2419276E29D374FC0072F411 /* ConstructionLayer */,
 				9790C7B229D227FC0051C8BD /* TileLayer */,
 				9790C7B329D228810051C8BD /* DuckieLayer */,
 				9790C7B029D2199E0051C8BD /* LayeredMap.swift */,
@@ -317,6 +331,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2419277529D3755B0072F411 /* ConstructionLayer.swift in Sources */,
 				9790C7B729D229D50051C8BD /* DuckieLayer.swift in Sources */,
 				9790C7B929D22A650051C8BD /* DuckieCell.swift in Sources */,
 				9752F03029D17F80003DF523 /* TileRowView.swift in Sources */,
@@ -328,6 +343,7 @@
 				9778543C29D36889008EC773 /* PlanService.swift in Sources */,
 				9790C7B529D2289F0051C8BD /* TileLayer.swift in Sources */,
 				9790C7A629D212240051C8BD /* WebSocketMessage.swift in Sources */,
+				2419277629D3755B0072F411 /* ConstructionCell.swift in Sources */,
 				9752F0A029D18A18003DF523 /* TestImagesView.swift in Sources */,
 				9790C7AE29D213E40051C8BD /* MapGridViewModel.swift in Sources */,
 				9778543429D311B3008EC773 /* LayeredMapCell.swift in Sources */,
