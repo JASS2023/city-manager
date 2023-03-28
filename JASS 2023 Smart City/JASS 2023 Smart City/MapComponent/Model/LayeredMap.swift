@@ -14,6 +14,12 @@ class LayeredMap: ObservableObject {
     init(layers: [Layer] = []) {
         self.layers = layers
     }
+    
+    func getLayer<L: Layer>() -> L {
+        self.layers.first { layer in
+            layer.self is L
+        } as! L
+    }
 }
 
 class Layer: ObservableObject {
@@ -26,6 +32,10 @@ class Layer: ObservableObject {
         self.name = name
         self.overrideLowerLayers = overrideLowerLayers
     }
+    
+    func addNewCell(cell: Cell) {
+        self.data.append(cell)
+    }
 }
 
 class Cell: ObservableObject {
@@ -33,7 +43,7 @@ class Cell: ObservableObject {
     @Published var j: Int
     @Published var quadrent: Quadrent
     
-    init(i: Int, j: Int, quadrent: Quadrent) {
+    init(i: Int, j: Int, quadrent: Quadrent = .none) {
         self.i = i
         self.j = j
         self.quadrent = quadrent

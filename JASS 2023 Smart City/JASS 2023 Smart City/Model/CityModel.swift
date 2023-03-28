@@ -11,8 +11,12 @@ class CityModel: ObservableObject {
     static var shared = CityModel()
     static var interface: WebsocketConnection = WebsocketConnection()
     
-    // @Published var tiles: [String : TileCell] = [:]
     @Published var map: LayeredMap = .init(layers: [])
+    
+    // Only works on this level
+    func trigger() {
+        self.objectWillChange.send()
+    }
     
     // Conviniently access the tile cell layer
     var tileCells: [TileCell] {

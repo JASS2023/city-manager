@@ -10,7 +10,9 @@ import Foundation
 class DuckieLayer: Layer {
     typealias CellType = DuckieCell
     
+    static let name = "duckie layer"
+    
     init(data: [CellType], overrideLowerLayers: Bool = false) {
-        super.init(data: data, name: "duckie layer", overrideLowerLayers: overrideLowerLayers)
+        super.init(data: data, name: Self.name, overrideLowerLayers: overrideLowerLayers)
     }
 }

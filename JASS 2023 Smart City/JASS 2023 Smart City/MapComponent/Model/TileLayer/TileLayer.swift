@@ -10,7 +10,9 @@ import Foundation
 class TileLayer: Layer {
     typealias CellType = TileCell
     
+    static let name = "tile layer"
+    
     init(data: [CellType], overrideLowerLayers: Bool = false) {
-        super.init(data: data, name: "tile layer", overrideLowerLayers: overrideLowerLayers)
+        super.init(data: data, name: Self.name, overrideLowerLayers: overrideLowerLayers)
     }
 }

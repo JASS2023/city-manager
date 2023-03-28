@@ -17,9 +17,12 @@
 		9752F0AA29D1C7F3003DF523 /* TileCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9752F0A929D1C7F3003DF523 /* TileCellView.swift */; };
 		9752F0AD29D1EC2F003DF523 /* TileListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9752F0AC29D1EC2F003DF523 /* TileListView.swift */; };
 		9778543429D311B3008EC773 /* LayeredMapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9778543329D311B3008EC773 /* LayeredMapCell.swift */; };
+		9778543629D35011008EC773 /* MQTT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9778543529D35011008EC773 /* MQTT.swift */; };
+		9778543929D350C0008EC773 /* MQTTNIO in Frameworks */ = {isa = PBXBuildFile; productRef = 9778543829D350C0008EC773 /* MQTTNIO */; };
+		9778543C29D36889008EC773 /* PlanService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9778543B29D36889008EC773 /* PlanService.swift */; };
 		9790C7A629D212240051C8BD /* WebSocketMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9790C7A329D212240051C8BD /* WebSocketMessage.swift */; };
 		9790C7A729D212240051C8BD /* WebsocketConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9790C7A429D212240051C8BD /* WebsocketConnection.swift */; };
-		9790C7A829D212240051C8BD /* ConstructionSIteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9790C7A529D212240051C8BD /* ConstructionSIteData.swift */; };
+		9790C7A829D212240051C8BD /* PlanConstructionSite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9790C7A529D212240051C8BD /* PlanConstructionSite.swift */; };
 		9790C7AB29D213130051C8BD /* Starscream in Frameworks */ = {isa = PBXBuildFile; productRef = 9790C7AA29D213130051C8BD /* Starscream */; };
 		9790C7AE29D213E40051C8BD /* MapGridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9790C7AD29D213E40051C8BD /* MapGridViewModel.swift */; };
 		9790C7B129D2199E0051C8BD /* LayeredMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9790C7B029D2199E0051C8BD /* LayeredMap.swift */; };
@@ -46,9 +49,11 @@
 		9752F0A929D1C7F3003DF523 /* TileCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileCellView.swift; sourceTree = "<group>"; };
 		9752F0AC29D1EC2F003DF523 /* TileListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileListView.swift; sourceTree = "<group>"; };
 		9778543329D311B3008EC773 /* LayeredMapCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayeredMapCell.swift; sourceTree = "<group>"; };
+		9778543529D35011008EC773 /* MQTT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MQTT.swift; sourceTree = "<group>"; };
+		9778543B29D36889008EC773 /* PlanService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanService.swift; sourceTree = "<group>"; };
 		9790C7A329D212240051C8BD /* WebSocketMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocketMessage.swift; sourceTree = "<group>"; };
 		9790C7A429D212240051C8BD /* WebsocketConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebsocketConnection.swift; sourceTree = "<group>"; };
-		9790C7A529D212240051C8BD /* ConstructionSIteData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstructionSIteData.swift; sourceTree = "<group>"; };
+		9790C7A529D212240051C8BD /* PlanConstructionSite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanConstructionSite.swift; sourceTree = "<group>"; };
 		9790C7AD29D213E40051C8BD /* MapGridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapGridViewModel.swift; sourceTree = "<group>"; };
 		9790C7B029D2199E0051C8BD /* LayeredMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayeredMap.swift; sourceTree = "<group>"; };
 		9790C7B429D2289F0051C8BD /* TileLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileLayer.swift; sourceTree = "<group>"; };
@@ -68,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9778543929D350C0008EC773 /* MQTTNIO in Frameworks */,
 				97BEA11129D1755F006CA71A /* Yams in Frameworks */,
 				9790C7AB29D213130051C8BD /* Starscream in Frameworks */,
 			);
@@ -124,12 +130,22 @@
 			path = TileList;
 			sourceTree = "<group>";
 		};
+		9778543A29D36795008EC773 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				9790C7A529D212240051C8BD /* PlanConstructionSite.swift */,
+				9778543B29D36889008EC773 /* PlanService.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		9790C7A229D212240051C8BD /* Interfaces */ = {
 			isa = PBXGroup;
 			children = (
+				9778543A29D36795008EC773 /* Data */,
 				9790C7A329D212240051C8BD /* WebSocketMessage.swift */,
 				9790C7A429D212240051C8BD /* WebsocketConnection.swift */,
-				9790C7A529D212240051C8BD /* ConstructionSIteData.swift */,
+				9778543529D35011008EC773 /* MQTT.swift */,
 			);
 			path = Interfaces;
 			sourceTree = "<group>";
@@ -238,6 +254,7 @@
 			packageProductDependencies = (
 				97BEA11029D1755F006CA71A /* Yams */,
 				9790C7AA29D213130051C8BD /* Starscream */,
+				9778543829D350C0008EC773 /* MQTTNIO */,
 			);
 			productName = "JASS 2023 Smart City";
 			productReference = 97BEA0FE29D16E61006CA71A /* JASS 2023 Smart City.app */;
@@ -270,6 +287,7 @@
 			packageReferences = (
 				97BEA10F29D1755F006CA71A /* XCRemoteSwiftPackageReference "Yams" */,
 				9790C7A929D213130051C8BD /* XCRemoteSwiftPackageReference "Starscream" */,
+				9778543729D350C0008EC773 /* XCRemoteSwiftPackageReference "mqtt-nio" */,
 			);
 			productRefGroup = 97BEA0FF29D16E61006CA71A /* Products */;
 			projectDirPath = "";
@@ -305,7 +323,9 @@
 				97BEA11729D1761E006CA71A /* Parser.swift in Sources */,
 				9752F09E29D1890A003DF523 /* TileType.swift in Sources */,
 				9752F0A829D1C112003DF523 /* MapGridView.swift in Sources */,
+				9778543629D35011008EC773 /* MQTT.swift in Sources */,
 				9752F0AA29D1C7F3003DF523 /* TileCellView.swift in Sources */,
+				9778543C29D36889008EC773 /* PlanService.swift in Sources */,
 				9790C7B529D2289F0051C8BD /* TileLayer.swift in Sources */,
 				9790C7A629D212240051C8BD /* WebSocketMessage.swift in Sources */,
 				9752F0A029D18A18003DF523 /* TestImagesView.swift in Sources */,
@@ -315,7 +335,7 @@
 				97BEA10429D16E61006CA71A /* ContentView.swift in Sources */,
 				9790C7A729D212240051C8BD /* WebsocketConnection.swift in Sources */,
 				9752F0AD29D1EC2F003DF523 /* TileListView.swift in Sources */,
-				9790C7A829D212240051C8BD /* ConstructionSIteData.swift in Sources */,
+				9790C7A829D212240051C8BD /* PlanConstructionSite.swift in Sources */,
 				97BEA10229D16E61006CA71A /* JASS_2023_Smart_CityApp.swift in Sources */,
 				9752F03329D1869B003DF523 /* CityModel.swift in Sources */,
 				9790C7B129D2199E0051C8BD /* LayeredMap.swift in Sources */,
@@ -521,6 +541,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		9778543729D350C0008EC773 /* XCRemoteSwiftPackageReference "mqtt-nio" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/swift-server-community/mqtt-nio";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		9790C7A929D213130051C8BD /* XCRemoteSwiftPackageReference "Starscream" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/daltoniam/Starscream";
@@ -540,6 +568,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		9778543829D350C0008EC773 /* MQTTNIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9778543729D350C0008EC773 /* XCRemoteSwiftPackageReference "mqtt-nio" */;
+			productName = MQTTNIO;
+		};
 		9790C7AA29D213130051C8BD /* Starscream */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9790C7A929D213130051C8BD /* XCRemoteSwiftPackageReference "Starscream" */;

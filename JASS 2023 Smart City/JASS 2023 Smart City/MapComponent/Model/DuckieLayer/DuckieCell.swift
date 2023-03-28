@@ -16,9 +16,10 @@ class DuckieCell: Cell, Equatable, Hashable {
         TileType.duckie.image
     }
     
-    init(i: Int, j: Int, yaw: Double? = nil, quadrent: Quadrent = .none) {
+    init(i: Int, j: Int, yaw: Double? = nil, quadrent: Quadrent = .none, duckieUUIDs: [UUID] = []) {
         super.init(i: i, j: j, quadrent: quadrent)
         self.yaw = yaw
+        self.duckieUUIDs = duckieUUIDs
     }
     
     static func == (lhs: DuckieCell, rhs: DuckieCell) -> Bool {
@@ -35,6 +36,6 @@ class DuckieCell: Cell, Equatable, Hashable {
 
 extension DuckieCell {
     public static var defaultTile: DuckieCell {
-        DuckieCell(i: 10, j: 10, quadrent: .none)
+        DuckieCell(i: 8, j: 11, quadrent: .none)
     }
 }

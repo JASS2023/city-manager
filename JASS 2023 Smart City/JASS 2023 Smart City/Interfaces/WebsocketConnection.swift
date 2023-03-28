@@ -47,10 +47,13 @@ class WebsocketConnection {
     }
     
     public func planningConstructionSite() {
-        let mockedConstructionSite = RequestConstructionSite(id: UUID(), coordinates: [Coordinate(x: 1, y: 2), Coordinate(x: 1, y: 3)], trafficLights: TrafficLights(id1: UUID(), id2: UUID()))
-        let encoder = JSONEncoder()
-        let jsonData = try! encoder.encode(mockedConstructionSite)
-        let jsonString = String(data: jsonData, encoding: .utf8)!
+        let mockedConstructionSite = PlanConstructionSite.PlanConstructionSite(type: "test", data: .init(constructionSite: .init(id: .init(), coordinates: [.init(x: 1, y: 2, quadrant: 3)], startDateTime: .now, endDateTime: .now, maximumSpeed: 12.12, trafficLights: .init(id1: .init(), id2: .init()))))
+        
+        guard let jsonData = try? JSONEncoder().encode(mockedConstructionSite),
+              let jsonString = String(data: jsonData, encoding: .utf8) else {
+            print("Couldn't encode")
+            return
+        }
         let planningMessage = WebSocketMessage(topic: Topics.PlanConstructionSite.rawValue, data: jsonString)
         if connection {
             socket.write(string: planningMessage.toJSONString())

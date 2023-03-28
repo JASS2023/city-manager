@@ -17,7 +17,7 @@ struct ContentView: View {
                     .tabItem {
                         Label("First", systemImage: "1.circle")
                     }
-                MapGridView(cityModel: model)
+                MapGridView()
                     .tabItem {
                         Label("Second", systemImage: "2.circle")
                     }
@@ -45,12 +45,54 @@ struct ContentView: View {
                 DuckieLayer(data: duckieCells)
             ])
             
-            DispatchQueue.main.schedule(after: .init(.now() + .seconds(3)), tolerance: .zero, options: .none) {
-                //self.model.map.layers[1] = DuckieLayer(data: [.init(i: 8, j: 8)])
-                self.model.map.layers[1].data.append(DuckieCell(i: 8, j: 8))
-                // self.model.map.layers[1] = DuckieLayer(data: [.init(i: 8, j: 8)])
-                // self.model.map.layers[1]?.addData(cell: DuckieCell(i: 8, j: 8))
+            /*
+            DispatchQueue.main.schedule(after: .init(.now() + .seconds(2)), tolerance: .zero, options: .none) {
+                self.model.map.layers[1] = DuckieLayer(data: [.init(i: 8, j: 10)])
+                
+                // Works now
+                /*
+                let layer: DuckieLayer = self.model.map.getLayer()
+                layer.addNewCell(cell: DuckieCell(i: 10, j: 10))
+                 */
+
+                self.model.trigger()
             }
+            
+            DispatchQueue.main.schedule(after: .init(.now() + .seconds(4)), tolerance: .zero, options: .none) {
+                self.model.map.layers[1] = DuckieLayer(data: [.init(i: 8, j: 9)])
+                self.model.trigger()
+            }
+            
+            DispatchQueue.main.schedule(after: .init(.now() + .seconds(6)), tolerance: .zero, options: .none) {
+                self.model.map.layers[1] = DuckieLayer(data: [.init(i: 8, j: 8)])
+                self.model.trigger()
+            }
+            
+            DispatchQueue.main.schedule(after: .init(.now() + .seconds(8)), tolerance: .zero, options: .none) {
+                self.model.map.layers[1] = DuckieLayer(data: [.init(i: 8, j: 7)])
+                self.model.trigger()
+            }
+            
+            DispatchQueue.main.schedule(after: .init(.now() + .seconds(10)), tolerance: .zero, options: .none) {
+                self.model.map.layers[1] = DuckieLayer(data: [.init(i: 8, j: 6)])
+                self.model.trigger()
+            }
+            
+            DispatchQueue.main.schedule(after: .init(.now() + .seconds(12)), tolerance: .zero, options: .none) {
+                self.model.map.layers[1] = DuckieLayer(data: [.init(i: 9, j: 6)])
+                self.model.trigger()
+            }
+            
+            DispatchQueue.main.schedule(after: .init(.now() + .seconds(14)), tolerance: .zero, options: .none) {
+                self.model.map.layers[1] = DuckieLayer(data: [.init(i: 10, j: 6)])
+                self.model.trigger()
+            }
+            
+            DispatchQueue.main.schedule(after: .init(.now() + .seconds(16)), tolerance: .zero, options: .none) {
+                self.model.map.layers[1] = DuckieLayer(data: [.init(i: 11, j: 6)])
+                self.model.trigger()
+            }
+             */
         }
     }
 }

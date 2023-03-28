@@ -10,11 +10,13 @@ import SwiftUI
 
 struct MapGridView: View {
     @EnvironmentObject var model: CityModel
-    @StateObject private var vm: MapGridViewModel
+    //@StateObject private var vm: MapGridViewModel
     
+    /*
     init(cityModel: CityModel) {
         self._vm = StateObject(wrappedValue: { MapGridViewModel(model: cityModel) }())
     }
+     */
     
     var cells: [LayeredMapCell] {
         self.sortedTiles
@@ -45,16 +47,38 @@ struct MapGridView: View {
         }
     }
     
+    var columns: [GridItem] {
+        Array(repeating: GridItem(.flexible(), spacing: 0), count: self.rowsTiles)
+    }
+    
+    var rowsTiles: Int {
+        let rows = self.sortedTiles.reduce(into: 0) { partialResult, element in
+            if(partialResult < element.i) {
+                partialResult = element.i
+            }
+        }
+        return rows + 1;
+    }
+    
+    var columnsTiles: Int {
+        let columns = self.sortedTiles.reduce(into: 0) { partialResult, element in
+            if(partialResult < element.j) {
+                partialResult = element.j
+            }
+        }
+        return columns + 1;
+    }
+    
     var body: some View {
         ScrollView {
-            LazyVGrid(columns: self.vm.columns, spacing: 0) {
+            LazyVGrid(columns: self.columns, spacing: 0) {
                 ForEach(self.cells, id: \.self) { cell in
                     TileCellView(cell: cell)
                 }
                 // Force rerendering of view
-                .onReceive(Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()) { _ in
-                    self.model.map = self.model.map
-                }
+                //.onReceive(Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()) { _ in
+                    //self.model.map = self.model.map
+                //}
             }
             .background(Color.black)
             .padding()
