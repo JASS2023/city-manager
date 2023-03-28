@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var model: CityModel
-    var interface = Interface()
+    let interface = WebsocketConnection()
     
     var body: some View {
         NavigationView {
