@@ -27,6 +27,7 @@ struct TileCellView: View {
                 constructionCell.image
                     .resizable()
                     .aspectRatio(contentMode: .fit)
+                    .background(Color(UIColor.red.withAlphaComponent(0.8)))
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
             
