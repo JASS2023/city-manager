@@ -13,8 +13,8 @@ struct TileRowList: View {
     
     var body: some View {
         List {
-            ForEach(Array(self.model.tiles.keys), id: \.self) { key in
-                TileRowView(key: key, tile: self.model.tiles[key] ?? TileCell.defaultTile)
+            ForEach(self.model.tileCells, id: \.self) { cell in
+                TileRowView(tile: cell)
             }
         }
     }

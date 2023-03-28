@@ -36,4 +36,14 @@ enum Quadrent: Int, Codable, Equatable, Hashable {
     case upperLeft = 2
     case lowerLeft = 3
     case lowerRight = 4
+    
+    var name: String {
+        switch self {
+        case .none: return "None"
+        case .upperRight: return "Upper Right"
+        case .upperLeft: return "Upper Left"
+        case .lowerLeft: return "Lower Left"
+        case .lowerRight: return "Lower Right"
+        }
+    }
 }

@@ -34,11 +34,15 @@ struct ContentView: View {
         }
         .navigationViewStyle(.stack)
         .task {
-            self.model.tiles = Parser.parse(tilesYAML: "tiles", framesYAML: "frames") ?? ["defaultTile" : TileCell.defaultTile]
+            let tileCells = Parser.parse(tilesYAML: "tiles", framesYAML: "frames") ?? ["defaultTile" : TileCell.defaultTile]
             
-            let layeredMap = LayeredMap(layers: [
-                0: TileLayer(data: [TileCell.defaultTile]),
-                1: DuckieLayer(data: [DuckieCell.defaultTile])
+            let duckieCells = [
+                DuckieCell.defaultTile
+            ]
+             
+            self.model.map = LayeredMap(layers: [
+                0: TileLayer(data: Array(tileCells.values)),
+                1: DuckieLayer(data: duckieCells)
             ])
         }
     }

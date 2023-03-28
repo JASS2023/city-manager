@@ -9,15 +9,14 @@ import Foundation
 import SwiftUI
 
 struct TileRowView: View {
-    let key: String
     let tile: TileCell
 
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text(key)
-                    .font(.headline)
                 Text("i: \(tile.i), j: \(tile.j)")
+                    .font(.headline)
+                Text(tile.quadrent.name)
                     .font(.subheadline)
             }
             Spacer()
