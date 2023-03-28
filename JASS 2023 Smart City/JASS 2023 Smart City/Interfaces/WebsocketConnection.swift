@@ -54,6 +54,7 @@ class WebsocketConnection {
         let planningMessage = WebSocketMessage(topic: Topics.PlanConstructionSite.rawValue, data: jsonString)
         if connection {
             socket.write(string: planningMessage.toJSONString())
+            print("Message sent via WebSocket!")
         }
     }
 }

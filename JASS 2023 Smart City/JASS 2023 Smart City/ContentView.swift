@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var model: CityModel
-    let interface = WebsocketConnection()
     
     var body: some View {
         NavigationView {
@@ -26,7 +25,7 @@ struct ContentView: View {
                     .tabItem {
                         Label("Third", systemImage: "3.circle")
                     }
-                Button("Add construction site", action: interface.planningConstructionSite)
+                Button("Add construction site", action: CityModel.interface.planningConstructionSite)
                     .tabItem {
                         Label("Forth", systemImage: "4.circle")
                     }
