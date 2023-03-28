@@ -10,13 +10,14 @@ import Foundation
 class DuckieLayer: Layer {
     typealias CellType = DuckieCell
     
-    @Published var data: [CellType]
-    @Published var name: String
-    @Published var overrideLowerLayers: Bool
+    //@Published var data: [CellType]
+    //@Published var name: String
+    //@Published var overrideLowerLayers: Bool
     
     init(data: [CellType], overrideLowerLayers: Bool = false) {
-        self.data = data
-        self.name = "duckie layer"
-        self.overrideLowerLayers = overrideLowerLayers
+        super.init(data: data, name: "duckie layer", overrideLowerLayers: overrideLowerLayers)
+        //self.data = data
+        //self.name = "duckie layer"
+        //self.overrideLowerLayers = overrideLowerLayers
     }
 }

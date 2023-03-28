@@ -41,16 +41,16 @@ struct ContentView: View {
             ]
              
             self.model.map = LayeredMap(layers: [
-                0: TileLayer(data: Array(tileCells.values)),
-                1: DuckieLayer(data: duckieCells)
+                TileLayer(data: Array(tileCells.values)),
+                DuckieLayer(data: duckieCells)
             ])
             
             DispatchQueue.main.schedule(after: .init(.now() + .seconds(3)), tolerance: .zero, options: .none) {
                 //self.model.map.layers[1] = DuckieLayer(data: [.init(i: 8, j: 8)])
-                self.model.map.layers[1]
+                self.model.map.layers[1].data.append(DuckieCell(i: 8, j: 8))
+                // self.model.map.layers[1] = DuckieLayer(data: [.init(i: 8, j: 8)])
+                // self.model.map.layers[1]?.addData(cell: DuckieCell(i: 8, j: 8))
             }
-            
-            
         }
     }
 }

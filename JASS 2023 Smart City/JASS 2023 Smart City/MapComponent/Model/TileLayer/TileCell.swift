@@ -10,23 +10,26 @@ import Yams
 import SwiftUI
 
 // Define the Tile data structure
-class TileCell: Cell, Codable, Equatable, Hashable {
-    let i: Int
-    let j: Int
+class TileCell: Cell, Equatable, Hashable {
+    //let i: Int
+    //let j: Int
     let type: TileType
     var yaw: Double?
-    let quadrent: Quadrent
+    //let quadrent: Quadrent
     
     var image: Image {
         type.image
     }
     
     init(i: Int, j: Int, type: TileType, yaw: Double? = nil, quadrent: Quadrent = .none) {
-        self.i = i
-        self.j = j
         self.type = type
         self.yaw = yaw
-        self.quadrent = quadrent
+        super.init(i: i, j: j, quadrent: quadrent)
+        //self.i = i
+        //self.j = j
+        //self.type = type
+        //self.yaw = yaw
+        //self.quadrent = quadrent
     }
     
     static func == (lhs: TileCell, rhs: TileCell) -> Bool {

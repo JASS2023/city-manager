@@ -10,13 +10,14 @@ import Foundation
 class TileLayer: Layer {
     typealias CellType = TileCell
     
-    var data: [CellType]
-    var name: String
-    var overrideLowerLayers: Bool
+    //var data: [CellType]
+    //var name: String
+    //var overrideLowerLayers: Bool
     
     init(data: [CellType], overrideLowerLayers: Bool = false) {
-        self.data = data
-        self.name = "tile layer"
-        self.overrideLowerLayers = overrideLowerLayers
+        super.init(data: data, name: "tile layer", overrideLowerLayers: overrideLowerLayers)
+        //self.data = data
+        //self.name = "tile layer"
+        //self.overrideLowerLayers = overrideLowerLayers
     }
 }

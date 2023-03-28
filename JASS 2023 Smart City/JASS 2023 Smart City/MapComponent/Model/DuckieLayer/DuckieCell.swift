@@ -9,10 +9,10 @@ import Foundation
 import SwiftUI
 
 class DuckieCell: Cell, Equatable, Hashable {
-    @Published var i: Int
-    @Published var j: Int
+    //@Published var i: Int
+    //@Published var j: Int
     @Published var yaw: Double?
-    @Published var quadrent: Quadrent
+    //@Published var quadrent: Quadrent
     @Published var duckieUUIDs: [UUID] = []
     
     var image: Image {
@@ -20,10 +20,11 @@ class DuckieCell: Cell, Equatable, Hashable {
     }
     
     init(i: Int, j: Int, yaw: Double? = nil, quadrent: Quadrent = .none) {
-        self.i = i
-        self.j = j
+        super.init(i: i, j: j, quadrent: quadrent)
+        //self.i = i
+        //self.j = j
         self.yaw = yaw
-        self.quadrent = quadrent
+        //self.quadrent = quadrent
     }
     
     static func == (lhs: DuckieCell, rhs: DuckieCell) -> Bool {
