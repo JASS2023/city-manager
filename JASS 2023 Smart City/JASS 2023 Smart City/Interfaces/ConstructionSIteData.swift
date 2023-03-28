@@ -11,7 +11,7 @@ struct RequestConstructionSite: Codable {
     let id: UUID
     let coordinates: [Coordinate]
     let trafficLights: TrafficLights
-
+    
     enum CodingKeys: String, CodingKey {
         case id
         case coordinates
