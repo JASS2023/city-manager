@@ -11,11 +11,8 @@ import SwiftUI
 
 // Define the Tile data structure
 class TileCell: Cell, Equatable, Hashable {
-    //let i: Int
-    //let j: Int
     let type: TileType
     var yaw: Double?
-    //let quadrent: Quadrent
     
     var image: Image {
         type.image
@@ -25,11 +22,6 @@ class TileCell: Cell, Equatable, Hashable {
         self.type = type
         self.yaw = yaw
         super.init(i: i, j: j, quadrent: quadrent)
-        //self.i = i
-        //self.j = j
-        //self.type = type
-        //self.yaw = yaw
-        //self.quadrent = quadrent
     }
     
     static func == (lhs: TileCell, rhs: TileCell) -> Bool {
