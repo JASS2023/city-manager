@@ -1,5 +1,5 @@
 //
-//  TileImage.swift
+//  TileType.swift
 //  JASS 2023 Smart City
 //
 //  Created by Philipp Zagar on 27.03.23.

@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 class LayeredMap: ObservableObject {
-    let layers: [Int : any Layer]
+    @Published var layers: [Int : any Layer]
     
     init(layers: [Int : any Layer] = [:]) {
         self.layers = layers

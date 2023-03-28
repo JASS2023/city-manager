@@ -9,17 +9,26 @@ import Foundation
 import SwiftUI
 
 struct TileCellView: View {
-    let tile: TileCell
+    let cell: LayeredMapCell
     
     var body: some View {
-        tile.image
-            .resizable()
-            .rotationEffect(Angle(degrees: tile.yaw ?? 0), anchor: .center)
-            .aspectRatio(contentMode: .fit)
-            //.frame(width: 60, height: 60)
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            //.background(Color.blue.opacity(0.2))
-            //.cornerRadius(8)
-            //.padding(4)
+        ZStack {
+            cell.tileCell.image
+                .resizable()
+                .rotationEffect(Angle(degrees: cell.tileCell.yaw ?? 0), anchor: .center)
+                .aspectRatio(contentMode: .fit)
+                //.frame(width: 60, height: 60)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                //.background(Color.blue.opacity(0.2))
+                //.cornerRadius(8)
+                //.padding(4)
+            
+            if let duckieCell = cell.duckieCell {
+                duckieCell.image
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            }
+        }
     }
 }

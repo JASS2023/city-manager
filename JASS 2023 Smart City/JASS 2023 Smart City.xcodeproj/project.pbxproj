@@ -9,13 +9,14 @@
 /* Begin PBXBuildFile section */
 		9752F03029D17F80003DF523 /* TileRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9752F02F29D17F80003DF523 /* TileRowView.swift */; };
 		9752F03329D1869B003DF523 /* CityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9752F03229D1869B003DF523 /* CityModel.swift */; };
-		9752F09E29D1890A003DF523 /* TileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9752F09D29D1890A003DF523 /* TileImage.swift */; };
+		9752F09E29D1890A003DF523 /* TileType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9752F09D29D1890A003DF523 /* TileType.swift */; };
 		9752F0A029D18A18003DF523 /* TestImagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9752F09F29D18A18003DF523 /* TestImagesView.swift */; };
 		9752F0A329D1B8ED003DF523 /* frames.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 9752F0A129D1B8ED003DF523 /* frames.yaml */; };
 		9752F0A429D1B8ED003DF523 /* tiles.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 9752F0A229D1B8ED003DF523 /* tiles.yaml */; };
 		9752F0A829D1C112003DF523 /* MapGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9752F0A729D1C112003DF523 /* MapGridView.swift */; };
 		9752F0AA29D1C7F3003DF523 /* TileCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9752F0A929D1C7F3003DF523 /* TileCellView.swift */; };
 		9752F0AD29D1EC2F003DF523 /* TileListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9752F0AC29D1EC2F003DF523 /* TileListView.swift */; };
+		9778543429D311B3008EC773 /* LayeredMapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9778543329D311B3008EC773 /* LayeredMapCell.swift */; };
 		9790C7A629D212240051C8BD /* WebSocketMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9790C7A329D212240051C8BD /* WebSocketMessage.swift */; };
 		9790C7A729D212240051C8BD /* WebsocketConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9790C7A429D212240051C8BD /* WebsocketConnection.swift */; };
 		9790C7A829D212240051C8BD /* ConstructionSIteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9790C7A529D212240051C8BD /* ConstructionSIteData.swift */; };
@@ -37,13 +38,14 @@
 /* Begin PBXFileReference section */
 		9752F02F29D17F80003DF523 /* TileRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileRowView.swift; sourceTree = "<group>"; };
 		9752F03229D1869B003DF523 /* CityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityModel.swift; sourceTree = "<group>"; };
-		9752F09D29D1890A003DF523 /* TileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileImage.swift; sourceTree = "<group>"; };
+		9752F09D29D1890A003DF523 /* TileType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileType.swift; sourceTree = "<group>"; };
 		9752F09F29D18A18003DF523 /* TestImagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestImagesView.swift; sourceTree = "<group>"; };
 		9752F0A129D1B8ED003DF523 /* frames.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = frames.yaml; sourceTree = "<group>"; };
 		9752F0A229D1B8ED003DF523 /* tiles.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = tiles.yaml; sourceTree = "<group>"; };
 		9752F0A729D1C112003DF523 /* MapGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapGridView.swift; sourceTree = "<group>"; };
 		9752F0A929D1C7F3003DF523 /* TileCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileCellView.swift; sourceTree = "<group>"; };
 		9752F0AC29D1EC2F003DF523 /* TileListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileListView.swift; sourceTree = "<group>"; };
+		9778543329D311B3008EC773 /* LayeredMapCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayeredMapCell.swift; sourceTree = "<group>"; };
 		9790C7A329D212240051C8BD /* WebSocketMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocketMessage.swift; sourceTree = "<group>"; };
 		9790C7A429D212240051C8BD /* WebsocketConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebsocketConnection.swift; sourceTree = "<group>"; };
 		9790C7A529D212240051C8BD /* ConstructionSIteData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstructionSIteData.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				9790C7B229D227FC0051C8BD /* TileLayer */,
 				9790C7B329D228810051C8BD /* DuckieLayer */,
 				9790C7B029D2199E0051C8BD /* LayeredMap.swift */,
+				9778543329D311B3008EC773 /* LayeredMapCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -154,7 +157,7 @@
 			children = (
 				9790C7B429D2289F0051C8BD /* TileLayer.swift */,
 				97BEA11329D175E2006CA71A /* TileCell.swift */,
-				9752F09D29D1890A003DF523 /* TileImage.swift */,
+				9752F09D29D1890A003DF523 /* TileType.swift */,
 			);
 			path = TileLayer;
 			sourceTree = "<group>";
@@ -300,13 +303,14 @@
 				9790C7B929D22A650051C8BD /* DuckieCell.swift in Sources */,
 				9752F03029D17F80003DF523 /* TileRowView.swift in Sources */,
 				97BEA11729D1761E006CA71A /* Parser.swift in Sources */,
-				9752F09E29D1890A003DF523 /* TileImage.swift in Sources */,
+				9752F09E29D1890A003DF523 /* TileType.swift in Sources */,
 				9752F0A829D1C112003DF523 /* MapGridView.swift in Sources */,
 				9752F0AA29D1C7F3003DF523 /* TileCellView.swift in Sources */,
 				9790C7B529D2289F0051C8BD /* TileLayer.swift in Sources */,
 				9790C7A629D212240051C8BD /* WebSocketMessage.swift in Sources */,
 				9752F0A029D18A18003DF523 /* TestImagesView.swift in Sources */,
 				9790C7AE29D213E40051C8BD /* MapGridViewModel.swift in Sources */,
+				9778543429D311B3008EC773 /* LayeredMapCell.swift in Sources */,
 				97BEA11429D175E2006CA71A /* TileCell.swift in Sources */,
 				97BEA10429D16E61006CA71A /* ContentView.swift in Sources */,
 				9790C7A729D212240051C8BD /* WebsocketConnection.swift in Sources */,

@@ -18,8 +18,8 @@ struct MapGridView: View {
     var body: some View {
         ScrollView {
             LazyVGrid(columns: self.vm.columns, spacing: 0) {
-                ForEach(self.vm.sortedTiles, id: \.self) { tile in
-                    TileCellView(tile: tile)
+                ForEach(self.vm.cells, id: \.self) { cell in
+                    TileCellView(cell: cell)
                 }
             }
             .background(Color.black)

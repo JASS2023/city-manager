@@ -8,15 +8,15 @@
 import Foundation
 import SwiftUI
 
-class DuckieCell: Cell, Codable, Equatable, Hashable {
-    let i: Int
-    let j: Int
-    var yaw: Double?
-    let quadrent: Quadrent
-    var duckieUUIDs: [UUID] = []
+class DuckieCell: Cell, Equatable, Hashable {
+    @Published var i: Int
+    @Published var j: Int
+    @Published var yaw: Double?
+    @Published var quadrent: Quadrent
+    @Published var duckieUUIDs: [UUID] = []
     
     var image: Image {
-        .init("DuckieBot")
+        TileType.duckie.image
     }
     
     init(i: Int, j: Int, yaw: Double? = nil, quadrent: Quadrent = .none) {
@@ -40,6 +40,6 @@ class DuckieCell: Cell, Codable, Equatable, Hashable {
 
 extension DuckieCell {
     public static var defaultTile: DuckieCell {
-        DuckieCell(i: 0, j: 0, quadrent: .none)
+        DuckieCell(i: 10, j: 10, quadrent: .none)
     }
 }
