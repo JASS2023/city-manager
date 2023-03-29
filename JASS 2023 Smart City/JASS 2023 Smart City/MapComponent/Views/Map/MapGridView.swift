@@ -10,17 +10,60 @@ import SwiftUI
 
 struct MapGridView: View {
     @EnvironmentObject var model: CityModel
+    @State private var subviewSize: CGSize = .zero
+    @State private var subviewFrame: CGRect = .zero
+    
+    @State private var currentScale: CGFloat = 1.0
+    @GestureState private var gestureScale: CGFloat = 1.0
     
     var body: some View {
-        ScrollView {
-            LazyVGrid(columns: self.columns, spacing: 0) {
-                ForEach(self.cells, id: \.self) { cell in
-                    TileCellView(cell: cell)
+        let magnification = MagnificationGesture()
+            .updating($gestureScale) { (value, state, _) in
+                state = value
+            }
+            .onEnded { value in
+                self.currentScale *= value
+            }
+        
+        VStack {
+            Spacer()
+            
+            ZStack {
+                GeometryReader { geometryInner in
+                    LazyVGrid(columns: self.columns, spacing: 0) {
+                        ForEach(self.cells, id: \.self) { cell in
+                            TileCellView(cell: cell)
+                        }
+                    }
+                    .background(Color.black)
+                    .onAppear {
+                        self.subviewSize = geometryInner.size
+                        self.subviewFrame = geometryInner.frame(in: .global)
+                    }
+                }
+                
+                ForEach(model.duckieCells) { duckieCell in
+                    ForEach(duckieCell.duckies) { duckie in
+                        TileType.duckie.image
+                            .resizable()
+                            .scaledToFit()
+                            .rotationEffect(Angle(degrees: duckie.yaw), anchor: .center)
+                            .frame(width: 25, height: 25)
+                            .position(getPosition(for: self.subviewSize, cell: duckie))
+                            //.offset(x: 25, y: 25)
+                    }
                 }
             }
-            .background(Color.black)
-            .padding()
+            .scaleEffect(currentScale * gestureScale)
+            .gesture(magnification)
         }
+    }
+    
+    func getPosition(for size: CGSize, cell: Duckie) -> CGPoint {
+        let widthCell = size.width / 13.9
+        let heightCell = size.height / 15.8
+        
+        return CGPoint(x: (cell.i + 1) * widthCell, y: (cell.j + 1) * heightCell)   // TODO: +1 fix
     }
 }
 
@@ -49,6 +92,7 @@ extension MapGridView {
                 return tile1.j > tile2.j
             }
         }
+        // TODO Fix
         // Crops the irrelevant tiles
         .filter { tile in
             tile.i < 14

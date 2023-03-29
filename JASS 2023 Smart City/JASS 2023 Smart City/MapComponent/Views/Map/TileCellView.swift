@@ -26,7 +26,7 @@ struct TileCellView: View {
                     .background(Color(UIColor.red.withAlphaComponent(0.8)))
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
-            
+            /*
             if let duckieCell = cell.duckieCell {
                 ForEach(duckieCell.duckies) { ducky in
                     duckieCell.image
@@ -45,6 +45,7 @@ struct TileCellView: View {
                     .position(x: geometry.size.width * , y: geometry.size.height * percentageY)
                  */
             }
+             */
         }
     }
 }

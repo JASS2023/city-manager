@@ -14,8 +14,8 @@ struct MQTT {
     
     init(topics: MQTT.Topics...) async {
         self.client = MQTTClient(
-            host: "broker.mtze.me",
-            port: 30_000,
+            host: "192.168.0.3",
+            port: 1883,
             identifier: "CityManager",
             eventLoopGroupProvider: .createNew
         )
@@ -51,15 +51,14 @@ struct MQTT {
                 
                 switch topicEnum {
                 case .vehicleStatus:
-                    guard let data = try? buffer.readJSONDecodable(VehicleStatus.VehicleStatus.self, length: buffer.readableBytes) else {
+                    if let data = try? buffer.readJSONDecodable(VehicleStatus.VehicleStatus.self, length: buffer.readableBytes) {
                         print("Error while decoding event - \(String(describing: topicEnum?.rawValue))")
-                        return
+                        print(data)
+                        
+                        let layer: DuckieLayer = CityModel.shared.map.getLayer()
+                        layer.update(vehicleStatus: data)
+                        CityModel.shared.trigger()
                     }
-                    print(data)
-                    
-                    let layer: DuckieLayer = CityModel.shared.map.getLayer()
-                    layer.update(vehicleStatus: data)
-                    
                 case .none: print("Error during decoding")
                 default: print("Error during decoding")
                 }
@@ -93,6 +92,6 @@ extension MQTT {
     enum Topics: String {
         case planConstructionSite = "plan_construction_site"
         case planService = "plan_service"
-        case vehicleStatus = "vehicle/+/status"
+        case vehicleStatus = "vehicle/12/status"
     }
 }

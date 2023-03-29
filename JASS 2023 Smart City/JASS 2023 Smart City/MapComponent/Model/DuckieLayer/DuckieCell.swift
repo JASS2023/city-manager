@@ -8,7 +8,8 @@
 import Foundation
 import SwiftUI
 
-class DuckieCell: Cell, Equatable, Hashable {
+class DuckieCell: Cell, Equatable, Hashable, Identifiable {
+    @Published var id = UUID()
     @Published var duckies: [Duckie]
     
     var image: Image {

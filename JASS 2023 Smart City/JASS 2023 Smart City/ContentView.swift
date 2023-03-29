@@ -42,16 +42,28 @@ struct ContentView: View {
              
             self.model.map = LayeredMap(layers: [
                 TileLayer(data: Array(tileCells.values)),
-                ConstructionLayer(data: constructionCells),
-                DuckieLayer(data: duckieCells)
+                // ConstructionLayer(data: constructionCells),
+                ConstructionLayer(data: []),
+                DuckieLayer(data: [])
             ])
             
+            /*
             let layer: DuckieLayer = CityModel.shared.map.getLayer()
             layer.update(vehicleStatus: .init(
                 type: "vehicle_status",
+                data: .init(id: 0, name: "defaultDuckie", timestamp: .now, coordinates: .init(
+                    x: 0,
+                    y: 0,
+                    yaw: 0,
+                    xAbs: 123,
+                    yAbs: 123)
+                )
+            ))
+            layer.update(vehicleStatus: .init(
+                type: "vehicle_status",
                 data: .init(id: 1, name: "defaultDuckie", timestamp: .now, coordinates: .init(
-                    x: 8.5,
-                    y: 7.5,
+                    x: 1,
+                    y: 1,
                     yaw: 10,
                     xAbs: 123,
                     yAbs: 123)
@@ -60,9 +72,9 @@ struct ContentView: View {
             layer.update(vehicleStatus: .init(
                 type: "vehicle_status",
                 data: .init(id: 2, name: "defaultDuckie", timestamp: .now, coordinates: .init(
-                    x: 9.5,
-                    y: 7.5,
-                    yaw: 10,
+                    x: 2,
+                    y: 2,
+                    yaw: 20,
                     xAbs: 123,
                     yAbs: 123)
                 )
@@ -70,19 +82,112 @@ struct ContentView: View {
             layer.update(vehicleStatus: .init(
                 type: "vehicle_status",
                 data: .init(id: 3, name: "defaultDuckie", timestamp: .now, coordinates: .init(
-                    x: 9.5,
-                    y: 7.5,
-                    yaw: 10,
+                    x: 3,
+                    y: 3,
+                    yaw: 30,
                     xAbs: 123,
                     yAbs: 123)
                 )
             ))
+            layer.update(vehicleStatus: .init(
+                type: "vehicle_status",
+                data: .init(id: 4, name: "defaultDuckie", timestamp: .now, coordinates: .init(
+                    x: 4,
+                    y: 4,
+                    yaw: 0,
+                    xAbs: 123,
+                    yAbs: 123)
+                )
+            ))
+            layer.update(vehicleStatus: .init(
+                type: "vehicle_status",
+                data: .init(id: 5, name: "defaultDuckie", timestamp: .now, coordinates: .init(
+                    x: 5,
+                    y: 5,
+                    yaw: 0,
+                    xAbs: 123,
+                    yAbs: 123)
+                )
+            ))
+            layer.update(vehicleStatus: .init(
+                type: "vehicle_status",
+                data: .init(id: 6, name: "defaultDuckie", timestamp: .now, coordinates: .init(
+                    x: 6,
+                    y: 6,
+                    yaw: 0,
+                    xAbs: 123,
+                    yAbs: 123)
+                )
+            ))
+            layer.update(vehicleStatus: .init(
+                type: "vehicle_status",
+                data: .init(id: 7, name: "defaultDuckie", timestamp: .now, coordinates: .init(
+                    x: 7,
+                    y: 7,
+                    yaw: 0,
+                    xAbs: 123,
+                    yAbs: 123)
+                )
+            ))
+            layer.update(vehicleStatus: .init(
+                type: "vehicle_status",
+                data: .init(id: 8, name: "defaultDuckie", timestamp: .now, coordinates: .init(
+                    x: 8,
+                    y: 8,
+                    yaw: 0,
+                    xAbs: 123,
+                    yAbs: 123)
+                )
+            ))
+            layer.update(vehicleStatus: .init(
+                type: "vehicle_status",
+                data: .init(id: 9, name: "defaultDuckie", timestamp: .now, coordinates: .init(
+                    x: 9,
+                    y: 9,
+                    yaw: 0,
+                    xAbs: 123,
+                    yAbs: 123)
+                )
+            ))
+            layer.update(vehicleStatus: .init(
+                type: "vehicle_status",
+                data: .init(id: 10, name: "defaultDuckie", timestamp: .now, coordinates: .init(
+                    x: 10,
+                    y: 10,
+                    yaw: 0,
+                    xAbs: 123,
+                    yAbs: 123)
+                )
+            ))
+            layer.update(vehicleStatus: .init(
+                type: "vehicle_status",
+                data: .init(id: 11, name: "defaultDuckie", timestamp: .now, coordinates: .init(
+                    x: 11,
+                    y: 11,
+                    yaw: 0,
+                    xAbs: 123,
+                    yAbs: 123)
+                )
+            ))
+            layer.update(vehicleStatus: .init(
+                type: "vehicle_status",
+                data: .init(id: 12, name: "defaultDuckie", timestamp: .now, coordinates: .init(
+                    x: 12,
+                    y: 12,
+                    yaw: 0,
+                    xAbs: 123,
+                    yAbs: 123)
+                )
+            ))
+            */
             
-            let mqtt = await MQTT(topics: MQTT.Topics.planConstructionSite)
+            let mqtt = await MQTT(topics: MQTT.Topics.vehicleStatus)
             
+            /*
             let mockedConstructionSite = PlanConstructionSite.PlanConstructionSite(type: "test", data: .init(constructionSite: .init(id: .init(), coordinates: [.init(x: 1, y: 2, quadrant: 3)], startDateTime: .now, endDateTime: .now, maximumSpeed: 12.12, trafficLights: .init(id1: .init(), id2: .init()))))
+             */
             
-            await mqtt.publish(topic: MQTT.Topics.vehicleStatus, data: mockedConstructionSite)
+            //await mqtt.publish(topic: MQTT.Topics.vehicleStatus, data: mockedConstructionSite)
             
             await mqtt.subscribe()
             

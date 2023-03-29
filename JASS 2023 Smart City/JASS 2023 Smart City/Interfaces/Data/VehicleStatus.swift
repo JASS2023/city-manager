@@ -18,13 +18,13 @@ enum VehicleStatus {
     struct DataClass: Codable {
         let id: Int
         let name: String
-        let timestamp: Date
+        let timestamp: String
         let coordinates: Coordinates
     }
 
     // MARK: - Coordinates
     struct Coordinates: Codable {
         let x, y, yaw: Double
-        let xAbs, yAbs: Double
+        let x_abs, y_abs: Double
     }
 }
