@@ -19,31 +19,24 @@ class ConstructionLayer: Layer {
             return
         }
         
-        if let indexCell = data.firstIndex(where: { $0.constructionSiteUUIDs.contains { uuid in
-            uuid == constructionSiteStatus.data.id
-        }}) {
-            let constructionCell = data[indexCell]
-            
-            switch constructionSiteStatus.data.message {
-            case ConstructionSiteStatus.MessageString.builtConstructionSite.rawValue:
-                print("🚧built!")
-                constructionSiteStatus.data.coordinates.forEach { coordinate in
-                    data.append(.init(i: Int(coordinate.x), j: Int(coordinate.y), constructionSiteUUIDs: [constructionSiteStatus.data.id]))
-                }
-            case ConstructionSiteStatus.MessageString.removeConstructionSite.rawValue:
-                print("❌removed!")
-                if let indexCell = data.firstIndex(where: { $0.constructionSiteUUIDs.contains { constructionSiteId in
-                    constructionSiteId == constructionSiteStatus.data.id
-                }}) {
-                    data[indexCell].constructionSiteUUIDs.removeAll { constructionUuid in
-                        constructionUuid == constructionSiteStatus.data.id
-                    }
-                }
-            default:
-                break
+        switch constructionSiteStatus.data.message {
+        case ConstructionSiteStatus.MessageString.builtConstructionSite.rawValue:
+            print("🚧built!")
+            constructionSiteStatus.data.coordinates.forEach { coordinate in
+                data.append(.init(i: Int(coordinate.x), j: Int(coordinate.y), constructionSiteUUIDs: [constructionSiteStatus.data.id]))
             }
-            
+        case ConstructionSiteStatus.MessageString.removeConstructionSite.rawValue:
+            print("❌removed!")
+            if let indexCell = data.firstIndex(where: { $0.constructionSiteUUIDs.contains { constructionSiteId in
+                constructionSiteId == constructionSiteStatus.data.id
+            }}) {
+                data[indexCell].constructionSiteUUIDs.removeAll { constructionUuid in
+                    constructionUuid == constructionSiteStatus.data.id
+                }
+            }
+        default:
+            break
         }
-        
+        self.data = data
     }
 }

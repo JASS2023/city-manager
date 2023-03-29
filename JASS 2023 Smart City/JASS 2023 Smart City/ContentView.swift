@@ -39,7 +39,7 @@ struct ContentView: View {
             let constructionCells = [
                 ConstructionCell.defaultTile
             ]
-             
+            
             self.model.map = LayeredMap(layers: [
                 TileLayer(data: Array(tileCells.values)),
                 // ConstructionLayer(data: constructionCells),
@@ -48,199 +48,211 @@ struct ContentView: View {
             ])
             
             /*
-            let layer: DuckieLayer = CityModel.shared.map.getLayer()
-            layer.update(vehicleStatus: .init(
-                type: "vehicle_status",
-                data: .init(id: 0, name: "defaultDuckie", timestamp: .now, coordinates: .init(
-                    x: 0,
-                    y: 0,
-                    yaw: 0,
-                    xAbs: 123,
-                    yAbs: 123)
-                )
-            ))
-            layer.update(vehicleStatus: .init(
-                type: "vehicle_status",
-                data: .init(id: 1, name: "defaultDuckie", timestamp: .now, coordinates: .init(
-                    x: 1,
-                    y: 1,
-                    yaw: 10,
-                    xAbs: 123,
-                    yAbs: 123)
-                )
-            ))
-            layer.update(vehicleStatus: .init(
-                type: "vehicle_status",
-                data: .init(id: 2, name: "defaultDuckie", timestamp: .now, coordinates: .init(
-                    x: 2,
-                    y: 2,
-                    yaw: 20,
-                    xAbs: 123,
-                    yAbs: 123)
-                )
-            ))
-            layer.update(vehicleStatus: .init(
-                type: "vehicle_status",
-                data: .init(id: 3, name: "defaultDuckie", timestamp: .now, coordinates: .init(
-                    x: 3,
-                    y: 3,
-                    yaw: 30,
-                    xAbs: 123,
-                    yAbs: 123)
-                )
-            ))
-            layer.update(vehicleStatus: .init(
-                type: "vehicle_status",
-                data: .init(id: 4, name: "defaultDuckie", timestamp: .now, coordinates: .init(
-                    x: 4,
-                    y: 4,
-                    yaw: 0,
-                    xAbs: 123,
-                    yAbs: 123)
-                )
-            ))
-            layer.update(vehicleStatus: .init(
-                type: "vehicle_status",
-                data: .init(id: 5, name: "defaultDuckie", timestamp: .now, coordinates: .init(
-                    x: 5,
-                    y: 5,
-                    yaw: 0,
-                    xAbs: 123,
-                    yAbs: 123)
-                )
-            ))
-            layer.update(vehicleStatus: .init(
-                type: "vehicle_status",
-                data: .init(id: 6, name: "defaultDuckie", timestamp: .now, coordinates: .init(
-                    x: 6,
-                    y: 6,
-                    yaw: 0,
-                    xAbs: 123,
-                    yAbs: 123)
-                )
-            ))
-            layer.update(vehicleStatus: .init(
-                type: "vehicle_status",
-                data: .init(id: 7, name: "defaultDuckie", timestamp: .now, coordinates: .init(
-                    x: 7,
-                    y: 7,
-                    yaw: 0,
-                    xAbs: 123,
-                    yAbs: 123)
-                )
-            ))
-            layer.update(vehicleStatus: .init(
-                type: "vehicle_status",
-                data: .init(id: 8, name: "defaultDuckie", timestamp: .now, coordinates: .init(
-                    x: 8,
-                    y: 8,
-                    yaw: 0,
-                    xAbs: 123,
-                    yAbs: 123)
-                )
-            ))
-            layer.update(vehicleStatus: .init(
-                type: "vehicle_status",
-                data: .init(id: 9, name: "defaultDuckie", timestamp: .now, coordinates: .init(
-                    x: 9,
-                    y: 9,
-                    yaw: 0,
-                    xAbs: 123,
-                    yAbs: 123)
-                )
-            ))
-            layer.update(vehicleStatus: .init(
-                type: "vehicle_status",
-                data: .init(id: 10, name: "defaultDuckie", timestamp: .now, coordinates: .init(
-                    x: 10,
-                    y: 10,
-                    yaw: 0,
-                    xAbs: 123,
-                    yAbs: 123)
-                )
-            ))
-            layer.update(vehicleStatus: .init(
-                type: "vehicle_status",
-                data: .init(id: 11, name: "defaultDuckie", timestamp: .now, coordinates: .init(
-                    x: 11,
-                    y: 11,
-                    yaw: 0,
-                    xAbs: 123,
-                    yAbs: 123)
-                )
-            ))
-            layer.update(vehicleStatus: .init(
-                type: "vehicle_status",
-                data: .init(id: 12, name: "defaultDuckie", timestamp: .now, coordinates: .init(
-                    x: 12,
-                    y: 12,
-                    yaw: 0,
-                    xAbs: 123,
-                    yAbs: 123)
-                )
-            ))
-            */
+             let layer: DuckieLayer = CityModel.shared.map.getLayer()
+             layer.update(vehicleStatus: .init(
+             type: "vehicle_status",
+             data: .init(id: 0, name: "defaultDuckie", timestamp: .now, coordinates: .init(
+             x: 0,
+             y: 0,
+             yaw: 0,
+             xAbs: 123,
+             yAbs: 123)
+             )
+             ))
+             layer.update(vehicleStatus: .init(
+             type: "vehicle_status",
+             data: .init(id: 1, name: "defaultDuckie", timestamp: .now, coordinates: .init(
+             x: 1,
+             y: 1,
+             yaw: 10,
+             xAbs: 123,
+             yAbs: 123)
+             )
+             ))
+             layer.update(vehicleStatus: .init(
+             type: "vehicle_status",
+             data: .init(id: 2, name: "defaultDuckie", timestamp: .now, coordinates: .init(
+             x: 2,
+             y: 2,
+             yaw: 20,
+             xAbs: 123,
+             yAbs: 123)
+             )
+             ))
+             layer.update(vehicleStatus: .init(
+             type: "vehicle_status",
+             data: .init(id: 3, name: "defaultDuckie", timestamp: .now, coordinates: .init(
+             x: 3,
+             y: 3,
+             yaw: 30,
+             xAbs: 123,
+             yAbs: 123)
+             )
+             ))
+             layer.update(vehicleStatus: .init(
+             type: "vehicle_status",
+             data: .init(id: 4, name: "defaultDuckie", timestamp: .now, coordinates: .init(
+             x: 4,
+             y: 4,
+             yaw: 0,
+             xAbs: 123,
+             yAbs: 123)
+             )
+             ))
+             layer.update(vehicleStatus: .init(
+             type: "vehicle_status",
+             data: .init(id: 5, name: "defaultDuckie", timestamp: .now, coordinates: .init(
+             x: 5,
+             y: 5,
+             yaw: 0,
+             xAbs: 123,
+             yAbs: 123)
+             )
+             ))
+             layer.update(vehicleStatus: .init(
+             type: "vehicle_status",
+             data: .init(id: 6, name: "defaultDuckie", timestamp: .now, coordinates: .init(
+             x: 6,
+             y: 6,
+             yaw: 0,
+             xAbs: 123,
+             yAbs: 123)
+             )
+             ))
+             layer.update(vehicleStatus: .init(
+             type: "vehicle_status",
+             data: .init(id: 7, name: "defaultDuckie", timestamp: .now, coordinates: .init(
+             x: 7,
+             y: 7,
+             yaw: 0,
+             xAbs: 123,
+             yAbs: 123)
+             )
+             ))
+             layer.update(vehicleStatus: .init(
+             type: "vehicle_status",
+             data: .init(id: 8, name: "defaultDuckie", timestamp: .now, coordinates: .init(
+             x: 8,
+             y: 8,
+             yaw: 0,
+             xAbs: 123,
+             yAbs: 123)
+             )
+             ))
+             layer.update(vehicleStatus: .init(
+             type: "vehicle_status",
+             data: .init(id: 9, name: "defaultDuckie", timestamp: .now, coordinates: .init(
+             x: 9,
+             y: 9,
+             yaw: 0,
+             xAbs: 123,
+             yAbs: 123)
+             )
+             ))
+             layer.update(vehicleStatus: .init(
+             type: "vehicle_status",
+             data: .init(id: 10, name: "defaultDuckie", timestamp: .now, coordinates: .init(
+             x: 10,
+             y: 10,
+             yaw: 0,
+             xAbs: 123,
+             yAbs: 123)
+             )
+             ))
+             layer.update(vehicleStatus: .init(
+             type: "vehicle_status",
+             data: .init(id: 11, name: "defaultDuckie", timestamp: .now, coordinates: .init(
+             x: 11,
+             y: 11,
+             yaw: 0,
+             xAbs: 123,
+             yAbs: 123)
+             )
+             ))
+             layer.update(vehicleStatus: .init(
+             type: "vehicle_status",
+             data: .init(id: 12, name: "defaultDuckie", timestamp: .now, coordinates: .init(
+             x: 12,
+             y: 12,
+             yaw: 0,
+             xAbs: 123,
+             yAbs: 123)
+             )
+             ))
+             */
             
             var mqtt = await MQTT(topics: MQTT.Topics.vehicleStatus)
             
-            /*
-            let mockedConstructionSite = PlanConstructionSite.PlanConstructionSite(type: "test", data: .init(constructionSite: .init(id: .init(), coordinates: [.init(x: 1, y: 2, quadrant: 3)], startDateTime: .now, endDateTime: .now, maximumSpeed: 12.12, trafficLights: .init(id1: .init(), id2: .init()))))
-             */
+//            DispatchQueue.main.schedule(after: .init(.now() + .seconds(1))) {
+//                let mockedConstructionSite = ConstructionSiteStatus.ConstructionSiteStatus(type: MQTT.Topics.constructionSiteStatus.rawValue, data: ConstructionSiteStatus.ConstructionSite(message: ConstructionSiteStatus.MessageString.builtConstructionSite.rawValue, id: UUID(), timestamp: "time", coordinates: [ConstructionSiteStatus.Coordinate(x: 8.0, y: 10.0, x_abs: 0, y_abs: 0)]))
+//                
+//                let layer: ConstructionLayer = self.model.map.getLayer()
+//                layer.update(constructionSiteStatus: mockedConstructionSite)
+//                self.model.trigger()
+//            }
+//            
+//            DispatchQueue.main.schedule(after: .init(.now() + .seconds(2))) {
+//                let mockedConstructionSite = ConstructionSiteStatus.ConstructionSiteStatus(type: MQTT.Topics.constructionSiteStatus.rawValue, data: ConstructionSiteStatus.ConstructionSite(message: ConstructionSiteStatus.MessageString.builtConstructionSite.rawValue, id: UUID(), timestamp: "time", coordinates: [ConstructionSiteStatus.Coordinate(x: 9.0, y: 10.0, x_abs: 0, y_abs: 0)]))
+//                
+//                let layer: ConstructionLayer = self.model.map.getLayer()
+//                layer.update(constructionSiteStatus: mockedConstructionSite)
+//                self.model.trigger()
+//            }
+//            
             
-            //await mqtt.publish(topic: MQTT.Topics.vehicleStatus, data: mockedConstructionSite)
             
             await mqtt.subscribe()
             
-//            let layer: DuckieLayer = self.model.map.getLayer()
-//            layer.addNewCell(cell: DuckieCell(i: 10, j: 10))
-//            
+            //            let layer: DuckieLayer = self.model.map.getLayer()
+            //            layer.addNewCell(cell: DuckieCell(i: 10, j: 10))
+            //
             /*
-            DispatchQueue.main.schedule(after: .init(.now() + .seconds(2)), tolerance: .zero, options: .none) {
-                self.model.map.layers[1] = DuckieLayer(data: [.init(i: 8, j: 10)])
-                
-                // Works now
-                /*
-                let layer: DuckieLayer = self.model.map.getLayer()
-                layer.addNewCell(cell: DuckieCell(i: 10, j: 10))
-                 */
-
-                self.model.trigger()
-            }
-            
-            DispatchQueue.main.schedule(after: .init(.now() + .seconds(4)), tolerance: .zero, options: .none) {
-                self.model.map.layers[1] = DuckieLayer(data: [.init(i: 8, j: 9)])
-                self.model.trigger()
-            }
-            
-            DispatchQueue.main.schedule(after: .init(.now() + .seconds(6)), tolerance: .zero, options: .none) {
-                self.model.map.layers[1] = DuckieLayer(data: [.init(i: 8, j: 8)])
-                self.model.trigger()
-            }
-            
-            DispatchQueue.main.schedule(after: .init(.now() + .seconds(8)), tolerance: .zero, options: .none) {
-                self.model.map.layers[1] = DuckieLayer(data: [.init(i: 8, j: 7)])
-                self.model.trigger()
-            }
-            
-            DispatchQueue.main.schedule(after: .init(.now() + .seconds(10)), tolerance: .zero, options: .none) {
-                self.model.map.layers[1] = DuckieLayer(data: [.init(i: 8, j: 6)])
-                self.model.trigger()
-            }
-            
-            DispatchQueue.main.schedule(after: .init(.now() + .seconds(12)), tolerance: .zero, options: .none) {
-                self.model.map.layers[1] = DuckieLayer(data: [.init(i: 9, j: 6)])
-                self.model.trigger()
-            }
-            
-            DispatchQueue.main.schedule(after: .init(.now() + .seconds(14)), tolerance: .zero, options: .none) {
-                self.model.map.layers[1] = DuckieLayer(data: [.init(i: 10, j: 6)])
-                self.model.trigger()
-            }
-            
-            DispatchQueue.main.schedule(after: .init(.now() + .seconds(16)), tolerance: .zero, options: .none) {
-                self.model.map.layers[1] = DuckieLayer(data: [.init(i: 11, j: 6)])
-                self.model.trigger()
-            }
+             DispatchQueue.main.schedule(after: .init(.now() + .seconds(2)), tolerance: .zero, options: .none) {
+             self.model.map.layers[1] = DuckieLayer(data: [.init(i: 8, j: 10)])
+             
+             // Works now
+             /*
+              let layer: DuckieLayer = self.model.map.getLayer()
+              layer.addNewCell(cell: DuckieCell(i: 10, j: 10))
+              */
+             
+             self.model.trigger()
+             }
+             
+             DispatchQueue.main.schedule(after: .init(.now() + .seconds(4)), tolerance: .zero, options: .none) {
+             self.model.map.layers[1] = DuckieLayer(data: [.init(i: 8, j: 9)])
+             self.model.trigger()
+             }
+             
+             DispatchQueue.main.schedule(after: .init(.now() + .seconds(6)), tolerance: .zero, options: .none) {
+             self.model.map.layers[1] = DuckieLayer(data: [.init(i: 8, j: 8)])
+             self.model.trigger()
+             }
+             
+             DispatchQueue.main.schedule(after: .init(.now() + .seconds(8)), tolerance: .zero, options: .none) {
+             self.model.map.layers[1] = DuckieLayer(data: [.init(i: 8, j: 7)])
+             self.model.trigger()
+             }
+             
+             DispatchQueue.main.schedule(after: .init(.now() + .seconds(10)), tolerance: .zero, options: .none) {
+             self.model.map.layers[1] = DuckieLayer(data: [.init(i: 8, j: 6)])
+             self.model.trigger()
+             }
+             
+             DispatchQueue.main.schedule(after: .init(.now() + .seconds(12)), tolerance: .zero, options: .none) {
+             self.model.map.layers[1] = DuckieLayer(data: [.init(i: 9, j: 6)])
+             self.model.trigger()
+             }
+             
+             DispatchQueue.main.schedule(after: .init(.now() + .seconds(14)), tolerance: .zero, options: .none) {
+             self.model.map.layers[1] = DuckieLayer(data: [.init(i: 10, j: 6)])
+             self.model.trigger()
+             }
+             
+             DispatchQueue.main.schedule(after: .init(.now() + .seconds(16)), tolerance: .zero, options: .none) {
+             self.model.map.layers[1] = DuckieLayer(data: [.init(i: 11, j: 6)])
+             self.model.trigger()
+             }
              */
         }
     }
