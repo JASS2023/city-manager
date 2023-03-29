@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2419277529D3755B0072F411 /* ConstructionLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2419277329D3755B0072F411 /* ConstructionLayer.swift */; };
-		2419277629D3755B0072F411 /* ConstructionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2419277429D3755B0072F411 /* ConstructionCell.swift */; };
 		9752F03029D17F80003DF523 /* TileRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9752F02F29D17F80003DF523 /* TileRowView.swift */; };
 		9752F03329D1869B003DF523 /* CityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9752F03229D1869B003DF523 /* CityModel.swift */; };
 		9752F09E29D1890A003DF523 /* TileType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9752F09D29D1890A003DF523 /* TileType.swift */; };
@@ -22,11 +20,12 @@
 		9778543629D35011008EC773 /* MQTT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9778543529D35011008EC773 /* MQTT.swift */; };
 		9778543929D350C0008EC773 /* MQTTNIO in Frameworks */ = {isa = PBXBuildFile; productRef = 9778543829D350C0008EC773 /* MQTTNIO */; };
 		9778543C29D36889008EC773 /* PlanService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9778543B29D36889008EC773 /* PlanService.swift */; };
-		9790C7A629D212240051C8BD /* WebSocketMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9790C7A329D212240051C8BD /* WebSocketMessage.swift */; };
-		9790C7A729D212240051C8BD /* WebsocketConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9790C7A429D212240051C8BD /* WebsocketConnection.swift */; };
+		978729BE29D38A5A00DCECB1 /* ConstructionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978729BC29D38A5A00DCECB1 /* ConstructionCell.swift */; };
+		978729BF29D38A5A00DCECB1 /* ConstructionLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978729BD29D38A5A00DCECB1 /* ConstructionLayer.swift */; };
+		978729C129D4307E00DCECB1 /* CityModel+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978729C029D4307E00DCECB1 /* CityModel+Helpers.swift */; };
+		978729C329D4326400DCECB1 /* VehicleStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978729C229D4326400DCECB1 /* VehicleStatus.swift */; };
 		9790C7A829D212240051C8BD /* PlanConstructionSite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9790C7A529D212240051C8BD /* PlanConstructionSite.swift */; };
 		9790C7AB29D213130051C8BD /* Starscream in Frameworks */ = {isa = PBXBuildFile; productRef = 9790C7AA29D213130051C8BD /* Starscream */; };
-		9790C7AE29D213E40051C8BD /* MapGridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9790C7AD29D213E40051C8BD /* MapGridViewModel.swift */; };
 		9790C7B129D2199E0051C8BD /* LayeredMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9790C7B029D2199E0051C8BD /* LayeredMap.swift */; };
 		9790C7B529D2289F0051C8BD /* TileLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9790C7B429D2289F0051C8BD /* TileLayer.swift */; };
 		9790C7B729D229D50051C8BD /* DuckieLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9790C7B629D229D50051C8BD /* DuckieLayer.swift */; };
@@ -41,8 +40,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2419277329D3755B0072F411 /* ConstructionLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConstructionLayer.swift; path = ../../../../../../Desktop/ConstructionLayer.swift; sourceTree = "<group>"; };
-		2419277429D3755B0072F411 /* ConstructionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConstructionCell.swift; path = ../../../../../../Desktop/ConstructionCell.swift; sourceTree = "<group>"; };
 		9752F02F29D17F80003DF523 /* TileRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileRowView.swift; sourceTree = "<group>"; };
 		9752F03229D1869B003DF523 /* CityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityModel.swift; sourceTree = "<group>"; };
 		9752F09D29D1890A003DF523 /* TileType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileType.swift; sourceTree = "<group>"; };
@@ -55,10 +52,11 @@
 		9778543329D311B3008EC773 /* LayeredMapCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayeredMapCell.swift; sourceTree = "<group>"; };
 		9778543529D35011008EC773 /* MQTT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MQTT.swift; sourceTree = "<group>"; };
 		9778543B29D36889008EC773 /* PlanService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanService.swift; sourceTree = "<group>"; };
-		9790C7A329D212240051C8BD /* WebSocketMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocketMessage.swift; sourceTree = "<group>"; };
-		9790C7A429D212240051C8BD /* WebsocketConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebsocketConnection.swift; sourceTree = "<group>"; };
+		978729BC29D38A5A00DCECB1 /* ConstructionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstructionCell.swift; sourceTree = "<group>"; };
+		978729BD29D38A5A00DCECB1 /* ConstructionLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstructionLayer.swift; sourceTree = "<group>"; };
+		978729C029D4307E00DCECB1 /* CityModel+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CityModel+Helpers.swift"; sourceTree = "<group>"; };
+		978729C229D4326400DCECB1 /* VehicleStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleStatus.swift; sourceTree = "<group>"; };
 		9790C7A529D212240051C8BD /* PlanConstructionSite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanConstructionSite.swift; sourceTree = "<group>"; };
-		9790C7AD29D213E40051C8BD /* MapGridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapGridViewModel.swift; sourceTree = "<group>"; };
 		9790C7B029D2199E0051C8BD /* LayeredMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayeredMap.swift; sourceTree = "<group>"; };
 		9790C7B429D2289F0051C8BD /* TileLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileLayer.swift; sourceTree = "<group>"; };
 		9790C7B629D229D50051C8BD /* DuckieLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuckieLayer.swift; sourceTree = "<group>"; };
@@ -89,8 +87,8 @@
 		2419276E29D374FC0072F411 /* ConstructionLayer */ = {
 			isa = PBXGroup;
 			children = (
-				2419277429D3755B0072F411 /* ConstructionCell.swift */,
-				2419277329D3755B0072F411 /* ConstructionLayer.swift */,
+				978729BC29D38A5A00DCECB1 /* ConstructionCell.swift */,
+				978729BD29D38A5A00DCECB1 /* ConstructionLayer.swift */,
 			);
 			path = ConstructionLayer;
 			sourceTree = "<group>";
@@ -109,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				9752F03229D1869B003DF523 /* CityModel.swift */,
+				978729C029D4307E00DCECB1 /* CityModel+Helpers.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -149,6 +148,7 @@
 			children = (
 				9790C7A529D212240051C8BD /* PlanConstructionSite.swift */,
 				9778543B29D36889008EC773 /* PlanService.swift */,
+				978729C229D4326400DCECB1 /* VehicleStatus.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -157,8 +157,6 @@
 			isa = PBXGroup;
 			children = (
 				9778543A29D36795008EC773 /* Data */,
-				9790C7A329D212240051C8BD /* WebSocketMessage.swift */,
-				9790C7A429D212240051C8BD /* WebsocketConnection.swift */,
 				9778543529D35011008EC773 /* MQTT.swift */,
 			);
 			path = Interfaces;
@@ -169,7 +167,6 @@
 			children = (
 				9752F0A729D1C112003DF523 /* MapGridView.swift */,
 				9752F0A929D1C7F3003DF523 /* TileCellView.swift */,
-				9790C7AD29D213E40051C8BD /* MapGridViewModel.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -331,9 +328,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2419277529D3755B0072F411 /* ConstructionLayer.swift in Sources */,
 				9790C7B729D229D50051C8BD /* DuckieLayer.swift in Sources */,
 				9790C7B929D22A650051C8BD /* DuckieCell.swift in Sources */,
+				978729BF29D38A5A00DCECB1 /* ConstructionLayer.swift in Sources */,
 				9752F03029D17F80003DF523 /* TileRowView.swift in Sources */,
 				97BEA11729D1761E006CA71A /* Parser.swift in Sources */,
 				9752F09E29D1890A003DF523 /* TileType.swift in Sources */,
@@ -342,14 +339,13 @@
 				9752F0AA29D1C7F3003DF523 /* TileCellView.swift in Sources */,
 				9778543C29D36889008EC773 /* PlanService.swift in Sources */,
 				9790C7B529D2289F0051C8BD /* TileLayer.swift in Sources */,
-				9790C7A629D212240051C8BD /* WebSocketMessage.swift in Sources */,
-				2419277629D3755B0072F411 /* ConstructionCell.swift in Sources */,
 				9752F0A029D18A18003DF523 /* TestImagesView.swift in Sources */,
-				9790C7AE29D213E40051C8BD /* MapGridViewModel.swift in Sources */,
+				978729C129D4307E00DCECB1 /* CityModel+Helpers.swift in Sources */,
 				9778543429D311B3008EC773 /* LayeredMapCell.swift in Sources */,
 				97BEA11429D175E2006CA71A /* TileCell.swift in Sources */,
+				978729BE29D38A5A00DCECB1 /* ConstructionCell.swift in Sources */,
 				97BEA10429D16E61006CA71A /* ContentView.swift in Sources */,
-				9790C7A729D212240051C8BD /* WebsocketConnection.swift in Sources */,
+				978729C329D4326400DCECB1 /* VehicleStatus.swift in Sources */,
 				9752F0AD29D1EC2F003DF523 /* TileListView.swift in Sources */,
 				9790C7A829D212240051C8BD /* PlanConstructionSite.swift in Sources */,
 				97BEA10229D16E61006CA71A /* JASS_2023_Smart_CityApp.swift in Sources */,

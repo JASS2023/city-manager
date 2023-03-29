@@ -41,32 +41,12 @@ class Layer: ObservableObject {
 class Cell: ObservableObject {
     @Published var i: Int
     @Published var j: Int
-    @Published var quadrent: Quadrent
     
-    init(i: Int, j: Int, quadrent: Quadrent = .none) {
+    init(i: Int, j: Int) {
         self.i = i
         self.j = j
-        self.quadrent = quadrent
     }
 }
-
-/*
-protocol Layer: ObservableObject {
-    associatedtype CellType: Cell
-    
-    var data: [CellType] { get }
-    var name: String { get }
-    var overrideLowerLayers: Bool { get }
-}
- */
-
-/*
-protocol Cell: ObservableObject {
-    var i: Int { get }
-    var j: Int { get }
-    var quadrent: Quadrent { get }
-}
- */
 
 enum Quadrent: Int, Codable, Equatable, Hashable {
     case none = 0

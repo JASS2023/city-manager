@@ -9,33 +9,55 @@ import Foundation
 import SwiftUI
 
 class DuckieCell: Cell, Equatable, Hashable {
-    @Published var yaw: Double?
-    @Published var duckieUUIDs: [UUID] = []
+    @Published var duckies: [Duckie]
     
     var image: Image {
         TileType.duckie.image
     }
     
-    init(i: Int, j: Int, yaw: Double? = nil, quadrent: Quadrent = .none, duckieUUIDs: [UUID] = []) {
-        super.init(i: i, j: j, quadrent: quadrent)
-        self.yaw = yaw
-        self.duckieUUIDs = duckieUUIDs
+    init(i: Int, j: Int, duckies: [Duckie] = []) {
+        self.duckies = duckies
+        super.init(i: i, j: j)
     }
     
     static func == (lhs: DuckieCell, rhs: DuckieCell) -> Bool {
-        lhs.i == rhs.i && lhs.j == rhs.j && lhs.yaw == rhs.yaw && lhs.quadrent == rhs.quadrent
+        lhs.i == rhs.i && lhs.j == rhs.j && lhs.duckies == rhs.duckies
     }
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(i)
         hasher.combine(j)
-        hasher.combine(yaw)
-        hasher.combine(quadrent)
+        hasher.combine(duckies)
     }
 }
 
 extension DuckieCell {
     public static var defaultTile: DuckieCell {
-        DuckieCell(i: 8, j: 11, quadrent: .none)
+        DuckieCell(i: 8, j: 11)
+    }
+}
+
+class Duckie: Equatable, Hashable, Identifiable {
+    @Published var id: Int
+    @Published var i: Double
+    @Published var j: Double
+    @Published var yaw: Double
+    
+    init(id: Int, i: Double, j: Double, yaw: Double) {
+        self.id = id
+        self.i = i
+        self.j = j
+        self.yaw = yaw
+    }
+    
+    static func == (lhs: Duckie, rhs: Duckie) -> Bool {
+        lhs.id == rhs.id && lhs.i == rhs.i && lhs.j == rhs.j && lhs.yaw == rhs.yaw
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+        hasher.combine(i)
+        hasher.combine(j)
+        hasher.combine(yaw)
     }
 }

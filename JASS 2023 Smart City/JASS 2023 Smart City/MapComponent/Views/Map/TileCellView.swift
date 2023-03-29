@@ -12,16 +12,12 @@ struct TileCellView: View {
     let cell: LayeredMapCell
     
     var body: some View {
-        ZStack {
+        ZStack(alignment: .topLeading) {
             cell.tileCell.image
                 .resizable()
                 .rotationEffect(Angle(degrees: cell.tileCell.yaw ?? 0), anchor: .center)
                 .aspectRatio(contentMode: .fit)
-                //.frame(width: 60, height: 60)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                //.background(Color.blue.opacity(0.2))
-                //.cornerRadius(8)
-                //.padding(4)
             
             if let constructionCell = cell.constructionCell {
                 constructionCell.image
@@ -32,10 +28,22 @@ struct TileCellView: View {
             }
             
             if let duckieCell = cell.duckieCell {
+                ForEach(duckieCell.duckies) { ducky in
+                    duckieCell.image
+                        .resizable()
+                        .scaledToFit()
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .padding(.top, ducky.i.truncatingRemainder(dividingBy: 1) * 50)
+                        .padding(.leading, ducky.j.truncatingRemainder(dividingBy: 1) * 50)
+                }
+                /*
                 duckieCell.image
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    //.frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .frame(width: geometry.size.width * 0.25)
+                    .position(x: geometry.size.width * , y: geometry.size.height * percentageY)
+                 */
             }
         }
     }

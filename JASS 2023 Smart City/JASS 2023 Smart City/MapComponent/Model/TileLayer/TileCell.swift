@@ -18,28 +18,25 @@ class TileCell: Cell, Equatable, Hashable {
         type.image
     }
     
-    init(i: Int, j: Int, type: TileType, yaw: Double? = nil, quadrent: Quadrent = .none) {
+    init(i: Int, j: Int, type: TileType) {
         self.type = type
-        self.yaw = yaw
-        super.init(i: i, j: j, quadrent: quadrent)
+        super.init(i: i, j: j)
     }
     
     static func == (lhs: TileCell, rhs: TileCell) -> Bool {
-        lhs.i == rhs.i && lhs.j == rhs.j && lhs.type == rhs.type && lhs.yaw == rhs.yaw && lhs.quadrent == rhs.quadrent
+        lhs.i == rhs.i && lhs.j == rhs.j && lhs.type == rhs.type
     }
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(i)
         hasher.combine(j)
         hasher.combine(type)
-        hasher.combine(yaw)
-        hasher.combine(quadrent)
     }
 }
 
 extension TileCell {
     public static var defaultTile: TileCell {
-        TileCell(i: 0, j: 0, type: .asphalt, quadrent: .none)
+        TileCell(i: 0, j: 0, type: .asphalt)
     }
 }
 

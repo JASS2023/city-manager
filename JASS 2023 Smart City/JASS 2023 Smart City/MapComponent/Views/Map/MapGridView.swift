@@ -10,14 +10,21 @@ import SwiftUI
 
 struct MapGridView: View {
     @EnvironmentObject var model: CityModel
-    //@StateObject private var vm: MapGridViewModel
     
-    /*
-    init(cityModel: CityModel) {
-        self._vm = StateObject(wrappedValue: { MapGridViewModel(model: cityModel) }())
+    var body: some View {
+        ScrollView {
+            LazyVGrid(columns: self.columns, spacing: 0) {
+                ForEach(self.cells, id: \.self) { cell in
+                    TileCellView(cell: cell)
+                }
+            }
+            .background(Color.black)
+            .padding()
+        }
     }
-     */
-    
+}
+
+extension MapGridView {
     var cells: [LayeredMapCell] {
         self.sortedTiles
             .map { tilecell in
@@ -72,21 +79,4 @@ struct MapGridView: View {
         }
         return columns + 1;
     }
-    
-    var body: some View {
-        ScrollView {
-            LazyVGrid(columns: self.columns, spacing: 0) {
-                ForEach(self.cells, id: \.self) { cell in
-                    TileCellView(cell: cell)
-                }
-                // Force rerendering of view
-                //.onReceive(Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()) { _ in
-                    //self.model.map = self.model.map
-                //}
-            }
-            .background(Color.black)
-            .padding()
-        }
-    }
 }
-

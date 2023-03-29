@@ -25,10 +25,6 @@ struct ContentView: View {
                     .tabItem {
                         Label("Third", systemImage: "3.circle")
                     }
-                Button("Add construction site", action: CityModel.interface.planningConstructionSite)
-                    .tabItem {
-                        Label("Forth", systemImage: "4.circle")
-                    }
             }
             .navigationTitle("JASS 2023 Cyprus - City Manager")
         }
@@ -50,11 +46,43 @@ struct ContentView: View {
                 DuckieLayer(data: duckieCells)
             ])
             
+            let layer: DuckieLayer = CityModel.shared.map.getLayer()
+            layer.update(vehicleStatus: .init(
+                type: "vehicle_status",
+                data: .init(id: 1, name: "defaultDuckie", timestamp: .now, coordinates: .init(
+                    x: 8.5,
+                    y: 7.5,
+                    yaw: 10,
+                    xAbs: 123,
+                    yAbs: 123)
+                )
+            ))
+            layer.update(vehicleStatus: .init(
+                type: "vehicle_status",
+                data: .init(id: 2, name: "defaultDuckie", timestamp: .now, coordinates: .init(
+                    x: 9.5,
+                    y: 7.5,
+                    yaw: 10,
+                    xAbs: 123,
+                    yAbs: 123)
+                )
+            ))
+            layer.update(vehicleStatus: .init(
+                type: "vehicle_status",
+                data: .init(id: 3, name: "defaultDuckie", timestamp: .now, coordinates: .init(
+                    x: 9.5,
+                    y: 7.5,
+                    yaw: 10,
+                    xAbs: 123,
+                    yAbs: 123)
+                )
+            ))
+            
             let mqtt = await MQTT(topics: MQTT.Topics.planConstructionSite)
             
             let mockedConstructionSite = PlanConstructionSite.PlanConstructionSite(type: "test", data: .init(constructionSite: .init(id: .init(), coordinates: [.init(x: 1, y: 2, quadrant: 3)], startDateTime: .now, endDateTime: .now, maximumSpeed: 12.12, trafficLights: .init(id1: .init(), id2: .init()))))
             
-            await mqtt.publish(topic: MQTT.Topics.planConstructionSite, data: mockedConstructionSite)
+            await mqtt.publish(topic: MQTT.Topics.vehicleStatus, data: mockedConstructionSite)
             
             await mqtt.subscribe()
             

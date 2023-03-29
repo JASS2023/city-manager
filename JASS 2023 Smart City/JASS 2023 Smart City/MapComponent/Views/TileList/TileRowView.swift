@@ -16,8 +16,6 @@ struct TileRowView: View {
             VStack(alignment: .leading) {
                 Text("i: \(tile.i), j: \(tile.j)")
                     .font(.headline)
-                Text(tile.quadrent.name)
-                    .font(.subheadline)
             }
             Spacer()
             VStack(alignment: .trailing) {
