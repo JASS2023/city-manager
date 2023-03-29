@@ -23,22 +23,6 @@ extension CityModel {
         return tileCellData
     }
     
-    // Conviniently access the duckie cell layer
-    var duckieCells: [DuckieCell] {
-        // Access the cell data of the layer
-        
-        guard self.map.layers.count > 1 else {
-            return [];
-        }
-        
-        let layer: DuckieLayer = self.map.getLayer()
-        guard let duckieCellData = layer.data as? [DuckieCell] else {
-            return []
-        }
-        
-        return duckieCellData
-    }
-    
     // Conviniently access the constrcution cell layer
     var constructionCells: [ConstructionCell] {
         // Access the cell data of the layer

@@ -10,11 +10,14 @@ import SwiftUI
 
 struct MapGridView: View {
     @EnvironmentObject var model: CityModel
+    
     @State private var subviewSize: CGSize = .zero
     @State private var subviewFrame: CGRect = .zero
     
     @State private var currentScale: CGFloat = 1.0
     @GestureState private var gestureScale: CGFloat = 1.0
+    @State private var currentPosition: CGPoint = .zero
+    @GestureState private var gestureOffset: CGSize = .zero
     
     var body: some View {
         let magnification = MagnificationGesture()
@@ -25,61 +28,51 @@ struct MapGridView: View {
                 self.currentScale *= value
             }
         
-        VStack {
-            Spacer()
-            
-            ZStack {
-                GeometryReader { geometryInner in
-                    LazyVGrid(columns: self.columns, spacing: 0) {
-                        ForEach(self.cells, id: \.self) { cell in
-                            TileCellView(cell: cell)
+        let drag = DragGesture()
+            .updating($gestureOffset) { (value, state, _) in
+                state = value.translation
+            }
+            .onEnded { value in
+                self.currentPosition = CGPoint(x: self.currentPosition.x + value.translation.width,
+                                                y: self.currentPosition.y + value.translation.height)
+            }
+        
+            VStack {
+                Spacer()
+                
+                ZStack {
+                    GeometryReader { geometryInner in
+                        LazyVGrid(columns: self.columns, spacing: 0) {
+                            ForEach(self.cells, id: \.tileCell) { cell in
+                                TileCellView(cell: cell)
+                            }
+                        }
+                        .background(Color.black)
+                        .onAppear {
+                            self.subviewSize = geometryInner.size
+                            self.subviewFrame = geometryInner.frame(in: .global)
                         }
                     }
-                    .background(Color.black)
-                    .onAppear {
-                        self.subviewSize = geometryInner.size
-                        self.subviewFrame = geometryInner.frame(in: .global)
-                    }
+                    
+                    DuckieMapView(subviewSize: self.subviewSize)
                 }
-                
-                ForEach(model.duckieCells) { duckieCell in
-                    ForEach(duckieCell.duckies) { duckie in
-                        TileType.duckie.image
-                            .resizable()
-                            .scaledToFit()
-                            .rotationEffect(Angle(degrees: duckie.yaw), anchor: .center)
-                            .frame(width: 25, height: 25)
-                            .position(getPosition(for: self.subviewSize, cell: duckie))
-                            //.offset(x: 25, y: 25)
-                    }
-                }
+                .scaleEffect(currentScale * gestureScale)
+                .offset(x: currentPosition.x + gestureOffset.width,
+                        y: currentPosition.y + gestureOffset.height)
+                .gesture(magnification.simultaneously(with: drag))
             }
-            .scaleEffect(currentScale * gestureScale)
-            .gesture(magnification)
-        }
-    }
-    
-    func getPosition(for size: CGSize, cell: Duckie) -> CGPoint {
-        let widthCell = size.width / 13.9
-        let heightCell = size.height / 15.8
-        
-        return CGPoint(x: (cell.i + 1) * widthCell, y: (cell.j + 1) * heightCell)   // TODO: +1 fix
     }
 }
 
 extension MapGridView {
     var cells: [LayeredMapCell] {
         self.sortedTiles
-            .map { tilecell in
-                let duckieCell = self.model.duckieCells.first { duckieCell in
-                    duckieCell.i == tilecell.i && duckieCell.j == tilecell.j
-                }
-                
+            .map { tileCell in
                 let constructionCell = self.model.constructionCells.first { constructionCell in
-                    constructionCell.i == tilecell.i && constructionCell.j == tilecell.j
+                    constructionCell.i == tileCell.i && constructionCell.j == tileCell.j
                 }
                 
-                return .init(tileCell: tilecell, duckieCell: duckieCell, constructionCell: constructionCell)
+                return .init(tileCell: tileCell, constructionCell: constructionCell)
             }
     }
     

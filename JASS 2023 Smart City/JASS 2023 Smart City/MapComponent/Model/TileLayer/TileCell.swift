@@ -24,13 +24,14 @@ class TileCell: Cell, Equatable, Hashable {
     }
     
     static func == (lhs: TileCell, rhs: TileCell) -> Bool {
-        lhs.i == rhs.i && lhs.j == rhs.j && lhs.type == rhs.type
+        lhs.i == rhs.i && lhs.j == rhs.j && lhs.type == rhs.type && lhs.yaw == rhs.yaw
     }
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(i)
         hasher.combine(j)
         hasher.combine(type)
+        hasher.combine(yaw)
     }
 }
 

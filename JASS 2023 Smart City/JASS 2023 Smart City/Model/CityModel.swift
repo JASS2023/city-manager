@@ -29,8 +29,12 @@ class CityModel: ObservableObject {
     }
      */
     
+    @MainActor
     // Only works on this level
     func trigger() {
-        self.objectWillChange.send()
+        Task {
+            self.objectWillChange.send()
+            //self.map.objectWillChange.send()
+        }
     }
 }

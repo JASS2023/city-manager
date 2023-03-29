@@ -22,13 +22,14 @@ class DuckieCell: Cell, Equatable, Hashable, Identifiable {
     }
     
     static func == (lhs: DuckieCell, rhs: DuckieCell) -> Bool {
-        lhs.i == rhs.i && lhs.j == rhs.j && lhs.duckies == rhs.duckies
+        lhs.i == rhs.i && lhs.j == rhs.j && lhs.duckies == rhs.duckies && lhs.id == rhs.id
     }
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(i)
         hasher.combine(j)
         hasher.combine(duckies)
+        hasher.combine(id)
     }
 }
 

@@ -26,26 +26,6 @@ struct TileCellView: View {
                     .background(Color(UIColor.red.withAlphaComponent(0.8)))
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
-            /*
-            if let duckieCell = cell.duckieCell {
-                ForEach(duckieCell.duckies) { ducky in
-                    duckieCell.image
-                        .resizable()
-                        .scaledToFit()
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .padding(.top, ducky.i.truncatingRemainder(dividingBy: 1) * 50)
-                        .padding(.leading, ducky.j.truncatingRemainder(dividingBy: 1) * 50)
-                }
-                /*
-                duckieCell.image
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    //.frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .frame(width: geometry.size.width * 0.25)
-                    .position(x: geometry.size.width * , y: geometry.size.height * percentageY)
-                 */
-            }
-             */
         }
     }
 }

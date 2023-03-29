@@ -118,27 +118,5 @@ class DuckieLayer: Layer {
         }
         
         self.data = data
-        
-        /*
-        
-        guard let oldDuckieCell: DuckieCell = self.data.removeAll(where: { cell in
-            vehicleStatus.data.coordinates.x == cell.i &&
-            vehicleStatus.data.coordinates.y == cell.j
-        }) as? DuckieCell else {
-            return
-        }
-        
-        
-        
-        let newDuckieCell: DuckieCell = .init(
-            i: vehicleStatus.data.coordinates.x,
-            j: vehicleStatus.data.coordinates.y,
-            duckieUUIDs: [vehicleStatus.data.id] + oldDuckieCell.duckieUUIDs.filter({ uuid in
-                uuid
-            })
-        )
-        
-        self.data.append(Duck)
-         */
     }
 }

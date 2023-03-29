@@ -8,9 +8,10 @@
 import Foundation
 import SwiftUI
 
-class ConstructionCell: Cell, Equatable, Hashable {
+class ConstructionCell: Cell, Equatable, Hashable, Identifiable {
     @Published var constructionSiteUUIDs: [UUID] = []
     @Published var trafficLightUUIDs: [UUID] = []
+    var id: UUID = UUID()
 
     var image: Image {
         TileType.cone.image
@@ -23,12 +24,15 @@ class ConstructionCell: Cell, Equatable, Hashable {
     }
     
     static func == (lhs: ConstructionCell, rhs: ConstructionCell) -> Bool {
-        lhs.i == rhs.i && lhs.j == rhs.j
+        lhs.i == rhs.i && lhs.j == rhs.j && lhs.id == rhs.id && lhs.constructionSiteUUIDs == rhs.constructionSiteUUIDs && lhs.trafficLightUUIDs == rhs.trafficLightUUIDs
     }
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(i)
         hasher.combine(j)
+        hasher.combine(id)
+        hasher.combine(constructionSiteUUIDs)
+        hasher.combine(trafficLightUUIDs)
     }
 }
 
