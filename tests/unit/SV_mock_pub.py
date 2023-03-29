@@ -56,4 +56,4 @@ while True:
         client.publish(VEHICLE_ID, message)
         print(message)
         print("Done...")
-        time.sleep(.5)
+        time.sleep(.01)
