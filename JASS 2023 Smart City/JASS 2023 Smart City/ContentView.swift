@@ -181,7 +181,7 @@ struct ContentView: View {
             ))
             */
             
-            let mqtt = await MQTT(topics: MQTT.Topics.vehicleStatus)
+            var mqtt = await MQTT(topics: MQTT.Topics.vehicleStatus)
             
             /*
             let mockedConstructionSite = PlanConstructionSite.PlanConstructionSite(type: "test", data: .init(constructionSite: .init(id: .init(), coordinates: [.init(x: 1, y: 2, quadrant: 3)], startDateTime: .now, endDateTime: .now, maximumSpeed: 12.12, trafficLights: .init(id1: .init(), id2: .init()))))

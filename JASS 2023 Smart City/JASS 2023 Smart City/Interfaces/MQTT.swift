@@ -11,14 +11,17 @@ import MQTTNIO
 
 struct MQTT {
     private let client: MQTTClient
+    private var receivedPackages: Int
     
     init(topics: MQTT.Topics...) async {
         self.client = MQTTClient(
-            host: "192.168.0.3",
+            host: "192.168.0.8",
             port: 1883,
             identifier: "CityManager",
             eventLoopGroupProvider: .createNew
         )
+        
+        self.receivedPackages = 0
         
         do {
             try await client.connect()
@@ -38,7 +41,7 @@ struct MQTT {
         }
     }
     
-    func subscribe() async {
+    mutating func subscribe() async {
         let listener = client.createPublishListener()
         
         for await result in listener {
@@ -51,8 +54,10 @@ struct MQTT {
                 
                 switch topicEnum {
                 case .vehicleStatus:
-                    if let data = try? buffer.readJSONDecodable(VehicleStatus.VehicleStatus.self, length: buffer.readableBytes) {
-                        print("Error while decoding event - \(String(describing: topicEnum?.rawValue))")
+                    self.receivedPackages += 1
+                    
+                    if let data = try? buffer.readJSONDecodable(VehicleStatus.VehicleStatus.self, length: buffer.readableBytes),
+                        receivedPackages % 1 == 0 {
                         print(data)
                         
                         let layer: DuckieLayer = CityModel.shared.map.getLayer()
