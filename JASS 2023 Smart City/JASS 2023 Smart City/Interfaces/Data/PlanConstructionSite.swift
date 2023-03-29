@@ -11,12 +11,7 @@ enum PlanConstructionSite {
     // MARK: - PlanConstructionSite
     struct PlanConstructionSite: Codable {
         let type: String
-        let data: DataClass
-    }
-
-    // MARK: - DataClass
-    struct DataClass: Codable {
-        let constructionSite: ConstructionSite
+        let data: ConstructionSite
     }
 
     // MARK: - ConstructionSite
@@ -30,7 +25,8 @@ enum PlanConstructionSite {
 
     // MARK: - Coordinate
     struct Coordinate: Codable {
-        let x, y, quadrant: Int
+        let x, y: Double
+        let x_abs, y_abs: Double
     }
 
     // MARK: - TrafficLights

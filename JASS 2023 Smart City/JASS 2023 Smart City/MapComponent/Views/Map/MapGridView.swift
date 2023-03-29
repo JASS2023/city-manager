@@ -50,9 +50,28 @@ struct MapGridView: View {
                             .rotationEffect(Angle(degrees: duckie.yaw), anchor: .center)
                             .frame(width: 25, height: 25)
                             .position(getPosition(for: self.subviewSize, cell: duckie))
-                            //.offset(x: 25, y: 25)
+                        //.offset(x: 25, y: 25)
                     }
                 }
+                
+                ForEach(model.constructionCells) { consturctionCell in
+                    TileType.cone.image
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 25, height: 25)
+                        .backgroundStyle(Color.red.opacity(0.5))
+                    //.offset(x: 25, y: 25)
+                    
+                }
+                
+//                Button("Add construction") {
+//                    Task {
+//                        let mqtt = try await MQTT(topics: MQTT.Topics.planConstructionSite)
+//                        await mqtt.publish(topic: MQTT.Topics.planConstructionSite, data: PlanConstructionSite.PlanConstructionSite.init(type: MQTT.Topics.planConstructionSite.rawValue, data:  PlanConstructionSite.ConstructionSite(id: UUID(), coordinates: [PlanConstructionSite.Coordinate.init(x: 10.0, y: 10.0, x_abs: 10.0, y_abs: 10.0)], startDateTime: Date(), endDateTime: Date(), maximumSpeed: 8.8, trafficLights: PlanConstructionSite.TrafficLights(id1: UUID(), id2: UUID()))))
+//                    }
+//                }
+                
+                
             }
             .scaleEffect(currentScale * gestureScale)
             .gesture(magnification)

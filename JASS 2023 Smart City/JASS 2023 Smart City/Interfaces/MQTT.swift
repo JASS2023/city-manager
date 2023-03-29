@@ -57,11 +57,21 @@ struct MQTT {
                     self.receivedPackages += 1
                     
                     if let data = try? buffer.readJSONDecodable(VehicleStatus.VehicleStatus.self, length: buffer.readableBytes),
-                        receivedPackages % 1 == 0 {
+                       receivedPackages % 1 == 0 {
                         print(data)
                         
                         let layer: DuckieLayer = CityModel.shared.map.getLayer()
                         layer.update(vehicleStatus: data)
+                        CityModel.shared.trigger()
+                    }
+                    
+                case .constructionSiteStatus:
+                    if let data = try? buffer.readJSONDecodable(ConstructionSiteStatus.ConstructionSiteStatus.self, length: buffer.readableBytes) {
+                        print("Error while decoding event - \(String(describing: topicEnum?.rawValue))")
+                        print(data)
+                        
+                        let layer: ConstructionLayer = CityModel.shared.map.getLayer()
+                        layer.update(constructionSiteStatus: data)
                         CityModel.shared.trigger()
                     }
                 case .none: print("Error during decoding")
@@ -96,6 +106,7 @@ struct MQTT {
 extension MQTT {
     enum Topics: String {
         case planConstructionSite = "plan_construction_site"
+        case constructionSiteStatus = "status_construction_site"
         case planService = "plan_service"
         case vehicleStatus = "vehicle/12/status"
     }

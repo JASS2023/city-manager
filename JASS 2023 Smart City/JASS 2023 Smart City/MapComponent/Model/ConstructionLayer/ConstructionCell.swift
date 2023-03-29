@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class ConstructionCell: Cell, Equatable, Hashable {
+class ConstructionCell: Cell, Equatable, Hashable, Identifiable {
     @Published var constructionSiteUUIDs: [UUID] = []
     @Published var trafficLightUUIDs: [UUID] = []
 
