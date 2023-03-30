@@ -37,7 +37,7 @@ class DuckieLayer: Layer {
                     data[indexCell].duckies[indexDuckie].i = vehicleStatus.data.coordinates.x
                     data[indexCell].duckies[indexDuckie].j = vehicleStatus.data.coordinates.y
                 }
-            // Duckie is not in the same cell anymore
+                // Duckie is not in the same cell anymore
             } else {
                 // Remove Duckie of old cell
                 data[indexCell].duckies.removeAll { duckie in

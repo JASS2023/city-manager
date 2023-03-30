@@ -26,6 +26,7 @@
 		978729C329D4326400DCECB1 /* VehicleStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978729C229D4326400DCECB1 /* VehicleStatus.swift */; };
 		978729C529D4CB9200DCECB1 /* DuckieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978729C429D4CB9200DCECB1 /* DuckieModel.swift */; };
 		978729C729D4D18400DCECB1 /* DuckieMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978729C629D4D18400DCECB1 /* DuckieMapView.swift */; };
+		978729C929D56BDB00DCECB1 /* ConstructionSiteStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978729C829D56BDB00DCECB1 /* ConstructionSiteStatus.swift */; };
 		9790C7A829D212240051C8BD /* PlanConstructionSite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9790C7A529D212240051C8BD /* PlanConstructionSite.swift */; };
 		9790C7AB29D213130051C8BD /* Starscream in Frameworks */ = {isa = PBXBuildFile; productRef = 9790C7AA29D213130051C8BD /* Starscream */; };
 		9790C7B129D2199E0051C8BD /* LayeredMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9790C7B029D2199E0051C8BD /* LayeredMap.swift */; };
@@ -60,6 +61,7 @@
 		978729C229D4326400DCECB1 /* VehicleStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleStatus.swift; sourceTree = "<group>"; };
 		978729C429D4CB9200DCECB1 /* DuckieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuckieModel.swift; sourceTree = "<group>"; };
 		978729C629D4D18400DCECB1 /* DuckieMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuckieMapView.swift; sourceTree = "<group>"; };
+		978729C829D56BDB00DCECB1 /* ConstructionSiteStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstructionSiteStatus.swift; sourceTree = "<group>"; };
 		9790C7A529D212240051C8BD /* PlanConstructionSite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanConstructionSite.swift; sourceTree = "<group>"; };
 		9790C7B029D2199E0051C8BD /* LayeredMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayeredMap.swift; sourceTree = "<group>"; };
 		9790C7B429D2289F0051C8BD /* TileLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileLayer.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 		9778543A29D36795008EC773 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				978729C829D56BDB00DCECB1 /* ConstructionSiteStatus.swift */,
 				9790C7A529D212240051C8BD /* PlanConstructionSite.swift */,
 				9778543B29D36889008EC773 /* PlanService.swift */,
 				978729C229D4326400DCECB1 /* VehicleStatus.swift */,
@@ -337,6 +340,7 @@
 				9790C7B729D229D50051C8BD /* DuckieLayer.swift in Sources */,
 				9790C7B929D22A650051C8BD /* DuckieCell.swift in Sources */,
 				978729BF29D38A5A00DCECB1 /* ConstructionLayer.swift in Sources */,
+				978729C929D56BDB00DCECB1 /* ConstructionSiteStatus.swift in Sources */,
 				9752F03029D17F80003DF523 /* TileRowView.swift in Sources */,
 				97BEA11729D1761E006CA71A /* Parser.swift in Sources */,
 				9752F09E29D1890A003DF523 /* TileType.swift in Sources */,
