@@ -12,12 +12,14 @@ struct MapGridView: View {
     @EnvironmentObject var model: CityModel
     
     @State private var subviewSize: CGSize = .zero
-    @State private var subviewFrame: CGRect = .zero
     
     @State private var currentScale: CGFloat = 1.0
     @GestureState private var gestureScale: CGFloat = 1.0
     @State private var currentPosition: CGPoint = .zero
     @GestureState private var gestureOffset: CGSize = .zero
+    
+    @State private var showPopup = false
+    @State private var selectedCell: LayeredMapCell? = nil
     
     var body: some View {
         let magnification = MagnificationGesture()
@@ -41,20 +43,28 @@ struct MapGridView: View {
                 Spacer()
                 
                 ZStack {
-                    GeometryReader { geometryInner in
-                        LazyVGrid(columns: self.columns, spacing: 0) {
-                            ForEach(self.cells, id: \.tileCell) { cell in
-                                TileCellView(cell: cell)
+                    Group {
+                        GeometryReader { geometryInner in
+                            LazyVGrid(columns: self.columns, spacing: 0) {
+                                ForEach(self.cells, id: \.tileCell) { cell in
+                                    TileCellView(cell: cell, angle: 0.0)
+                                        .onTapGesture {
+                                            self.selectedCell = cell
+                                            self.showPopup = true
+                                        }
+                                }
+                            }
+                            .background(Color.black)
+                            .onAppear {
+                                self.subviewSize = geometryInner.size
                             }
                         }
-                        .background(Color.black)
-                        .onAppear {
-                            self.subviewSize = geometryInner.size
-                            self.subviewFrame = geometryInner.frame(in: .global)
-                        }
+                        
+                        DuckieMapView(subviewSize: self.subviewSize)
                     }
+                    .blur(radius: self.showPopup ? 8 : 0)
                     
-                    DuckieMapView(subviewSize: self.subviewSize)
+                    AddCellPopupView(showPopup: self.$showPopup, selectedCell: self.selectedCell)
                 }
                 .scaleEffect(currentScale * gestureScale)
                 .offset(x: currentPosition.x + gestureOffset.width,

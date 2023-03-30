@@ -13,18 +13,26 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             TabView {
-                TileRowList()
-                    .tabItem {
-                        Label("First", systemImage: "1.circle")
-                    }
                 MapGridView()
                     .tabItem {
-                        Label("Second", systemImage: "2.circle")
+                        Label("Overall Map", systemImage: "map")
                     }
+                
+                MapPresentationGridView()
+                    .tabItem {
+                        Label("Presentation Map", systemImage: "building")
+                    }
+                
+                TileRowList()
+                    .tabItem {
+                        Label("Tiles", systemImage: "0.square")
+                    }
+                /*
                 TestImagesView()
                     .tabItem {
                         Label("Third", systemImage: "3.circle")
                     }
+                 */
             }
             .navigationTitle("JASS 2023 Cyprus - City Manager")
         }
@@ -32,172 +40,55 @@ struct ContentView: View {
         .task {
             let tileCells = Parser.parse(tilesYAML: "tiles", framesYAML: "frames") ?? ["defaultTile" : TileCell.defaultTile]
              
+            let constructionCells: [ConstructionCell] = []
+            /*
+                .init(i: 8, j: 8, quadrants: [
+                    .lowerRight,
+                    .upperRight
+                ]),
+                .init(i: 8, j: 7, quadrants: [
+                    .lowerRight,
+                    .upperRight
+                ])
+            ]
+             */
+            
             self.model.map = LayeredMap(layers: [
                 TileLayer(data: Array(tileCells.values)),
                 // ConstructionLayer(data: constructionCells),
-                ConstructionLayer(data: []),
+                ConstructionLayer(data: constructionCells),
                 DuckieLayer(data: [])
             ])
             
+            self.model.mqtt = await MQTT(topics: MQTT.Topics.statusVehicle, MQTT.Topics.statusConstructionSite)
+            
             /*
-             let layer: DuckieLayer = CityModel.shared.map.getLayer()
-             layer.update(vehicleStatus: .init(
-             type: "vehicle_status",
-             data: .init(id: 0, name: "defaultDuckie", timestamp: .now, coordinates: .init(
-             x: 0,
-             y: 0,
-             yaw: 0,
-             xAbs: 123,
-             yAbs: 123)
-             )
-             ))
-             layer.update(vehicleStatus: .init(
-             type: "vehicle_status",
-             data: .init(id: 1, name: "defaultDuckie", timestamp: .now, coordinates: .init(
-             x: 1,
-             y: 1,
-             yaw: 10,
-             xAbs: 123,
-             yAbs: 123)
-             )
-             ))
-             layer.update(vehicleStatus: .init(
-             type: "vehicle_status",
-             data: .init(id: 2, name: "defaultDuckie", timestamp: .now, coordinates: .init(
-             x: 2,
-             y: 2,
-             yaw: 20,
-             xAbs: 123,
-             yAbs: 123)
-             )
-             ))
-             layer.update(vehicleStatus: .init(
-             type: "vehicle_status",
-             data: .init(id: 3, name: "defaultDuckie", timestamp: .now, coordinates: .init(
-             x: 3,
-             y: 3,
-             yaw: 30,
-             xAbs: 123,
-             yAbs: 123)
-             )
-             ))
-             layer.update(vehicleStatus: .init(
-             type: "vehicle_status",
-             data: .init(id: 4, name: "defaultDuckie", timestamp: .now, coordinates: .init(
-             x: 4,
-             y: 4,
-             yaw: 0,
-             xAbs: 123,
-             yAbs: 123)
-             )
-             ))
-             layer.update(vehicleStatus: .init(
-             type: "vehicle_status",
-             data: .init(id: 5, name: "defaultDuckie", timestamp: .now, coordinates: .init(
-             x: 5,
-             y: 5,
-             yaw: 0,
-             xAbs: 123,
-             yAbs: 123)
-             )
-             ))
-             layer.update(vehicleStatus: .init(
-             type: "vehicle_status",
-             data: .init(id: 6, name: "defaultDuckie", timestamp: .now, coordinates: .init(
-             x: 6,
-             y: 6,
-             yaw: 0,
-             xAbs: 123,
-             yAbs: 123)
-             )
-             ))
-             layer.update(vehicleStatus: .init(
-             type: "vehicle_status",
-             data: .init(id: 7, name: "defaultDuckie", timestamp: .now, coordinates: .init(
-             x: 7,
-             y: 7,
-             yaw: 0,
-             xAbs: 123,
-             yAbs: 123)
-             )
-             ))
-             layer.update(vehicleStatus: .init(
-             type: "vehicle_status",
-             data: .init(id: 8, name: "defaultDuckie", timestamp: .now, coordinates: .init(
-             x: 8,
-             y: 8,
-             yaw: 0,
-             xAbs: 123,
-             yAbs: 123)
-             )
-             ))
-             layer.update(vehicleStatus: .init(
-             type: "vehicle_status",
-             data: .init(id: 9, name: "defaultDuckie", timestamp: .now, coordinates: .init(
-             x: 9,
-             y: 9,
-             yaw: 0,
-             xAbs: 123,
-             yAbs: 123)
-             )
-             ))
-             layer.update(vehicleStatus: .init(
-             type: "vehicle_status",
-             data: .init(id: 10, name: "defaultDuckie", timestamp: .now, coordinates: .init(
-             x: 10,
-             y: 10,
-             yaw: 0,
-             xAbs: 123,
-             yAbs: 123)
-             )
-             ))
-             layer.update(vehicleStatus: .init(
-             type: "vehicle_status",
-             data: .init(id: 11, name: "defaultDuckie", timestamp: .now, coordinates: .init(
-             x: 11,
-             y: 11,
-             yaw: 0,
-             xAbs: 123,
-             yAbs: 123)
-             )
-             ))
-             layer.update(vehicleStatus: .init(
-             type: "vehicle_status",
-             data: .init(id: 12, name: "defaultDuckie", timestamp: .now, coordinates: .init(
-             x: 12,
-             y: 12,
-             yaw: 0,
-             xAbs: 123,
-             yAbs: 123)
-             )
-             ))
+            await self.model.mqtt?.publish(
+                topic: .planConstructionSite,
+                data: PlanConstructionSite.PlanConstructionSite(
+                    type: "plan_construction_site",
+                    data: .init(
+                        id: .init(),
+                        coordinates: [
+                            .init(x: 7, y: 8,
+                                  quadrants: [
+                                    .upperRight,
+                                    .lowerRight
+                                  ],
+                                  x_abs: 1.1, y_abs: 2.1
+                             )
+                        ],
+                        startDateTime: .now,
+                        endDateTime: .now.addingTimeInterval(10),
+                        maximumSpeed: 10.1,
+                        trafficLights: .init(id1: .init(), id2: .init())
+                    )
+                ),
+                id: .init()
+            )
              */
             
-            var mqtt = await MQTT(topics: MQTT.Topics.statusVehicle, MQTT.Topics.statusConstructionSite)
-            
-//            DispatchQueue.main.schedule(after: .init(.now() + .seconds(1))) {
-//                let mockedConstructionSite = ConstructionSiteStatus.ConstructionSiteStatus(type: MQTT.Topics.constructionSiteStatus.rawValue, data: ConstructionSiteStatus.ConstructionSite(message: ConstructionSiteStatus.MessageString.builtConstructionSite.rawValue, id: UUID(), timestamp: "time", coordinates: [ConstructionSiteStatus.Coordinate(x: 8.0, y: 10.0, x_abs: 0, y_abs: 0)]))
-//                
-//                let layer: ConstructionLayer = self.model.map.getLayer()
-//                layer.update(constructionSiteStatus: mockedConstructionSite)
-//                self.model.trigger()
-//            }
-//            
-//            DispatchQueue.main.schedule(after: .init(.now() + .seconds(2))) {
-//                let mockedConstructionSite = ConstructionSiteStatus.ConstructionSiteStatus(type: MQTT.Topics.constructionSiteStatus.rawValue, data: ConstructionSiteStatus.ConstructionSite(message: ConstructionSiteStatus.MessageString.builtConstructionSite.rawValue, id: UUID(), timestamp: "time", coordinates: [ConstructionSiteStatus.Coordinate(x: 9.0, y: 10.0, x_abs: 0, y_abs: 0)]))
-//                
-//                let layer: ConstructionLayer = self.model.map.getLayer()
-//                layer.update(constructionSiteStatus: mockedConstructionSite)
-//                self.model.trigger()
-//            }
-//            
-            
-            
-            await mqtt.subscribe()
-            
-//            let layer: DuckieLayer = self.model.map.getLayer()
-//            layer.addNewCell(cell: DuckieCell(i: 10, j: 10))
-//
+            await self.model.mqtt?.subscribe()
         }
     }
 }

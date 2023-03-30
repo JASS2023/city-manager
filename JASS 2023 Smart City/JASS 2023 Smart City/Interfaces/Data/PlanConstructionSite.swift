@@ -20,12 +20,13 @@ enum PlanConstructionSite {
         let coordinates: [Coordinate]
         let startDateTime, endDateTime: Date
         let maximumSpeed: Double
-        let trafficLights: TrafficLights
+        let trafficLights: TrafficLights?
     }
 
     // MARK: - Coordinate
     struct Coordinate: Codable {
-        let x, y: Double
+        let x, y: Int
+        let quadrants: [Quadrant]
         let x_abs, y_abs: Double
     }
 

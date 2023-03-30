@@ -1,5 +1,5 @@
 //
-//  VehicleStatus.swift
+//  StatusVehicle.swift
 //  JASS 2023 Smart City
 //
 //  Created by Philipp Zagar on 29.03.23.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-enum VehicleStatus {
-    // MARK: - VehicleStatus
-    struct VehicleStatus: Codable {
+enum StatusVehicle {
+    // MARK: - StatusVehicle
+    struct StatusVehicle: Codable {
         let type: String
         let data: DataClass
     }
