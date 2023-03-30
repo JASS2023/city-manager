@@ -19,6 +19,11 @@ struct MQTT {
         json.dateDecodingStrategy = .iso8601
         return json
     }()
+    static let jsonEncoder: JSONEncoder = {
+        let json = JSONEncoder()
+        json.dateEncodingStrategy = .iso8601
+        return json
+    }()
     
     init(topics: MQTT.Topics...) async {
         self.client = MQTTClient(
@@ -66,6 +71,7 @@ struct MQTT {
 
                         DuckieModel.shared.duckieMap.update(vehicleStatus: data)
                         DuckieMapViewModel.shared.duckieMap = DuckieModel.shared.duckieMap
+                        DuckiePresentationMapViewModel.shared.duckieMap = DuckieModel.shared.duckieMap
                     } else {
                         print("Error while decoding event - \(String(describing: topicEnum.rawValue))")
                     }
@@ -89,12 +95,10 @@ struct MQTT {
     }
     
     func publish<T: Codable>(topic: Self.Topics, data: T, id: Int = 1) async {
-        guard let encodedPayload = try? JSONEncoder().encode(data) else {
+        guard let encodedPayload = try? Self.jsonEncoder.encode(data) else {
             print("Error while encoding event")
             return
         }
-        
-        print(topic.publishingTopic(id: id))
         
         do {
             try await client.publish(

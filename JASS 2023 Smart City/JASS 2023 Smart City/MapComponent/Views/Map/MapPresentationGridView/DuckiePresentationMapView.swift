@@ -20,17 +20,27 @@ struct DuckiePresentationMapView: View {
                     .resizable()
                     .scaledToFit()
                     .rotationEffect(Angle(degrees: duckie.yaw), anchor: .center)
-                    .frame(width: 25, height: 25)
+                    .frame(width: 40, height: 40)
                     .position(getPosition(for: self.subviewSize, cell: duckie))
             }
         }
     }
     
     func getPosition(for size: CGSize, cell: Duckie) -> CGPoint {
-        let widthCell = size.width / 8
-        let heightCell = size.height / 8
+        let widthCell = size.width / 6
+        let heightCell = size.height / 6
         
-        return CGPoint(x: (cell.i - 6) * widthCell, y: (cell.j - 6) * heightCell)   // TODO: +1 fix
+        print("Width Geometry: \(size.width)")
+        print("Height Geometry: \(size.height)")
+        
+        print("Width Device: \(UIScreen.main.bounds.width)")
+        print("Height Device: \(UIScreen.main.bounds.height)")
+        
+        print("Received i: \(cell.i)   - Becomes i: \(-cell.i + 6)")
+        print("Received j: \(cell.j)   - Becomes j: \(-cell.j + 12)")
+        
+        //return CGPoint(x: abs(cell.i - 6) * widthCell, y: abs(cell.j - 12) * heightCell)   // TODO: +1 fix
+        return CGPoint(x: ((-cell.i + 6) * widthCell + 30), y: ((-cell.j + 12) * heightCell) - 0) // TODO: fix
     }
 }
 

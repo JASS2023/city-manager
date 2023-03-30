@@ -60,7 +60,7 @@ struct MapPresentationGridView: View {
                             }
                         }
                         
-                        DuckieMapView(subviewSize: self.subviewSize)
+                        DuckiePresentationMapView(subviewSize: self.subviewSize)
                     }
                     .blur(radius: self.showPopup ? 8 : 0)
                     
@@ -98,10 +98,10 @@ extension MapPresentationGridView {
         // TODO Fix
         // Crops the irrelevant tiles
         .filter { tile in
-            tile.i < 8
+            tile.i > 0 && tile.i < 7
         }
         .filter { tile in
-            tile.j > 5 && tile.j < 14
+            tile.j > 6 && tile.j < 13
         }
     }
     
@@ -110,20 +110,32 @@ extension MapPresentationGridView {
     }
     
     var rowsTiles: Int {
+        return 6
+        /*
+        return self.sortedTiles.count
+        
         let rows = self.sortedTiles.reduce(into: 0) { partialResult, element in
             if(partialResult < element.i) {
                 partialResult = element.i
             }
         }
-        return rows + 1;
+        return 6
+        return rows + 1
+         */
     }
     
     var columnsTiles: Int {
+        return 6
+        /*
+        return self.sortedTiles.count
+        
         let columns = self.sortedTiles.reduce(into: 0) { partialResult, element in
             if(partialResult < element.j) {
                 partialResult = element.j
             }
         }
-        return columns + 1;
+        return 6
+        return columns + 1
+         */
     }
 }
