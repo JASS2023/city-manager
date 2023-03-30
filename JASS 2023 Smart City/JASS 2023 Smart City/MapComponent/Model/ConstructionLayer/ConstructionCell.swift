@@ -9,35 +9,38 @@ import Foundation
 import SwiftUI
 
 class ConstructionCell: Cell, Equatable, Hashable, Identifiable {
-    @Published var constructionSiteUUIDs: [UUID] = []
-    @Published var trafficLightUUIDs: [UUID] = []
     var id: UUID = UUID()
+    
+    @Published var constructionSiteUUID: UUID
+    @Published var trafficLightUUIDs: [UUID] = []
+    @Published var quadrants: [Quadrant] = []
 
     var image: Image {
         TileType.cone.image
     }
     
-    init(i: Int, j: Int, constructionSiteUUIDs: [UUID] = [], trafficLightUUIDs: [UUID] = []) {
-        super.init(i: i, j: j)
-        self.constructionSiteUUIDs = constructionSiteUUIDs
+    init(i: Int, j: Int, constructionSiteUUID: UUID = .init(), quadrants: [Quadrant], trafficLightUUIDs: [UUID] = []) {
+        self.constructionSiteUUID = constructionSiteUUID
         self.trafficLightUUIDs = trafficLightUUIDs
+        self.quadrants = quadrants
+        super.init(i: i, j: j)
     }
     
     static func == (lhs: ConstructionCell, rhs: ConstructionCell) -> Bool {
-        lhs.i == rhs.i && lhs.j == rhs.j && lhs.id == rhs.id && lhs.constructionSiteUUIDs == rhs.constructionSiteUUIDs && lhs.trafficLightUUIDs == rhs.trafficLightUUIDs
+        lhs.i == rhs.i && lhs.j == rhs.j && lhs.id == rhs.id && lhs.constructionSiteUUID == rhs.constructionSiteUUID && lhs.trafficLightUUIDs == rhs.trafficLightUUIDs
     }
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(i)
         hasher.combine(j)
         hasher.combine(id)
-        hasher.combine(constructionSiteUUIDs)
+        hasher.combine(constructionSiteUUID)
         hasher.combine(trafficLightUUIDs)
     }
 }
 
 extension ConstructionCell {
     public static var defaultTile: ConstructionCell {
-        ConstructionCell(i: 8, j: 10)
+        ConstructionCell(i: 8, j: 10, quadrants: [.none])
     }
 }

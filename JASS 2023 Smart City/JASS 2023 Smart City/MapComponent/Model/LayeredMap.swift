@@ -48,7 +48,11 @@ class Cell: ObservableObject {
     }
 }
 
-enum Quadrent: Int, Codable, Equatable, Hashable {
+enum Quadrant: Int, Codable, Equatable, Hashable, Identifiable {
+    var id: Self {
+        return self
+    }
+    
     case none = 0
     case upperRight = 1
     case upperLeft = 2
@@ -62,6 +66,16 @@ enum Quadrent: Int, Codable, Equatable, Hashable {
         case .upperLeft: return "Upper Left"
         case .lowerLeft: return "Lower Left"
         case .lowerRight: return "Lower Right"
+        }
+    }
+    
+    var coordinates: (Int, Int) {
+        switch self {
+        case .none: return (-1, -1)
+        case .upperRight: return (1, 0)
+        case .upperLeft: return (0, 0)
+        case .lowerLeft: return (0, 1)
+        case .lowerRight: return (1, 1)
         }
     }
 }

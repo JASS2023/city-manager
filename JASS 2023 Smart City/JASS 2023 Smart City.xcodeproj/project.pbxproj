@@ -23,10 +23,16 @@
 		978729BE29D38A5A00DCECB1 /* ConstructionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978729BC29D38A5A00DCECB1 /* ConstructionCell.swift */; };
 		978729BF29D38A5A00DCECB1 /* ConstructionLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978729BD29D38A5A00DCECB1 /* ConstructionLayer.swift */; };
 		978729C129D4307E00DCECB1 /* CityModel+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978729C029D4307E00DCECB1 /* CityModel+Helpers.swift */; };
-		978729C329D4326400DCECB1 /* VehicleStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978729C229D4326400DCECB1 /* VehicleStatus.swift */; };
+		978729C329D4326400DCECB1 /* StatusVehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978729C229D4326400DCECB1 /* StatusVehicle.swift */; };
 		978729C529D4CB9200DCECB1 /* DuckieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978729C429D4CB9200DCECB1 /* DuckieModel.swift */; };
 		978729C729D4D18400DCECB1 /* DuckieMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978729C629D4D18400DCECB1 /* DuckieMapView.swift */; };
-		978729C929D56BDB00DCECB1 /* ConstructionSiteStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978729C829D56BDB00DCECB1 /* ConstructionSiteStatus.swift */; };
+		978729C929D56BDB00DCECB1 /* StatusConstructionSite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978729C829D56BDB00DCECB1 /* StatusConstructionSite.swift */; };
+		978729CB29D57EC500DCECB1 /* AddCellPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978729CA29D57EC500DCECB1 /* AddCellPopupView.swift */; };
+		978729CD29D5806300DCECB1 /* AddConstructionPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978729CC29D5806300DCECB1 /* AddConstructionPopupView.swift */; };
+		978729CF29D580BC00DCECB1 /* AddServicePopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978729CE29D580BC00DCECB1 /* AddServicePopupView.swift */; };
+		978729D129D5A94B00DCECB1 /* AddConstructionNextPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978729D029D5A94B00DCECB1 /* AddConstructionNextPopupView.swift */; };
+		978729D529D5C7EA00DCECB1 /* MapPresentationGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978729D429D5C7EA00DCECB1 /* MapPresentationGridView.swift */; };
+		978729D729D5C8E200DCECB1 /* DuckiePresentationMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978729D629D5C8E200DCECB1 /* DuckiePresentationMapView.swift */; };
 		9790C7A829D212240051C8BD /* PlanConstructionSite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9790C7A529D212240051C8BD /* PlanConstructionSite.swift */; };
 		9790C7AB29D213130051C8BD /* Starscream in Frameworks */ = {isa = PBXBuildFile; productRef = 9790C7AA29D213130051C8BD /* Starscream */; };
 		9790C7B129D2199E0051C8BD /* LayeredMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9790C7B029D2199E0051C8BD /* LayeredMap.swift */; };
@@ -58,10 +64,16 @@
 		978729BC29D38A5A00DCECB1 /* ConstructionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstructionCell.swift; sourceTree = "<group>"; };
 		978729BD29D38A5A00DCECB1 /* ConstructionLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstructionLayer.swift; sourceTree = "<group>"; };
 		978729C029D4307E00DCECB1 /* CityModel+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CityModel+Helpers.swift"; sourceTree = "<group>"; };
-		978729C229D4326400DCECB1 /* VehicleStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleStatus.swift; sourceTree = "<group>"; };
+		978729C229D4326400DCECB1 /* StatusVehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusVehicle.swift; sourceTree = "<group>"; };
 		978729C429D4CB9200DCECB1 /* DuckieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuckieModel.swift; sourceTree = "<group>"; };
 		978729C629D4D18400DCECB1 /* DuckieMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuckieMapView.swift; sourceTree = "<group>"; };
-		978729C829D56BDB00DCECB1 /* ConstructionSiteStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstructionSiteStatus.swift; sourceTree = "<group>"; };
+		978729C829D56BDB00DCECB1 /* StatusConstructionSite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusConstructionSite.swift; sourceTree = "<group>"; };
+		978729CA29D57EC500DCECB1 /* AddCellPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCellPopupView.swift; sourceTree = "<group>"; };
+		978729CC29D5806300DCECB1 /* AddConstructionPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddConstructionPopupView.swift; sourceTree = "<group>"; };
+		978729CE29D580BC00DCECB1 /* AddServicePopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddServicePopupView.swift; sourceTree = "<group>"; };
+		978729D029D5A94B00DCECB1 /* AddConstructionNextPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddConstructionNextPopupView.swift; sourceTree = "<group>"; };
+		978729D429D5C7EA00DCECB1 /* MapPresentationGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPresentationGridView.swift; sourceTree = "<group>"; };
+		978729D629D5C8E200DCECB1 /* DuckiePresentationMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuckiePresentationMapView.swift; sourceTree = "<group>"; };
 		9790C7A529D212240051C8BD /* PlanConstructionSite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanConstructionSite.swift; sourceTree = "<group>"; };
 		9790C7B029D2199E0051C8BD /* LayeredMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayeredMap.swift; sourceTree = "<group>"; };
 		9790C7B429D2289F0051C8BD /* TileLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileLayer.swift; sourceTree = "<group>"; };
@@ -153,12 +165,35 @@
 		9778543A29D36795008EC773 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				978729C829D56BDB00DCECB1 /* ConstructionSiteStatus.swift */,
 				9790C7A529D212240051C8BD /* PlanConstructionSite.swift */,
+				978729C829D56BDB00DCECB1 /* StatusConstructionSite.swift */,
 				9778543B29D36889008EC773 /* PlanService.swift */,
-				978729C229D4326400DCECB1 /* VehicleStatus.swift */,
+				978729C229D4326400DCECB1 /* StatusVehicle.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		978729D229D5C7C400DCECB1 /* MapGridView */ = {
+			isa = PBXGroup;
+			children = (
+				9752F0A729D1C112003DF523 /* MapGridView.swift */,
+				978729C629D4D18400DCECB1 /* DuckieMapView.swift */,
+				9752F0A929D1C7F3003DF523 /* TileCellView.swift */,
+				978729CA29D57EC500DCECB1 /* AddCellPopupView.swift */,
+				978729CC29D5806300DCECB1 /* AddConstructionPopupView.swift */,
+				978729D029D5A94B00DCECB1 /* AddConstructionNextPopupView.swift */,
+				978729CE29D580BC00DCECB1 /* AddServicePopupView.swift */,
+			);
+			path = MapGridView;
+			sourceTree = "<group>";
+		};
+		978729D329D5C7E000DCECB1 /* MapPresentationGridView */ = {
+			isa = PBXGroup;
+			children = (
+				978729D429D5C7EA00DCECB1 /* MapPresentationGridView.swift */,
+				978729D629D5C8E200DCECB1 /* DuckiePresentationMapView.swift */,
+			);
+			path = MapPresentationGridView;
 			sourceTree = "<group>";
 		};
 		9790C7A229D212240051C8BD /* Interfaces */ = {
@@ -173,9 +208,8 @@
 		9790C7AC29D2135E0051C8BD /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				9752F0A729D1C112003DF523 /* MapGridView.swift */,
-				9752F0A929D1C7F3003DF523 /* TileCellView.swift */,
-				978729C629D4D18400DCECB1 /* DuckieMapView.swift */,
+				978729D329D5C7E000DCECB1 /* MapPresentationGridView */,
+				978729D229D5C7C400DCECB1 /* MapGridView */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -337,10 +371,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				978729CB29D57EC500DCECB1 /* AddCellPopupView.swift in Sources */,
 				9790C7B729D229D50051C8BD /* DuckieLayer.swift in Sources */,
 				9790C7B929D22A650051C8BD /* DuckieCell.swift in Sources */,
 				978729BF29D38A5A00DCECB1 /* ConstructionLayer.swift in Sources */,
-				978729C929D56BDB00DCECB1 /* ConstructionSiteStatus.swift in Sources */,
+				978729D729D5C8E200DCECB1 /* DuckiePresentationMapView.swift in Sources */,
+				978729CD29D5806300DCECB1 /* AddConstructionPopupView.swift in Sources */,
+				978729C929D56BDB00DCECB1 /* StatusConstructionSite.swift in Sources */,
 				9752F03029D17F80003DF523 /* TileRowView.swift in Sources */,
 				97BEA11729D1761E006CA71A /* Parser.swift in Sources */,
 				9752F09E29D1890A003DF523 /* TileType.swift in Sources */,
@@ -354,15 +391,18 @@
 				9778543429D311B3008EC773 /* LayeredMapCell.swift in Sources */,
 				97BEA11429D175E2006CA71A /* TileCell.swift in Sources */,
 				978729BE29D38A5A00DCECB1 /* ConstructionCell.swift in Sources */,
+				978729CF29D580BC00DCECB1 /* AddServicePopupView.swift in Sources */,
 				97BEA10429D16E61006CA71A /* ContentView.swift in Sources */,
 				978729C729D4D18400DCECB1 /* DuckieMapView.swift in Sources */,
-				978729C329D4326400DCECB1 /* VehicleStatus.swift in Sources */,
+				978729C329D4326400DCECB1 /* StatusVehicle.swift in Sources */,
 				978729C529D4CB9200DCECB1 /* DuckieModel.swift in Sources */,
 				9752F0AD29D1EC2F003DF523 /* TileListView.swift in Sources */,
 				9790C7A829D212240051C8BD /* PlanConstructionSite.swift in Sources */,
 				97BEA10229D16E61006CA71A /* JASS_2023_Smart_CityApp.swift in Sources */,
 				9752F03329D1869B003DF523 /* CityModel.swift in Sources */,
 				9790C7B129D2199E0051C8BD /* LayeredMap.swift in Sources */,
+				978729D529D5C7EA00DCECB1 /* MapPresentationGridView.swift in Sources */,
+				978729D129D5A94B00DCECB1 /* AddConstructionNextPopupView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

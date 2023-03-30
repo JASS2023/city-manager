@@ -1,5 +1,5 @@
 //
-//  ConstructionSiteStatus.swift
+//  StatusConstructionSite.swift
 //  JASS 2023 Smart City
 //
 //  Created by sunny wang on 2023/3/29.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-enum ConstructionSiteStatus {
-    // MARK: - ConstructionSiteStatus
-    struct ConstructionSiteStatus: Codable {
+enum StatusConstructionSite {
+    // MARK: - StatusConstructionSite
+    struct StatusConstructionSite: Codable {
         let type: String
         let data: ConstructionSite
     }
@@ -25,6 +25,7 @@ enum ConstructionSiteStatus {
     // MARK: - Coordinate
     struct Coordinate: Codable {
         let x, y: Double
+        let quadrants: [Quadrant]
         let x_abs, y_abs: Double
     }
     

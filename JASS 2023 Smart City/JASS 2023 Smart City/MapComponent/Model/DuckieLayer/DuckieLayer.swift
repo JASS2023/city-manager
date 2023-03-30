@@ -16,7 +16,7 @@ class DuckieLayer: Layer {
         super.init(data: data, name: Self.name, overrideLowerLayers: overrideLowerLayers)
     }
     
-    func update(vehicleStatus: VehicleStatus.VehicleStatus) {
+    func update(vehicleStatus: StatusVehicle.StatusVehicle) {
         guard var data = self.data as? [DuckieCell] else {
             return
         }

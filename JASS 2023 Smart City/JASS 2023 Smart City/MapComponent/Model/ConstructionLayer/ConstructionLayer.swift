@@ -14,29 +14,26 @@ class ConstructionLayer: Layer {
         super.init(data: data, name: Self.name, overrideLowerLayers: overrideLowerLayers)
     }
     
-    func update(constructionSiteStatus: ConstructionSiteStatus.ConstructionSiteStatus) {
+    func update(constructionSiteStatus: StatusConstructionSite.StatusConstructionSite) {
         guard var data = self.data as? [ConstructionCell] else {
             return
         }
         
         switch constructionSiteStatus.data.message {
-        case ConstructionSiteStatus.MessageString.builtConstructionSite.rawValue:
+        case StatusConstructionSite.MessageString.builtConstructionSite.rawValue:
             print("🚧built!")
             constructionSiteStatus.data.coordinates.forEach { coordinate in
-                data.append(.init(i: Int(coordinate.x), j: Int(coordinate.y), constructionSiteUUIDs: [constructionSiteStatus.data.id]))
+                data.append(.init(i: Int(coordinate.x), j: Int(coordinate.y), constructionSiteUUID: constructionSiteStatus.data.id, quadrants: coordinate.quadrants))
             }
-        case ConstructionSiteStatus.MessageString.removeConstructionSite.rawValue:
+        case StatusConstructionSite.MessageString.removeConstructionSite.rawValue:
             print("❌removed!")
-            if let indexCell = data.firstIndex(where: { $0.constructionSiteUUIDs.contains { constructionSiteId in
-                constructionSiteId == constructionSiteStatus.data.id
-            }}) {
-                data[indexCell].constructionSiteUUIDs.removeAll { constructionUuid in
-                    constructionUuid == constructionSiteStatus.data.id
-                }
+            data.removeAll { cell in
+                cell.constructionSiteUUID == constructionSiteStatus.data.id
             }
         default:
             break
         }
+        
         self.data = data
     }
 }

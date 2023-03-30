@@ -22,7 +22,7 @@ struct MQTT {
     
     init(topics: MQTT.Topics...) async {
         self.client = MQTTClient(
-            host: "192.168.0.3",
+            host: "192.168.0.223",
             port: 1883,
             identifier: "CityManager",
             eventLoopGroupProvider: .createNew
@@ -48,20 +48,20 @@ struct MQTT {
         }
     }
     
-    mutating func subscribe() async {
+    func subscribe() async {
         let listener = client.createPublishListener()
         
         for await result in listener {
             switch result {
             case .success(let packet):
                 var buffer = packet.payload
-                self.receivedPackages += 1
+                //self.receivedPackages += 1
                 
                 let topicEnum = Self.Topics(topic: packet.topicName)
                 
                 switch Self.Topics(topic: packet.topicName) {
                 case .statusVehicle:
-                    if let data = try? buffer.readJSONDecodable(VehicleStatus.VehicleStatus.self, decoder: Self.jsonDecoder, length: buffer.readableBytes) {
+                    if let data = try? buffer.readJSONDecodable(StatusVehicle.StatusVehicle.self, decoder: Self.jsonDecoder, length: buffer.readableBytes) {
                         //print(data)
 
                         DuckieModel.shared.duckieMap.update(vehicleStatus: data)
@@ -70,7 +70,7 @@ struct MQTT {
                         print("Error while decoding event - \(String(describing: topicEnum.rawValue))")
                     }
                 case .statusConstructionSite:
-                    if let data = try? buffer.readJSONDecodable(ConstructionSiteStatus.ConstructionSiteStatus.self, length: buffer.readableBytes) {
+                    if let data = try? buffer.readJSONDecodable(StatusConstructionSite.StatusConstructionSite.self, length: buffer.readableBytes) {
                         print(data)
                         
                         let layer: ConstructionLayer = CityModel.shared.map.getLayer()
@@ -79,7 +79,7 @@ struct MQTT {
                     } else {
                         print("Error while decoding event - \(String(describing: topicEnum.rawValue))")
                     }
-                case .none: print("Error during decoding")
+                case .none: print("Unknown type received by MQTT")
                 default: print("Error during decoding")
                 }
             case .failure(let error):
@@ -88,22 +88,24 @@ struct MQTT {
         }
     }
     
-    func publish<T: Codable>(topic: Self.Topics, data: T) async {
+    func publish<T: Codable>(topic: Self.Topics, data: T, id: Int = 1) async {
         guard let encodedPayload = try? JSONEncoder().encode(data) else {
             print("Error while encoding event")
             return
         }
         
+        print(topic.publishingTopic(id: id))
+        
         do {
             try await client.publish(
-                to: topic.rawValue,
+                to: topic.publishingTopic(id: id),
                 payload: ByteBuffer(data: encodedPayload),
                 qos: .atLeastOnce
             )
             
             print("Sent MQQT packet")
         } catch {
-            print("Error while receiving event - \(error)")
+            print("Error while writing event to broker - \(error)")
         }
     }
 }
@@ -125,6 +127,10 @@ extension MQTT {
             } else {
                 self = .none
             }
+        }
+        
+        func publishingTopic(id: Int) -> String {
+            self.rawValue.replacingOccurrences(of: "+", with: id.description)
         }
     }
 }

@@ -7,8 +7,12 @@
 
 import Foundation
 
+@MainActor
 class CityModel: ObservableObject {
     static var shared = CityModel()
+    var mqtt: MQTT? = nil
+    
+    private init() {}
     
     @Published var map: LayeredMap = .init(layers: [])
     
