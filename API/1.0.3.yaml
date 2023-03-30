@@ -1,7 +1,7 @@
 asyncapi: 2.5.0
 info:
   title: City Management MQTT API
-  version: 1.0.2
+  version: 1.0.3
   description: |
     City Management interface for Smart City
     ### Features:
@@ -213,11 +213,20 @@ components:
                     minimum: 0
                     maximum: 15
                     description: The Y-coordinate value in mm
-                  quadrant:
-                    type: integer
-                    minimum: 0
-                    maximum: 4
-                    description: The quadrant of the construction site
+                  quadrants:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        quad_1:
+                          type: integer
+                          minimum: 0
+                          maximum: 4
+                        quad_2:
+                            type: integer
+                            minimum: 0
+                            maximum: 4
+                    description: The quadrants of the construction site
     statusTrafficLightPayload:
       type: object
       properties:

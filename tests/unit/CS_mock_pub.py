@@ -18,10 +18,10 @@ TILE_WIDTH_MM = 600
 id = 12
 x = 8
 y = 8
-quadrant = 1
+quadrants = [1,4]
 
 # Define function to generate mock data
-def generate_built_data(id,x,y):
+def generate_built_data(id,x,y, quadrants):
     data = {
         "type": "status_construction_site",
         "data": {
@@ -33,13 +33,13 @@ def generate_built_data(id,x,y):
                 "y": y,
                 "x_abs": x,
                 "y_abs": y,
-                "quadrant": quadrant
+                "quadrants": quadrants
             },
         }
     }
     return json.dumps(data)
 
-def generate_remove_data(id,x,y):
+def generate_remove_data(id,x,y, quadrants):
     data = {
         "type": "status_construction_site",
         "data": {
@@ -51,7 +51,7 @@ def generate_remove_data(id,x,y):
                 "y": y,
                 "x_abs": x,
                 "y_abs": y,
-                "quadrant": quadrant
+                "quadrants": quadrants
             },
         }
     }
@@ -69,13 +69,13 @@ client.connect(MQTT_BROKER, MQTT_PORT)
 # Publish mock data every .5 seconds
 
 print("Constructing the site...")
-message = generate_built_data(id,x,y)
+message = generate_built_data(id,x,y,quadrants)
 client.publish(CS_ID, message)
 print(message)
 print("Done...")
 time.sleep(10)
 print("Removing the site...")
-message = generate_remove_data(id,x,y)
+message = generate_remove_data(id,x,y,quadrants)
 client.publish(CS_ID, message)
 print(message)
 print("Done...")
