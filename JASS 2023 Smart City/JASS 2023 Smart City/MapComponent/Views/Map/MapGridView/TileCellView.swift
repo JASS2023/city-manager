@@ -16,7 +16,7 @@ struct TileCellView: View {
         ZStack(alignment: .topLeading) {
             cell.tileCell.image
                 .resizable()
-                .rotationEffect(Angle(degrees: (cell.tileCell.yaw ?? 0) + self.angle), anchor: .center)
+                .rotationEffect(Angle(degrees: (cell.tileCell.type == .school) ? (cell.tileCell.yaw ?? 0) : (cell.tileCell.yaw ?? 0) + self.angle), anchor: .center)
                 .aspectRatio(contentMode: .fit)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             
