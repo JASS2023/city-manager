@@ -970,7 +970,7 @@ tiles:
   map_1/tile_2_10:
     i: 2
     j: 10
-    type: asphalt
+    type: school
   map_1/tile_2_11:
     i: 2
     j: 11
