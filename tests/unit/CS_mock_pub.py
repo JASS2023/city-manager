@@ -8,7 +8,7 @@ import time
 # Define constants
 MQTT_BROKER = '192.168.0.8' #"192.168.0.213"  # Change this to your MQTT broker address
 MQTT_PORT = 1883
-CS_ID = "vehicle/12/status"  # Change this to the desired vehicle ID
+CS_ID = "construction/12/status"  # Change this to the desired vehicle ID
 
 N_TILES_Y = 12
 N_TILES_X = 13
@@ -18,6 +18,7 @@ TILE_WIDTH_MM = 600
 id = 12
 x = 8
 y = 8
+quadrant = 1
 
 # Define function to generate mock data
 def generate_built_data(id,x,y):
@@ -31,7 +32,8 @@ def generate_built_data(id,x,y):
                 "x": x,
                 "y": y,
                 "x_abs": x,
-                "y_abs": y
+                "y_abs": y,
+                "quadrant": quadrant
             },
         }
     }
@@ -48,7 +50,8 @@ def generate_remove_data(id,x,y):
                 "x": x,
                 "y": y,
                 "x_abs": x,
-                "y_abs": y
+                "y_abs": y,
+                "quadrant": quadrant
             },
         }
     }
