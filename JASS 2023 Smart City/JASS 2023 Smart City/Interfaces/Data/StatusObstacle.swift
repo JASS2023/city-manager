@@ -15,8 +15,8 @@ enum StatusObstacle {
     
     struct ObstacleData: Codable {
         let message: String
-        let id: UUID
-        let timestamp: Date
+        let id: Int
+        let timestamp: String
         let label: String
         let duckieId: Int
         let `case`: String
