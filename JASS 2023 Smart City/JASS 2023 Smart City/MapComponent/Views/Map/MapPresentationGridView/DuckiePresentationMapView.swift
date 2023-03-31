@@ -6,7 +6,6 @@
 //
 
 import Foundation
-
 import SwiftUI
 
 struct DuckiePresentationMapView: View {
@@ -30,6 +29,7 @@ struct DuckiePresentationMapView: View {
         let widthCell = size.width / 6
         let heightCell = size.height / 6
         
+        /*
         print("Width Geometry: \(size.width)")
         print("Height Geometry: \(size.height)")
         
@@ -38,6 +38,7 @@ struct DuckiePresentationMapView: View {
         
         print("Received i: \(cell.i)   - Becomes i: \(-cell.i + 6)")
         print("Received j: \(cell.j)   - Becomes j: \(-cell.j + 12)")
+         */
         
         //return CGPoint(x: abs(cell.i - 6) * widthCell, y: abs(cell.j - 12) * heightCell)   // TODO: +1 fix
         return CGPoint(x: ((-cell.i + 6) * widthCell + 30), y: ((-cell.j + 12) * heightCell) - 0) // TODO: fix

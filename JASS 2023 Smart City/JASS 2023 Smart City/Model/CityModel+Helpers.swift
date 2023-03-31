@@ -50,4 +50,18 @@ extension CityModel {
         
         return serivceCellsData
     }
+    
+    // Conviniently access the traffic light cell layer
+    var trafficCells: [TrafficLightCell] {
+        guard self.map.layers.count > 1 else {
+            return [];
+        }
+        
+        let layer: TrafficLightLayer = self.map.getLayer()
+        guard let trafficLightCellsData = layer.data as? [TrafficLightCell] else {
+            return []
+        }
+        
+        return trafficLightCellsData
+    }
 }

@@ -60,6 +60,8 @@ struct MapPresentationGridView: View {
                             }
                         }
                         
+                        TrafficLightMapView(subviewSize: self.subviewSize)
+                        
                         DuckiePresentationMapView(subviewSize: self.subviewSize)
                     }
                     .blur(radius: self.showPopup ? 8 : 0)
