@@ -53,6 +53,7 @@
 		97BEA11129D1755F006CA71A /* Yams in Frameworks */ = {isa = PBXBuildFile; productRef = 97BEA11029D1755F006CA71A /* Yams */; };
 		97BEA11429D175E2006CA71A /* TileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BEA11329D175E2006CA71A /* TileCell.swift */; };
 		97BEA11729D1761E006CA71A /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BEA11629D1761E006CA71A /* Parser.swift */; };
+		B9F2F1BD29D7796900989254 /* StatusObstacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F2F1BC29D7796900989254 /* StatusObstacle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,6 +102,7 @@
 		97BEA10829D16E63006CA71A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		97BEA11329D175E2006CA71A /* TileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileCell.swift; sourceTree = "<group>"; };
 		97BEA11629D1761E006CA71A /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		B9F2F1BC29D7796900989254 /* StatusObstacle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusObstacle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 		9778543A29D36795008EC773 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				B9F2F1BC29D7796900989254 /* StatusObstacle.swift */,
 				9790C7A529D212240051C8BD /* PlanConstructionSite.swift */,
 				978729C829D56BDB00DCECB1 /* StatusConstructionSite.swift */,
 				9778543B29D36889008EC773 /* PlanService.swift */,
@@ -446,6 +449,7 @@
 				978729C929D56BDB00DCECB1 /* StatusConstructionSite.swift in Sources */,
 				9790F05029D6411B0051F9FE /* DetailsCellView.swift in Sources */,
 				9752F03029D17F80003DF523 /* TileRowView.swift in Sources */,
+				B9F2F1BD29D7796900989254 /* StatusObstacle.swift in Sources */,
 				97BEA11729D1761E006CA71A /* Parser.swift in Sources */,
 				9752F09E29D1890A003DF523 /* TileType.swift in Sources */,
 				9752F0A829D1C112003DF523 /* MapGridView.swift in Sources */,

@@ -27,7 +27,7 @@ struct MQTT {
     
     init(topics: MQTT.Topics...) async {
         self.client = MQTTClient(
-            host: "192.168.0.223",
+            host: "192.168.0.8",
             port: 1883,
             identifier: "CityManager",
             eventLoopGroupProvider: .createNew
@@ -60,10 +60,16 @@ struct MQTT {
             switch result {
             case .success(let packet):
                 var buffer = packet.payload
+                print("receives!")
+                print(packet)
+
+
                 //self.receivedPackages += 1
                 
                 let topicEnum = Self.Topics(topic: packet.topicName)
-                
+
+                print(Self.Topics(topic: packet.topicName))
+
                 switch Self.Topics(topic: packet.topicName) {
                 case .statusVehicle:
                     if let data = try? buffer.readJSONDecodable(StatusVehicle.StatusVehicle.self, decoder: Self.jsonDecoder, length: buffer.readableBytes) {
@@ -85,6 +91,15 @@ struct MQTT {
                     } else {
                         print("Error while decoding event - \(String(describing: topicEnum.rawValue))")
                     }
+                    
+                case .obstacleVehicle:
+                    if let data = try? buffer.readJSONDecodable(StatusObstacle.StatusObstacle.self, length: buffer.readableBytes) {
+                        print(data)
+                    } else {
+                        print("Error while decoding event - \(String(describing: topicEnum.rawValue))")
+                    }
+                
+                
                 case .none: print("Unknown type received by MQTT")
                 default: print("Error during decoding")
                 }
@@ -123,6 +138,7 @@ extension MQTT {
         case planService = "service/+/plan"
         case statusService = "service/+/status"
         case statusVehicle = "vehicle/+/status"
+        case obstacleVehicle = "obstacle/+/status"
         case none = "none"
         
         init(topic: String) {
@@ -130,6 +146,8 @@ extension MQTT {
                 self = .statusVehicle
             } else if topic.contains(try! Regex(#"^construction\/\d+\/status$"#)) {
                 self = .statusConstructionSite
+            } else if topic.contains(try! Regex(#"^obstacle\/\d+\/status$"#)) {
+                self = .obstacleVehicle
             } else {
                 self = .none
             }

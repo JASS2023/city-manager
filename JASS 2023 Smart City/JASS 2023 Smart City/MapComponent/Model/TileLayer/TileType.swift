@@ -61,6 +61,7 @@ enum TileType: String, CaseIterable, Codable, Equatable, Hashable {
     case t_light_ahead
     case yield
     case school
+    case church
     
     // Access the image to render in a View
     var image: Image {
