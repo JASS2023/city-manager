@@ -43,7 +43,7 @@ struct AddConstructionNextPopupView: View {
     var body: some View {
         if let selectedCell {
             VStack {
-                Text("Road i: \((selectedCell.tileCell) .i), j: \(selectedCell.tileCell.j)")
+                Text("Add Construction to i: \((selectedCell.tileCell) .i), j: \(selectedCell.tileCell.j)")
                     .font(.title)
                 
                 DatePicker("Start Time", selection: $startDate, displayedComponents: .hourAndMinute)
@@ -53,7 +53,7 @@ struct AddConstructionNextPopupView: View {
                     .padding()
 
                 HStack {
-                    Text("Selecte Maximum Speed:")
+                    Text("Selecte Maximum Speed (in cm/s):")
                         .padding()
                     
                     Spacer()
@@ -87,9 +87,15 @@ struct AddConstructionNextPopupView: View {
                                     trafficLights: .init(id1: .init(), id2: .init())
                                 )
                             ),
-                            id: 12
+                            id: .random(in: 1..<1000)
                         )
                     }
+                    
+                    // TODO
+                    // Directly perform the insertion into cells here
+                    // Do status built
+                    // Schedule removal
+                    // Do status removed
                     
                     // Perform your action here
                     showPopup = false

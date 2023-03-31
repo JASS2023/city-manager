@@ -100,6 +100,8 @@ struct MQTT {
             return
         }
         
+        print(String(data: encodedPayload, encoding: .utf8)!)
+        
         do {
             try await client.publish(
                 to: topic.publishingTopic(id: id),

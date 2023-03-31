@@ -11,14 +11,35 @@ import SwiftUI
 struct TileCellView: View {
     let cell: LayeredMapCell
     let angle: Double
+    var colorOverlay: Color? {
+        if case let .school(color) = self.cell.serviceCell?.constraintType {
+            return color
+        } else if case let .church(color) = self.cell.serviceCell?.constraintType {
+            return color
+        } else if case let .hospital(color) = self.cell.serviceCell?.constraintType {
+            return color
+        }
+        
+        return nil
+    }
     
     var body: some View {
         ZStack(alignment: .topLeading) {
-            cell.tileCell.image
-                .resizable()
-                .rotationEffect(Angle(degrees: (cell.tileCell.type == .school) ? (cell.tileCell.yaw ?? 0) : (cell.tileCell.yaw ?? 0) + self.angle), anchor: .center)
-                .aspectRatio(contentMode: .fit)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            if let colorOverlay {
+                cell.tileCell.image
+                    .resizable()
+                    .rotationEffect(Angle(degrees: (cell.tileCell.type == .school) ? (cell.tileCell.yaw ?? 0) : (cell.tileCell.yaw ?? 0) + self.angle), anchor: .center)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .colorMultiply(colorOverlay)
+            } else {
+                cell.tileCell.image
+                    .resizable()
+                    .rotationEffect(Angle(degrees: (cell.tileCell.type == .school) ? (cell.tileCell.yaw ?? 0) : (cell.tileCell.yaw ?? 0) + self.angle), anchor: .center)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            }
+            
             
             GeometryReader { geometry in
                 let cellWidth = geometry.size.width / 2

@@ -21,9 +21,11 @@ struct AddConstructionPopupView: View {
     var body: some View {
         if let selectedCell {
             if !showNextView {
-                VStack {
+                if selectedCell.serviceCell != nil || selectedCell.constructionCell != nil {
+                    DetailsCellView(constructionCell: selectedCell.constructionCell, serviceCell: selectedCell.serviceCell)
+                } else {
                     VStack {
-                        Text("Road i: \((selectedCell.tileCell) .i), j: \(selectedCell.tileCell.j)")
+                        Text("Add Construction to i: \((selectedCell.tileCell) .i), j: \(selectedCell.tileCell.j)")
                             .font(.title)
                         
                         ZStack {

@@ -82,7 +82,11 @@ extension MapGridView {
                     constructionCell.i == tileCell.i && constructionCell.j == tileCell.j
                 }
                 
-                return .init(tileCell: tileCell, constructionCell: constructionCell)
+                let serviceCell = self.model.serviceCells.first { serviceCell in
+                    serviceCell.i == tileCell.i && serviceCell.j == tileCell.j
+                }
+                
+                return .init(tileCell: tileCell, constructionCell: constructionCell, serviceCell: serviceCell)
             }
     }
     

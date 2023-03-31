@@ -1,25 +1,25 @@
 //
-//  PlanService.swift
+//  StatusService.swift
 //  JASS 2023 Smart City
 //
-//  Created by Philipp Zagar on 28.03.23.
+//  Created by Philipp Zagar on 31.03.23.
 //
 
 import Foundation
 
-enum PlanService {
+enum StatusService {
     // MARK: - PlanService
-    struct PlanService: Codable {
+    struct StatusService: Codable {
         let type: Self.Message
-        let data: PlanServiceClass
+        let data: StatusServiceClass
         
         enum Message: String, Codable {
-            case plan = "plan_service"
+            case status = "status_service"
         }
     }
 
     // MARK: - PlanServiceClass
-    struct PlanServiceClass: Codable {
+    struct StatusServiceClass: Codable {
         let message: Self.Message
         let serviceId: UUID
         let timestamp: Date
@@ -28,7 +28,8 @@ enum PlanService {
         let maximumSpeed: Double
         
         enum Message: String, Codable {
-            case planned = "planned_service"
+            case built = "built_service"
+            case removed = "removed_service"
         }
     }
 

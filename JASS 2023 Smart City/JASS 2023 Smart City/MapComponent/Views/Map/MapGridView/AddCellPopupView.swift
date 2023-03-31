@@ -21,25 +21,14 @@ struct AddCellPopupView: View {
                     VStack {
                         Spacer()
                         
-                        if selectedCell.tileCell.type == .asphalt {
-                            AddServicePopupView(selectedCell: selectedCell)
+                        if selectedCell.tileCell.type == .school || selectedCell.tileCell.type == .building || selectedCell.tileCell.type == .house {
+                            AddServicePopupView(showPopup: $showPopup, selectedCell: selectedCell)
+                        } else if selectedCell.tileCell.type == .asphalt {
+                            Text("Asphalt cell i: \((selectedCell.tileCell) .i), j: \(selectedCell.tileCell.j)")
+                                .font(.title)
                         } else {
                             AddConstructionPopupView(showPopup: $showPopup, selectedCell: selectedCell)
                         }
-                        
-                        /*
-                        Button(action: {
-                            // Perform your action here
-                            showPopup = false
-                        }) {
-                            Text("Do something")
-                                .font(.headline)
-                                .padding()
-                                .background(Color.blue)
-                                .foregroundColor(.white)
-                                .cornerRadius(10)
-                        }
-                         */
                         
                         Spacer()
                     }

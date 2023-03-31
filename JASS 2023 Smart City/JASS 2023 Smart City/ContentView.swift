@@ -57,6 +57,7 @@ struct ContentView: View {
                 TileLayer(data: Array(tileCells.values)),
                 // ConstructionLayer(data: constructionCells),
                 ConstructionLayer(data: constructionCells),
+                ServiceLayer(data: []),
                 DuckieLayer(data: [])
             ])
             

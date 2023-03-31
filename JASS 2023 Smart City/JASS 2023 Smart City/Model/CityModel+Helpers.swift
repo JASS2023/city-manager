@@ -25,8 +25,6 @@ extension CityModel {
     
     // Conviniently access the constrcution cell layer
     var constructionCells: [ConstructionCell] {
-        // Access the cell data of the layer
-        
         guard self.map.layers.count > 1 else {
             return [];
         }
@@ -37,5 +35,19 @@ extension CityModel {
         }
         
         return constructionCellData
+    }
+    
+    // Conviniently access the service cell layer
+    var serviceCells: [ServiceCell] {
+        guard self.map.layers.count > 1 else {
+            return [];
+        }
+        
+        let layer: ServiceLayer = self.map.getLayer()
+        guard let serivceCellsData = layer.data as? [ServiceCell] else {
+            return []
+        }
+        
+        return serivceCellsData
     }
 }
