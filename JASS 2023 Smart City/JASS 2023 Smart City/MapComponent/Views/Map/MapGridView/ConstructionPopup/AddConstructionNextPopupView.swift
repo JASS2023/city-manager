@@ -48,10 +48,10 @@ struct AddConstructionNextPopupView: View {
                 
                 DatePicker("Start Time", selection: $startDate, displayedComponents: .hourAndMinute)
                     .padding()
-
+                
                 DatePicker("End Time", selection: $endDate, displayedComponents: .hourAndMinute)
                     .padding()
-
+                
                 HStack {
                     Text("Selecte Maximum Speed (in cm/s):")
                         .padding()
@@ -79,7 +79,7 @@ struct AddConstructionNextPopupView: View {
                                         .init(x: selectedCell.tileCell.i, y: selectedCell.tileCell.j,
                                               quadrants: self.mappedCellStates,
                                               x_abs: Double(selectedCell.tileCell.i), y_abs: Double(selectedCell.tileCell.j)
-                                         )
+                                             )
                                     ],
                                     startDateTime: self.startDate,
                                     endDateTime: self.endDate,
@@ -89,24 +89,50 @@ struct AddConstructionNextPopupView: View {
                             ),
                             id: .random(in: 1..<1000)
                         )
+                        
+                        
+                        // TODO
+                        // Directly perform the insertion into cells here
+                        // Do status built
+                        
+                        var dispatchTime: DispatchTime
+                        if self.startDate.timeIntervalSinceNow <= 5 {
+                            dispatchTime = DispatchTime(uptimeNanoseconds: UInt64(self.startDate.timeIntervalSince1970 * 1_000_000_000))
+                        } else {
+                            dispatchTime = DispatchTime.now() + .seconds(5)
+                        }
+                        DispatchQueue.main.asyncAfter(deadline: dispatchTime) {
+                            Task.detached {
+                                await CityModel.shared.mqtt?.publish(
+                                    topic: .statusConstructionSite,
+                                    data:
+                                        StatusConstructionSite.StatusConstructionSite(type: StatusConstructionSite.MessageString.builtConstructionSite.rawValue, data:
+                                                .init (message: StatusConstructionSite.MessageString.builtConstructionSite.rawValue, id: .init(), timestamp: Date.now.formatted(),     coordinates: [
+                                                    .init(x: selectedCell.tileCell.i, y: selectedCell.tileCell.j,
+                                                          quadrants: self.mappedCellStates,
+                                                          x_abs: Double(selectedCell.tileCell.i), y_abs: Double(selectedCell.tileCell.j)
+                                                         )
+                                                ],
+                                                       constructionSiteTime: .init(start: .now, end: .now.advanced(by: 10)))),
+                                    id: .random(in: 1..<1000)
+                                )
+                            }
+                        }
+                        
+                        
+                        // Perform your action here
+                        showPopup = false
+                        // Schedule removal
+                        // Do status removed
+                        
+                    }}) {
+                        Text("Schedule the construction")
+                            .font(.headline)
+                            .padding()
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
                     }
-                    
-                    // TODO
-                    // Directly perform the insertion into cells here
-                    // Do status built
-                    // Schedule removal
-                    // Do status removed
-                    
-                    // Perform your action here
-                    showPopup = false
-                }) {
-                    Text("Schedule the construction")
-                        .font(.headline)
-                        .padding()
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                }
             }
             .navigationTitle("Set Details")
             .padding()

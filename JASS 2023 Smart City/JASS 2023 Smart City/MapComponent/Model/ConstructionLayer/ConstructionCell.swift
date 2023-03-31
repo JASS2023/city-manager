@@ -14,15 +14,18 @@ class ConstructionCell: Cell, Equatable, Hashable, Identifiable {
     @Published var constructionSiteUUID: UUID
     @Published var trafficLightUUIDs: [UUID] = []
     @Published var quadrants: [Quadrant] = []
-
+    @Published var constructionTime: StatusConstructionSite.ConstructionTime
+    
+    
     var image: Image {
         TileType.cone.image
     }
     
-    init(i: Int, j: Int, constructionSiteUUID: UUID = .init(), quadrants: [Quadrant], trafficLightUUIDs: [UUID] = []) {
+    init(i: Int, j: Int, constructionSiteUUID: UUID = .init(), quadrants: [Quadrant], trafficLightUUIDs: [UUID] = [], constructionTime: StatusConstructionSite.ConstructionTime) {
         self.constructionSiteUUID = constructionSiteUUID
         self.trafficLightUUIDs = trafficLightUUIDs
         self.quadrants = quadrants
+        self.constructionTime = constructionTime
         super.init(i: i, j: j)
     }
     
@@ -41,6 +44,6 @@ class ConstructionCell: Cell, Equatable, Hashable, Identifiable {
 
 extension ConstructionCell {
     public static var defaultTile: ConstructionCell {
-        ConstructionCell(i: 8, j: 10, quadrants: [.none])
+        ConstructionCell(i: 8, j: 10, quadrants: [.none], constructionTime:  .init(start: .now, end: .now.advanced(by: 10)))
     }
 }
