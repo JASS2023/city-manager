@@ -10,6 +10,7 @@ import SwiftUI
 
 struct TrafficLightMapView: View {
     var subviewSize: CGSize
+    var isSubroomView: Bool
     @EnvironmentObject var model: CityModel
     
     var body: some View {
@@ -22,9 +23,16 @@ struct TrafficLightMapView: View {
     }
     
     func getPosition(for size: CGSize, trafflicLight: TrafficLight) -> CGPoint {
-        let widthCell = size.width / 6
-        let heightCell = size.height / 6
-        
-        return CGPoint(x: ((-trafflicLight.i + 6) * widthCell + 30), y: ((-trafflicLight.j + 12) * heightCell) - 0) // TODO: fix
+        if isSubroomView {
+            let widthCell = size.width / 6
+            let heightCell = size.height / 6
+            
+            return CGPoint(x: ((-trafflicLight.i + 6) * widthCell), y: ((-trafflicLight.j + 12) * heightCell) - 0) // TODO: fix
+        } else {
+            let widthCell = size.width / 13.9
+            let heightCell = size.height / 15.8
+            
+            return CGPoint(x: (trafflicLight.i + 1) * widthCell, y: (trafflicLight.j + 1) * heightCell)   // TODO: +1 fix
+        }
     }
 }

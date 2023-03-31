@@ -46,6 +46,9 @@
 		9790F05429D775270051F9FE /* TrafficLightMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9790F05329D775270051F9FE /* TrafficLightMapView.swift */; };
 		9790F05729D776860051F9FE /* TrafficLightLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9790F05629D776860051F9FE /* TrafficLightLayer.swift */; };
 		9790F05929D7768C0051F9FE /* TrafficLightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9790F05829D7768C0051F9FE /* TrafficLightCell.swift */; };
+		9790F05D29D7885E0051F9FE /* ObstacleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9790F05B29D7885E0051F9FE /* ObstacleLayer.swift */; };
+		9790F05E29D7885E0051F9FE /* ObstacleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9790F05C29D7885E0051F9FE /* ObstacleCell.swift */; };
+		9790F06029D796050051F9FE /* ObstacleMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9790F05F29D796050051F9FE /* ObstacleMapView.swift */; };
 		97BEA10229D16E61006CA71A /* JASS_2023_Smart_CityApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BEA10129D16E61006CA71A /* JASS_2023_Smart_CityApp.swift */; };
 		97BEA10429D16E61006CA71A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BEA10329D16E61006CA71A /* ContentView.swift */; };
 		97BEA10629D16E63006CA71A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97BEA10529D16E63006CA71A /* Assets.xcassets */; };
@@ -95,6 +98,9 @@
 		9790F05329D775270051F9FE /* TrafficLightMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficLightMapView.swift; sourceTree = "<group>"; };
 		9790F05629D776860051F9FE /* TrafficLightLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficLightLayer.swift; sourceTree = "<group>"; };
 		9790F05829D7768C0051F9FE /* TrafficLightCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficLightCell.swift; sourceTree = "<group>"; };
+		9790F05B29D7885E0051F9FE /* ObstacleLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObstacleLayer.swift; sourceTree = "<group>"; };
+		9790F05C29D7885E0051F9FE /* ObstacleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObstacleCell.swift; sourceTree = "<group>"; };
+		9790F05F29D796050051F9FE /* ObstacleMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObstacleMapView.swift; sourceTree = "<group>"; };
 		97BEA0FE29D16E61006CA71A /* JASS 2023 Smart City.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JASS 2023 Smart City.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		97BEA10129D16E61006CA71A /* JASS_2023_Smart_CityApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JASS_2023_Smart_CityApp.swift; sourceTree = "<group>"; };
 		97BEA10329D16E61006CA71A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -160,6 +166,7 @@
 		9752F0A629D1BC17003DF523 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9790F05A29D7885E0051F9FE /* ObstacleLayer */,
 				9790F05529D776690051F9FE /* TrafficLightLayer */,
 				978729DC29D61B7E00DCECB1 /* ServiceLayer */,
 				2419276E29D374FC0072F411 /* ConstructionLayer */,
@@ -201,6 +208,7 @@
 				978729C629D4D18400DCECB1 /* DuckieMapView.swift */,
 				9752F0A929D1C7F3003DF523 /* TileCellView.swift */,
 				9790F05329D775270051F9FE /* TrafficLightMapView.swift */,
+				9790F05F29D796050051F9FE /* ObstacleMapView.swift */,
 				978729CA29D57EC500DCECB1 /* AddCellPopupView.swift */,
 				978729DA29D611D700DCECB1 /* ConstructionPopup */,
 				978729DB29D611E800DCECB1 /* ServicePopup */,
@@ -304,6 +312,15 @@
 				9790F05829D7768C0051F9FE /* TrafficLightCell.swift */,
 			);
 			path = TrafficLightLayer;
+			sourceTree = "<group>";
+		};
+		9790F05A29D7885E0051F9FE /* ObstacleLayer */ = {
+			isa = PBXGroup;
+			children = (
+				9790F05B29D7885E0051F9FE /* ObstacleLayer.swift */,
+				9790F05C29D7885E0051F9FE /* ObstacleCell.swift */,
+			);
+			path = ObstacleLayer;
 			sourceTree = "<group>";
 		};
 		97BEA0F529D16E61006CA71A = {
@@ -446,6 +463,7 @@
 				9790F05929D7768C0051F9FE /* TrafficLightCell.swift in Sources */,
 				978729CD29D5806300DCECB1 /* AddConstructionPopupView.swift in Sources */,
 				978729DE29D61B9B00DCECB1 /* ServiceCell.swift in Sources */,
+				9790F05E29D7885E0051F9FE /* ObstacleCell.swift in Sources */,
 				978729C929D56BDB00DCECB1 /* StatusConstructionSite.swift in Sources */,
 				9790F05029D6411B0051F9FE /* DetailsCellView.swift in Sources */,
 				9752F03029D17F80003DF523 /* TileRowView.swift in Sources */,
@@ -454,11 +472,13 @@
 				9752F09E29D1890A003DF523 /* TileType.swift in Sources */,
 				9752F0A829D1C112003DF523 /* MapGridView.swift in Sources */,
 				9778543629D35011008EC773 /* MQTT.swift in Sources */,
+				9790F05D29D7885E0051F9FE /* ObstacleLayer.swift in Sources */,
 				9752F0AA29D1C7F3003DF523 /* TileCellView.swift in Sources */,
 				9778543C29D36889008EC773 /* PlanService.swift in Sources */,
 				9790C7B529D2289F0051C8BD /* TileLayer.swift in Sources */,
 				9752F0A029D18A18003DF523 /* TestImagesView.swift in Sources */,
 				978729E329D6370C00DCECB1 /* StatusService.swift in Sources */,
+				9790F06029D796050051F9FE /* ObstacleMapView.swift in Sources */,
 				978729C129D4307E00DCECB1 /* CityModel+Helpers.swift in Sources */,
 				9778543429D311B3008EC773 /* LayeredMapCell.swift in Sources */,
 				97BEA11429D175E2006CA71A /* TileCell.swift in Sources */,

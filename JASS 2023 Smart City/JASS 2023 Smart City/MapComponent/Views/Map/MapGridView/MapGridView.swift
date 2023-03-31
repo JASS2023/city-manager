@@ -60,6 +60,10 @@ struct MapGridView: View {
                             }
                         }
                         
+                        TrafficLightMapView(subviewSize: self.subviewSize, isSubroomView: false)
+                        
+                        ObstacleMapView(subviewSize: self.subviewSize, isSubroomView: false)
+                        
                         DuckieMapView(subviewSize: self.subviewSize)
                     }
                     .blur(radius: self.showPopup ? 8 : 0)

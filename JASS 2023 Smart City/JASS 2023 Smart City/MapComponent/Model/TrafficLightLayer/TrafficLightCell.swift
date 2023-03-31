@@ -12,13 +12,13 @@ class TrafficLightCell: Cell, Equatable, Hashable, Identifiable {
     var id: UUID = UUID()
     let trafficLight: TrafficLight
     
-    init(i: Int, j: Int, trafficLight: StatusLight.DataClass.LightColor) {
+    init(i: Double, j: Double, trafficLight: StatusLight.DataClass.LightColor) {
         switch trafficLight {
-        case .yellow: self.trafficLight = .init(color: .yellow, i: 7.5, j: 7.5)
-        case .red: self.trafficLight = .init(color: .red, i: 7.5, j: 7.5)
-        case .green: self.trafficLight = .init(color: .green, i: 7.5, j: 7.5)
+        case .yellow: self.trafficLight = .init(color: .yellow, i: i, j: j)
+        case .red: self.trafficLight = .init(color: .red, i: i, j: j)
+        case .green: self.trafficLight = .init(color: .green, i: i, j: j)
         }
-        super.init(i: i, j: j)
+        super.init(i: Int(i), j: Int(j))
     }
     
     static func == (lhs: TrafficLightCell, rhs: TrafficLightCell) -> Bool {
@@ -35,7 +35,11 @@ class TrafficLightCell: Cell, Equatable, Hashable, Identifiable {
 
 extension TrafficLightCell {
     public static var defaultTrafficLight: TrafficLightCell {
-        TrafficLightCell(i: 8, j: 10, trafficLight: .yellow)
+        TrafficLightCell(i: 5.85, j: 8.3, trafficLight: .red)
+    }
+    
+    public static var defaultTrafficLight2: TrafficLightCell {
+        TrafficLightCell(i: 4.4, j: 7.47, trafficLight: .yellow)
     }
 }
 

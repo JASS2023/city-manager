@@ -27,7 +27,7 @@ struct MQTT {
     
     init(topics: MQTT.Topics...) async {
         self.client = MQTTClient(
-            host: "192.168.0.8",
+            host: "192.168.0.223",
             port: 1883,
             identifier: "CityManager",
             eventLoopGroupProvider: .createNew
@@ -61,14 +61,14 @@ struct MQTT {
             case .success(let packet):
                 var buffer = packet.payload
                 print("receives!")
-                print(packet)
+                //print(packet)
 
 
                 //self.receivedPackages += 1
                 
                 let topicEnum = Self.Topics(topic: packet.topicName)
 
-                print(Self.Topics(topic: packet.topicName))
+                //print(Self.Topics(topic: packet.topicName))
 
                 switch Self.Topics(topic: packet.topicName) {
                 case .statusVehicle:
@@ -94,11 +94,23 @@ struct MQTT {
                     
                 case .obstacleVehicle:
                     if let data = try? buffer.readJSONDecodable(StatusObstacle.StatusObstacle.self, length: buffer.readableBytes) {
-                        print(data)
+                        //print(data)
                     } else {
                         print("Error while decoding event - \(String(describing: topicEnum.rawValue))")
                     }
-                
+                    
+                case .statusLight:
+                    if let data = try? buffer.readJSONDecodable(StatusLight.StatusLight.self, length: buffer.readableBytes) {
+                        print(data)
+                        
+                        let idTrafficLight = Int(packet.topicName.last?.description ?? "1") ?? 1
+                        
+                        let layer: TrafficLightLayer = CityModel.shared.map.getLayer()
+                        layer.update(id: idTrafficLight, statusLightData: data)
+                        CityModel.shared.trigger()
+                    } else {
+                        print("Error while decoding event - \(String(describing: topicEnum.rawValue))")
+                    }
                 
                 case .none: print("Unknown type received by MQTT")
                 default: print("Error during decoding")
@@ -139,6 +151,7 @@ extension MQTT {
         case statusService = "service/+/status"
         case statusVehicle = "vehicle/+/status"
         case obstacleVehicle = "obstacle/+/status"
+        case statusLight = "traffic-light/1/+"
         case none = "none"
         
         init(topic: String) {
@@ -148,6 +161,9 @@ extension MQTT {
                 self = .statusConstructionSite
             } else if topic.contains(try! Regex(#"^obstacle\/\d+\/status$"#)) {
                 self = .obstacleVehicle
+                // traffic-light/1/{traffic_light_id}
+            } else if topic.contains(try! Regex(#"^traffic-light\/1\/\d+$"#)) {
+                self = .statusLight
             } else {
                 self = .none
             }

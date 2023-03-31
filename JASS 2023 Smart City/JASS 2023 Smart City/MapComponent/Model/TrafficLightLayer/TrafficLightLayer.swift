@@ -14,4 +14,17 @@ class TrafficLightLayer: Layer {
     init(data: [CellType], overrideLowerLayers: Bool = false) {
         super.init(data: data, name: Self.name, overrideLowerLayers: overrideLowerLayers)
     }
+    
+    func update(id: Int, statusLightData: StatusLight.StatusLight) {
+        guard var data = self.data as? [TrafficLightCell], 1 <= id && id <= 2 else {
+            return
+        }
+        
+        let light: TrafficLightCell = (id == 1) ? .defaultTrafficLight : .defaultTrafficLight2
+        
+        data[id - 1] = .init(i: light.trafficLight.i, j: light.trafficLight.j, trafficLight: statusLightData.data.color)
+        //data.insert(.init(i: light.trafficLight.i, j: light.trafficLight.j, trafficLight: statusLightData.data.color), at: id - 1)
+        
+        self.data = data
+    }
 }

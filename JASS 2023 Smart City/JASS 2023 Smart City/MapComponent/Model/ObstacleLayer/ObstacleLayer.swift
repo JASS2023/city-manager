@@ -8,7 +8,7 @@
 import Foundation
 
 class ObstacleLayer: Layer {
-    typealias CellType = ConstructionCell
+    typealias CellType = ObstacleCell
     static let name = "obstacle layer"
     
     init(data: [CellType], overrideLowerLayers: Bool = false) {

@@ -68,11 +68,16 @@ struct ContentView: View {
                 // ConstructionLayer(data: constructionCells),
                 ConstructionLayer(data: constructionCells),
                 ServiceLayer(data: []),
+                TrafficLightLayer(data: [.defaultTrafficLight, .defaultTrafficLight2]),
+                ObstacleLayer(data: [.defaultObstacle]),
                 DuckieLayer(data: [])
             ])
             
-            self.model.mqtt = await MQTT(topics: MQTT.Topics.statusVehicle, MQTT.Topics.statusConstructionSite,
-                                         MQTT.Topics.obstacleVehicle
+            self.model.mqtt = await MQTT(
+                topics: MQTT.Topics.statusVehicle,
+                    MQTT.Topics.statusConstructionSite,
+                    MQTT.Topics.obstacleVehicle,
+                    MQTT.Topics.statusLight
             )
             
             /*

@@ -1134,7 +1134,7 @@ tiles:
   map_1/tile_4_11:
     i: 4
     j: 11
-    type: church
+    type: asphalt
   map_1/tile_4_12:
     i: 4
     j: 12

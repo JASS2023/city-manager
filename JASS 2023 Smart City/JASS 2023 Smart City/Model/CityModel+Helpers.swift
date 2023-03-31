@@ -64,4 +64,18 @@ extension CityModel {
         
         return trafficLightCellsData
     }
+    
+    // Conviniently access the obstacle cell layer
+    var obstacleCells: [ObstacleCell] {
+        guard self.map.layers.count > 1 else {
+            return [];
+        }
+        
+        let layer: ObstacleLayer = self.map.getLayer()
+        guard let obstacleCellsData = layer.data as? [ObstacleCell] else {
+            return []
+        }
+        
+        return obstacleCellsData
+    }
 }

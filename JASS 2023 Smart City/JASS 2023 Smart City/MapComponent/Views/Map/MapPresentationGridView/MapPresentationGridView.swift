@@ -60,7 +60,9 @@ struct MapPresentationGridView: View {
                             }
                         }
                         
-                        TrafficLightMapView(subviewSize: self.subviewSize)
+                        TrafficLightMapView(subviewSize: self.subviewSize, isSubroomView: true)
+                        
+                        ObstacleMapView(subviewSize: self.subviewSize, isSubroomView: true)
                         
                         DuckiePresentationMapView(subviewSize: self.subviewSize)
                     }

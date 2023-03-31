@@ -41,7 +41,7 @@ struct DuckiePresentationMapView: View {
          */
         
         //return CGPoint(x: abs(cell.i - 6) * widthCell, y: abs(cell.j - 12) * heightCell)   // TODO: +1 fix
-        return CGPoint(x: ((-cell.i + 6) * widthCell + 30), y: ((-cell.j + 12) * heightCell) - 0) // TODO: fix
+        return CGPoint(x: ((-cell.i + 6) * widthCell), y: ((-cell.j + 12) * heightCell)) // TODO: fix
     }
 }
 
