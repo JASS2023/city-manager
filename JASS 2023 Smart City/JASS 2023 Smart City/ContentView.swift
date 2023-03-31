@@ -9,6 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var model: CityModel
+    @State var timeNow = ""
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    var dateFormatter: DateFormatter {
+        let fmtr = DateFormatter()
+        fmtr.dateFormat = "hh:mm:ss a"
+        return fmtr
+    }
     
     var body: some View {
         NavigationView {
@@ -34,7 +41,10 @@ struct ContentView: View {
                  }
                  */
             }
-            .navigationTitle("JASS 2023 Cyprus - City Manager")
+            .navigationTitle("JASS 2023 Cyprus - City Manager - " + timeNow)
+            .onReceive(timer) { _ in
+                self.timeNow = dateFormatter.string(from: Date())
+            }
         }
         .navigationViewStyle(.stack)
         .task {
