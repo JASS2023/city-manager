@@ -74,7 +74,7 @@ struct MQTT {
                         print("Error while decoding event - \(String(describing: topicEnum.rawValue))")
                     }
                 case .statusConstructionSite:
-                    print(buffer.readableBytes)
+                    //todo: There is something wrong with decode! Have a look why
                     if let data = try? buffer.readJSONDecodable(StatusConstructionSite.StatusConstructionSite.self, length: buffer.readableBytes) {
                         
                         let layer: ConstructionLayer = CityModel.shared.map.getLayer()
