@@ -158,7 +158,6 @@ extension MQTT {
                 self = .statusConstructionSite
             } else if topic.contains(try! Regex(#"^vehicle\/\d+\/obstacle$"#)) {
                 self = .obstacleVehicle
-                // traffic-light/1/{traffic_light_id}
             } else if topic.contains(try! Regex(#"^traffic-light\/1\/\d+$"#)) {
                 self = .statusLight
             } else {
