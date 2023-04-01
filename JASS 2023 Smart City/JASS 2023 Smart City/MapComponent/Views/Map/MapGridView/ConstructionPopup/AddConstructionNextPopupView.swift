@@ -101,10 +101,10 @@ struct AddConstructionNextPopupView: View {
                         
                         let layer: ConstructionLayer = CityModel.shared.map.getLayer()
                         
-                        let delayStart = Int(max(self.startDate.timeIntervalSinceNow, 0))
+                        let delayStart = Int(max(start.timeIntervalSinceNow, 0))
                         let dispatchStartTime = DispatchTime.now() + .seconds(delayStart)
                         
-                        let delayEnd = Int(max(self.endDate.timeIntervalSinceNow, 0))
+                        let delayEnd = Int(max(end.timeIntervalSinceNow, 0))
                         var dispatchEndTime = DispatchTime.now() + .seconds(delayEnd)
                         if dispatchEndTime <= dispatchStartTime {
                             dispatchEndTime = dispatchEndTime + .seconds(10)
