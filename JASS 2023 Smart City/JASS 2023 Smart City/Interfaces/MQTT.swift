@@ -27,7 +27,7 @@ struct MQTT {
     
     init(topics: MQTT.Topics...) async {
         self.client = MQTTClient(
-            host: "192.168.0.8",
+            host: "192.168.0.223",
             port: 1883,
             identifier: "CityManager",
             eventLoopGroupProvider: .createNew
@@ -86,7 +86,11 @@ struct MQTT {
                     
                 case .obstacleVehicle:
                     if let data = try? buffer.readJSONDecodable(StatusObstacle.StatusObstacle.self, length: buffer.readableBytes) {
-                        //print(data)
+                        print(data)
+                        
+                        let layer: ObstacleLayer = CityModel.shared.map.getLayer()
+                        layer.update(obstacleStatus: data)
+                        CityModel.shared.trigger()
                     } else {
                         print("Error while decoding event - \(String(describing: topicEnum.rawValue))")
                     }
@@ -143,7 +147,7 @@ extension MQTT {
         case planService = "service/+/plan"
         case statusService = "service/+/status"
         case statusVehicle = "vehicle/+/status"
-        case obstacleVehicle = "obstacle/+/status"
+        case obstacleVehicle = "vehicle/+/obstacle"
         case statusLight = "traffic-light/1/+"
         case none = "none"
         
@@ -152,7 +156,7 @@ extension MQTT {
                 self = .statusVehicle
             } else if topic.contains(try! Regex(#"^construction\/\d+\/status$"#)) {
                 self = .statusConstructionSite
-            } else if topic.contains(try! Regex(#"^obstacle\/\d+\/status$"#)) {
+            } else if topic.contains(try! Regex(#"^vehicle\/\d+\/obstacle$"#)) {
                 self = .obstacleVehicle
                 // traffic-light/1/{traffic_light_id}
             } else if topic.contains(try! Regex(#"^traffic-light\/1\/\d+$"#)) {

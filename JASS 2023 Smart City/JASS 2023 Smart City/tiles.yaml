@@ -1138,7 +1138,7 @@ tiles:
   map_1/tile_4_12:
     i: 4
     j: 12
-    type: 3way
+    type: straight
   map_1/tile_4_13:
     i: 4
     j: 13
@@ -1290,7 +1290,7 @@ tiles:
   map_1/tile_6_10:
     i: 6
     j: 10
-    type: 3way
+    type: straight
   map_1/tile_6_11:
     i: 6
     j: 11

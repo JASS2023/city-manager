@@ -62,7 +62,8 @@ struct MapPresentationGridView: View {
                         
                         TrafficLightMapView(subviewSize: self.subviewSize, isSubroomView: true)
                         
-                        ObstacleMapView(subviewSize: self.subviewSize, isSubroomView: true)
+                        // Would give the ability to place the obstacles precisely
+                        // ObstacleMapView(subviewSize: self.subviewSize, isSubroomView: true)
                         
                         DuckiePresentationMapView(subviewSize: self.subviewSize)
                     }
@@ -90,7 +91,11 @@ extension MapPresentationGridView {
                     serviceCell.i == tileCell.i && serviceCell.j == tileCell.j
                 }
                 
-                return .init(tileCell: tileCell, constructionCell: constructionCell, serviceCell: serviceCell)
+                let obstacleCell = self.model.obstacleCells.first { obstacleCell in
+                    obstacleCell.i == tileCell.i && obstacleCell.j == tileCell.j
+                }
+                
+                return .init(tileCell: tileCell, constructionCell: constructionCell, serviceCell: serviceCell, obstacleCell: obstacleCell)
             }
     }
     

@@ -10,10 +10,10 @@ import SwiftUI
 
 class ObstacleCell: Cell, Equatable, Hashable, Identifiable {
     var id: UUID = UUID()
-    var obstacles: [Obstacle]
+    var obstacles: [Obstacle]   // Would give the ability to place the obstacles precisely
     
     var image: Image {
-        TileType.citizens.image
+        TileType.exclamation_mark.image
     }
     
     init(i: Int, j: Int, obstacles: [Obstacle]) {
@@ -34,7 +34,7 @@ class ObstacleCell: Cell, Equatable, Hashable, Identifiable {
 
 extension ObstacleCell {
     public static var defaultObstacle: ObstacleCell {
-        .init(i: 3, j: 7, obstacles: [.defaultObstacle])
+        .init(i: 4, j: 12, obstacles: [.defaultObstacle])
     }
 }
 
@@ -65,6 +65,6 @@ class Obstacle: Equatable, Hashable, Identifiable {
 
 extension Obstacle {
     public static var defaultObstacle: Obstacle {
-        .init(id: 123, i: 3.4, j: 7.2, yaw: 10)
+        .init(id: 123, i: 3.4, j: 7.2, yaw: 10) // Don't care about this right now
     }
 }

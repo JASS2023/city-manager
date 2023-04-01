@@ -16,20 +16,20 @@ class ObstacleLayer: Layer {
     }
     
     func update(obstacleStatus: StatusObstacle.StatusObstacle) {
-        guard let data = self.data as? [ObstacleCell] else {
+        guard var data = self.data as? [ObstacleCell] else {
             return
         }
         
-        if obstacleStatus.data.message == "discover_obstacle" {
-            switch obstacleStatus.data.case {
-            case "left", "right", "close", "danger":
-//            todo: show the obstacle
-                break
-            default:
-//                do nothing
-                break
-            }
-            self.data = data
+        switch obstacleStatus.data.message {
+        case "discover_obstacle":
+            data.append(
+                .defaultObstacle
+            )
+        case "remove_obstacle":
+            self.data.removeAll()
+        default: break
         }
+
+        self.data = data
     }
 }

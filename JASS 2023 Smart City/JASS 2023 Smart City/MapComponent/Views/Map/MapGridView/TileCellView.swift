@@ -40,6 +40,25 @@ struct TileCellView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
             
+            if let obstacleCell = cell.obstacleCell {
+                VStack {
+                    Spacer()
+                    
+                    HStack {
+                        Spacer()
+                        
+                        obstacleCell.image
+                            .resizable()
+                            .scaledToFit()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 70, height: 70, alignment: .center)
+                        
+                        Spacer()
+                    }
+                    
+                    Spacer()
+                }
+            }
             
             GeometryReader { geometry in
                 let cellWidth = geometry.size.width / 2

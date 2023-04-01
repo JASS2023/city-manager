@@ -69,7 +69,7 @@ struct ContentView: View {
                 ConstructionLayer(data: constructionCells),
                 ServiceLayer(data: []),
                 TrafficLightLayer(data: [.defaultTrafficLight, .defaultTrafficLight2]),
-                ObstacleLayer(data: [.defaultObstacle]),
+                ObstacleLayer(data: []),
                 DuckieLayer(data: [])
             ])
             

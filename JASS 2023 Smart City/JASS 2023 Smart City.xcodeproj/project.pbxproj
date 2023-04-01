@@ -190,12 +190,12 @@
 		9778543A29D36795008EC773 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				B9F2F1BC29D7796900989254 /* StatusObstacle.swift */,
 				9790C7A529D212240051C8BD /* PlanConstructionSite.swift */,
 				978729C829D56BDB00DCECB1 /* StatusConstructionSite.swift */,
 				9778543B29D36889008EC773 /* PlanService.swift */,
 				978729E229D6370C00DCECB1 /* StatusService.swift */,
 				978729C229D4326400DCECB1 /* StatusVehicle.swift */,
+				B9F2F1BC29D7796900989254 /* StatusObstacle.swift */,
 				9790F05129D7738E0051F9FE /* StatusLight.swift */,
 			);
 			path = Data;

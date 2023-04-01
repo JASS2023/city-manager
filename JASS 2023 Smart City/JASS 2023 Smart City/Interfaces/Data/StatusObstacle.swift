@@ -21,7 +21,4 @@ enum StatusObstacle {
         let duckieId: Int
         let `case`: String
     }
-    
-    
-    
 }
