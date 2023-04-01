@@ -69,6 +69,7 @@ struct AddConstructionNextPopupView: View {
                 
                 Button(action: {
                     Task {
+                        let id = Int.random(in: 1...1000)
                         // publish planning message
                         await self.model.mqtt?.publish(
                             topic: .planConstructionSite,
@@ -88,18 +89,29 @@ struct AddConstructionNextPopupView: View {
                                     trafficLights: .init(id1: .init(), id2: .init())
                                 )
                             ),
-                            id: .random(in: 1..<1000)
+                            id: id
                         )
                         
                         let layer: ConstructionLayer = CityModel.shared.map.getLayer()
                         
-                        let delayStart = Int(max(self.startDate.timeIntervalSinceNow, 0))
+                        let delayStart = Int(max(self.startDate.timeIntervalSinceNow, 2))
                         let dispatchStartTime = DispatchTime.now() + .seconds(delayStart)
                         
                         let delayEnd = Int(max(self.endDate.timeIntervalSinceNow, 0))
-                        let dispatchEndTime = DispatchTime.now() + .seconds(delayEnd)
+                        var dispatchEndTime = DispatchTime.now() + .seconds(delayEnd)
+                        if dispatchEndTime <= dispatchStartTime {
+                            dispatchEndTime = dispatchEndTime + .seconds(10)
+                        }
+                        let constructionSiteAdd = StatusConstructionSite.ConstructionSite(message: StatusConstructionSite.MessageString.builtConstructionSite.rawValue, id: id, timestamp: Date.now.formatted(),     coordinates: [
+                            .init(x: selectedCell.tileCell.i, y: selectedCell.tileCell.j,
+                                  quadrants: self.mappedCellStates,
+                                  x_abs: Double(selectedCell.tileCell.i), y_abs: Double(selectedCell.tileCell.j)
+                                 )
+                        ], constructionSiteTime: StatusConstructionSite.ConstructionTime(start: .now, end: .now.advanced(by: 10))
+                                                                                       
+                        )
                         
-                        let constructionSite = StatusConstructionSite.ConstructionSite(message: StatusConstructionSite.MessageString.builtConstructionSite.rawValue, id: UUID(), timestamp: Date.now.formatted(),     coordinates: [
+                        let constructionSiteRemoved = StatusConstructionSite.ConstructionSite(message: StatusConstructionSite.MessageString.removeConstructionSite.rawValue, id: id, timestamp: Date.now.formatted(),     coordinates: [
                             .init(x: selectedCell.tileCell.i, y: selectedCell.tileCell.j,
                                   quadrants: self.mappedCellStates,
                                   x_abs: Double(selectedCell.tileCell.i), y_abs: Double(selectedCell.tileCell.j)
@@ -112,16 +124,16 @@ struct AddConstructionNextPopupView: View {
                         DispatchQueue.main.asyncAfter(deadline: dispatchStartTime) {
                             Task.detached {
                                 // publishes built construction site message
-                                await CityModel.shared.mqtt?.publish(
+                                await self.model.mqtt?.publish(
                                     topic: .statusConstructionSite,
                                     data:
-                                        StatusConstructionSite.StatusConstructionSite(type: StatusConstructionSite.MessageString.builtConstructionSite.rawValue, data:
-                                                                                        constructionSite))
+                                        StatusConstructionSite.StatusConstructionSite(type: "status_construction_site", data:
+                                                                                        constructionSiteAdd))
                                 
                                 // backup: if I did not fix the decode ;(
                                 
                                 layer.update(constructionSiteStatus: StatusConstructionSite.StatusConstructionSite(type: StatusConstructionSite.MessageString.builtConstructionSite.rawValue, data:
-                                                                                                                    constructionSite))
+                                                                                                                    constructionSiteAdd))
                                 await CityModel.shared.trigger()
                             }
                         }
@@ -131,8 +143,24 @@ struct AddConstructionNextPopupView: View {
                         DispatchQueue.main.asyncAfter(deadline: dispatchEndTime) {
                             Task.detached {
                                 // Publish remove messages
-                                await layer.scheduleRemoval(id: .random(in: 1..<1000), statusService: StatusConstructionSite.StatusConstructionSite(type: StatusConstructionSite.MessageString.removeConstructionSite.rawValue, data:
-                                                                                                                                                        constructionSite))
+                                await self.model.mqtt?.publish(
+                                    topic: .statusConstructionSite,
+                                    data:
+                                        StatusConstructionSite.StatusConstructionSite(type: "status_construction_site", data:
+                                                                                        constructionSiteRemoved))
+                                guard let data = layer.data as? [ConstructionCell] else {
+                                    return
+                                }
+                                data.forEach { cell in
+                                    layer.data.removeAll { cell in
+                                        if let cell = cell as? ConstructionCell {
+                                            if cell.constructionTime.end < .now {
+                                                return true
+                                            }
+                                        }
+                                        return false;
+                                    }
+                                }
                                 
                             }
                         }

@@ -17,7 +17,7 @@ enum StatusConstructionSite {
     // MARK: - ConstructionSite
     struct ConstructionSite: Codable {
         let message: String
-        let id: UUID
+        let id: Int
         let timestamp: String
         let coordinates: [Coordinate]
         let constructionSiteTime: ConstructionTime
