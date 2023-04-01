@@ -51,7 +51,7 @@ client.on_connect = on_connect
 client.on_message = on_message
 
 # Connect to MQTT broker
-client.connect("192.168.0.223", 1883, 60)
+client.connect("192.168.0.8", 1883, 60)
 
 id = 12
 x = 8

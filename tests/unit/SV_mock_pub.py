@@ -6,7 +6,7 @@ from random import uniform
 import time
 
 # Define constants
-MQTT_BROKER = '192.168.0.223' #"192.168.0.213"  # Change this to your MQTT broker address
+MQTT_BROKER = '192.168.0.8' #"192.168.0.213"  # Change this to your MQTT broker address
 MQTT_PORT = 1883
 VEHICLE_ID = "vehicle/12/status"  # Change this to the desired vehicle ID
 
@@ -56,4 +56,4 @@ while True:
         client.publish(VEHICLE_ID, message)
         print(message)
         print("Done...")
-        time.sleep(.01)
+        time.sleep(1)
