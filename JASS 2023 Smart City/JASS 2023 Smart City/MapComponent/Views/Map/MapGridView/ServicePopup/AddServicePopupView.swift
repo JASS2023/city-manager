@@ -46,10 +46,10 @@ struct AddServicePopupView: View {
                 
                 DatePicker("Start Time", selection: $startDate, displayedComponents: .hourAndMinute)
                     .padding()
-
+                
                 DatePicker("End Time", selection: $endDate, displayedComponents: .hourAndMinute)
                     .padding()
-
+                
                 HStack {
                     Text("Selecte Maximum Speed (in cm/s):")
                         .padding()
@@ -72,7 +72,7 @@ struct AddServicePopupView: View {
                     Task {
                         // Publish planning task
                         await self.model.mqtt?.publish(
-                            topic: .planConstructionSite,
+                            topic: .planService,
                             data: PlanService.PlanService(
                                 type: .plan,
                                 data: .init(
@@ -88,23 +88,10 @@ struct AddServicePopupView: View {
                             ),
                             id: id
                         )
+                        
+                        
                     }
-                    
-                    // TODO: Wait for the response from SmartCity to schedule this shit
                     let serviceLayer: ServiceLayer = self.model.map.getLayer()
-                    self.adjecentRoadTiles.forEach { coordinate in
-                        serviceLayer.addNewCell(
-                            cell: ServiceCell(
-                                i: coordinate.x,
-                                j: coordinate.y,
-                                constraintType: .school(.orange),
-                                maximumSpeed: 3.0,
-                                timeConstraints: .init(
-                                    start: self.startDate,
-                                    end: self.endDate)
-                            )
-                        )
-                    }
                     
                     let statusService = StatusService.StatusService(
                         type: .status,
@@ -113,7 +100,7 @@ struct AddServicePopupView: View {
                             serviceId: uuid,
                             timestamp: .now,
                             coordinates: self.adjecentRoadTiles.map({ coordinate in
-                                .init(x: coordinate.x, y: coordinate.y, quadrant: coordinate.quadrant)
+                                    .init(x: coordinate.x, y: coordinate.y, quadrant: coordinate.quadrant)
                             }),
                             timeConstraints: .init(
                                 start: self.startDate,
@@ -123,17 +110,49 @@ struct AddServicePopupView: View {
                         )
                     )
                     
-                    Task {
-                        // Publish planning task
-                        await self.model.mqtt?.publish(
-                            topic: .planService,
-                            data: statusService,
-                            id: id
-                        )
-                        
-                        await serviceLayer.scheduleRemoval(id: id, statusService: statusService)
+                    let delayStart = Int(max(self.startDate.timeIntervalSinceNow, 0))
+                    let dispatchStartTime = DispatchTime.now() + .seconds(delayStart)
+                    
+                    let delayEnd = Int(max(self.endDate.timeIntervalSinceNow, 0))
+                    let dispatchEndTime = DispatchTime.now() + .seconds(delayEnd)
+                    
+                    // service constraints starts
+                    DispatchQueue.main.asyncAfter(deadline: dispatchStartTime) {
+                        Task.detached {
+                            // Publish built service constraints
+                            await self.model.mqtt?.publish(
+                                topic: .statusService,
+                                data: statusService,
+                                id: id
+                            )
+                            
+                            // Update service view during constraints
+                            await self.adjecentRoadTiles.forEach { coordinate in
+                                serviceLayer.addNewCell(
+                                    cell: ServiceCell(
+                                        i: coordinate.x,
+                                        j: coordinate.y,
+                                        constraintType: .school(.orange),
+                                        maximumSpeed: 3.0,
+                                        timeConstraints: .init(
+                                            start: statusService.data.timeConstraints.start,
+                                            end: statusService.data.timeConstraints.end)
+                                    )
+                                )
+                            }
+                            
+                        }
                     }
-        
+                    
+                    // service constraints ends
+                    DispatchQueue.main.asyncAfter(deadline: dispatchEndTime) {
+                        Task.detached {
+                            // Publish remove service constraints
+                            await serviceLayer.scheduleRemoval(id: id, statusService: statusService)
+                        }
+                    }
+                    
+                    
                     self.model.trigger()
                     
                     // Perform your action here
