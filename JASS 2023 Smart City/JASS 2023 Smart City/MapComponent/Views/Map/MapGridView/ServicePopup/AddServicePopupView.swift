@@ -69,6 +69,13 @@ struct AddServicePopupView: View {
                     let id: Int = .random(in: 1..<1000)
                     let uuid: UUID = .init()
                     
+                    let start = self.startDate
+                
+                    if self.endDate <= startDate {
+                        self.endDate = startDate.addingTimeInterval(10)
+                    }
+                    let end = self.endDate
+                    
                     Task {
                         // Publish planning task
                         await self.model.mqtt?.publish(
@@ -81,8 +88,8 @@ struct AddServicePopupView: View {
                                     timestamp: .now,
                                     coordinates: self.adjecentRoadTiles,
                                     timeConstraints: .init(
-                                        start: self.startDate,
-                                        end: self.endDate
+                                        start: start,
+                                        end: end
                                     ),
                                     maximumSpeed: Double(self.maximumSpeed))
                             ),
@@ -103,17 +110,17 @@ struct AddServicePopupView: View {
                                     .init(x: coordinate.x, y: coordinate.y, quadrant: coordinate.quadrant)
                             }),
                             timeConstraints: .init(
-                                start: self.startDate,
-                                end: self.endDate
+                                start: start,
+                                end: end
                             ),
                             maximumSpeed: Double(self.maximumSpeed)
                         )
                     )
                     
-                    let delayStart = Int(max(self.startDate.timeIntervalSinceNow, 0))
+                    let delayStart = Int(max(start.timeIntervalSinceNow, 0))
                     let dispatchStartTime = DispatchTime.now() + .seconds(delayStart)
                     
-                    let delayEnd = Int(max(self.endDate.timeIntervalSinceNow, 0))
+                    let delayEnd = Int(max(end.timeIntervalSinceNow, 0))
                     let dispatchEndTime = DispatchTime.now() + .seconds(delayEnd)
                     
                     // service constraints starts

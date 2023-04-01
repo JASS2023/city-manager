@@ -11,7 +11,7 @@ import SwiftUI
 class ConstructionCell: Cell, Equatable, Hashable, Identifiable {
     var id: UUID = UUID()
     
-    @Published var constructionSiteUUID: UUID
+    @Published var constructionSiteUUID: Int
     @Published var trafficLightUUIDs: [UUID] = []
     @Published var quadrants: [Quadrant] = []
     @Published var constructionTime: StatusConstructionSite.ConstructionTime
@@ -21,7 +21,7 @@ class ConstructionCell: Cell, Equatable, Hashable, Identifiable {
         TileType.cone.image
     }
     
-    init(i: Int, j: Int, constructionSiteUUID: UUID = .init(), quadrants: [Quadrant], trafficLightUUIDs: [UUID] = [], constructionTime: StatusConstructionSite.ConstructionTime) {
+    init(i: Int, j: Int, constructionSiteUUID: Int, quadrants: [Quadrant], trafficLightUUIDs: [UUID] = [], constructionTime: StatusConstructionSite.ConstructionTime) {
         self.constructionSiteUUID = constructionSiteUUID
         self.trafficLightUUIDs = trafficLightUUIDs
         self.quadrants = quadrants
@@ -44,6 +44,6 @@ class ConstructionCell: Cell, Equatable, Hashable, Identifiable {
 
 extension ConstructionCell {
     public static var defaultTile: ConstructionCell {
-        ConstructionCell(i: 8, j: 10, quadrants: [.none], constructionTime:  .init(start: .now, end: .now.advanced(by: 10)))
+        ConstructionCell(i: 8, j: 10, constructionSiteUUID: 10, quadrants: [.none], constructionTime:  .init(start: .now, end: .now.advanced(by: 10)))
     }
 }
