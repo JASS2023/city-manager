@@ -48,10 +48,10 @@ struct AddConstructionNextPopupView: View {
                 
                 DatePicker("Start Time", selection: $startDate, displayedComponents: .hourAndMinute)
                     .padding()
-
+                
                 DatePicker("End Time", selection: $endDate, displayedComponents: .hourAndMinute)
                     .padding()
-
+                
                 HStack {
                     Text("Selecte Maximum Speed (in cm/s):")
                         .padding()
@@ -69,6 +69,7 @@ struct AddConstructionNextPopupView: View {
                 
                 Button(action: {
                     Task {
+                        // publish planning message
                         await self.model.mqtt?.publish(
                             topic: .planConstructionSite,
                             data: PlanConstructionSite.PlanConstructionSite(
@@ -79,7 +80,7 @@ struct AddConstructionNextPopupView: View {
                                         .init(x: selectedCell.tileCell.i, y: selectedCell.tileCell.j,
                                               quadrants: self.mappedCellStates,
                                               x_abs: Double(selectedCell.tileCell.i), y_abs: Double(selectedCell.tileCell.j)
-                                         )
+                                             )
                                     ],
                                     startDateTime: self.startDate,
                                     endDateTime: self.endDate,
@@ -89,24 +90,67 @@ struct AddConstructionNextPopupView: View {
                             ),
                             id: .random(in: 1..<1000)
                         )
+                        
+                        let layer: ConstructionLayer = CityModel.shared.map.getLayer()
+                        
+                        let delayStart = Int(max(self.startDate.timeIntervalSinceNow, 0))
+                        let dispatchStartTime = DispatchTime.now() + .seconds(delayStart)
+                        
+                        let delayEnd = Int(max(self.endDate.timeIntervalSinceNow, 0))
+                        let dispatchEndTime = DispatchTime.now() + .seconds(delayEnd)
+                        
+                        let constructionSite = StatusConstructionSite.ConstructionSite(message: StatusConstructionSite.MessageString.builtConstructionSite.rawValue, id: UUID(), timestamp: Date.now.formatted(),     coordinates: [
+                            .init(x: selectedCell.tileCell.i, y: selectedCell.tileCell.j,
+                                  quadrants: self.mappedCellStates,
+                                  x_abs: Double(selectedCell.tileCell.i), y_abs: Double(selectedCell.tileCell.j)
+                                 )
+                        ], constructionSiteTime: StatusConstructionSite.ConstructionTime(start: .now, end: .now.advanced(by: 10))
+                                                                                       
+                        )
+                        
+                        // publishes built construction site message
+                        DispatchQueue.main.asyncAfter(deadline: dispatchStartTime) {
+                            Task.detached {
+                                // publishes built construction site message
+                                await CityModel.shared.mqtt?.publish(
+                                    topic: .statusConstructionSite,
+                                    data:
+                                        StatusConstructionSite.StatusConstructionSite(type: StatusConstructionSite.MessageString.builtConstructionSite.rawValue, data:
+                                                                                        constructionSite))
+                                
+                                // backup: if I did not fix the decode ;(
+                                
+                                layer.update(constructionSiteStatus: StatusConstructionSite.StatusConstructionSite(type: StatusConstructionSite.MessageString.builtConstructionSite.rawValue, data:
+                                                                                                                    constructionSite))
+                                await CityModel.shared.trigger()
+                            }
+                        }
+                        
+                        
+                        // publishes remove construction site message
+                        DispatchQueue.main.asyncAfter(deadline: dispatchEndTime) {
+                            Task.detached {
+                                // Publish remove messages
+                                await layer.scheduleRemoval(id: .random(in: 1..<1000), statusService: StatusConstructionSite.StatusConstructionSite(type: StatusConstructionSite.MessageString.removeConstructionSite.rawValue, data:
+                                                                                                                                                        constructionSite))
+                                
+                            }
+                        }
+                        
+                        
+                        // Perform your action here
+                        showPopup = false
+                        // Schedule removal
+                        // Do status removed
+                        
+                    }}) {
+                        Text("Schedule the construction")
+                            .font(.headline)
+                            .padding()
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
                     }
-                    
-                    // TODO
-                    // Directly perform the insertion into cells here
-                    // Do status built
-                    // Schedule removal
-                    // Do status removed
-                    
-                    // Perform your action here
-                    showPopup = false
-                }) {
-                    Text("Schedule the construction")
-                        .font(.headline)
-                        .padding()
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                }
             }
             .navigationTitle("Set Details")
             .padding()

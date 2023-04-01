@@ -34,5 +34,11 @@ enum PlanConstructionSite {
     struct TrafficLights: Codable {
         let id1, id2: UUID
     }
+    
+    // MARK: - ConstructionTime
+    struct ConstructionTime: Codable, Hashable, Equatable {
+        let start, end: Date
+    }
+    
 }
 

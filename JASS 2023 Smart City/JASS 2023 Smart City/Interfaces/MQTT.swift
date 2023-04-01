@@ -60,21 +60,13 @@ struct MQTT {
             switch result {
             case .success(let packet):
                 var buffer = packet.payload
-                print("receives!")
                 //print(packet)
-
-
-                //self.receivedPackages += 1
                 
                 let topicEnum = Self.Topics(topic: packet.topicName)
-
-                //print(Self.Topics(topic: packet.topicName))
-
+                                
                 switch Self.Topics(topic: packet.topicName) {
                 case .statusVehicle:
-                    if let data = try? buffer.readJSONDecodable(StatusVehicle.StatusVehicle.self, decoder: Self.jsonDecoder, length: buffer.readableBytes) {
-                        //print(data)
-
+                    if let data = try? buffer.readJSONDecodable(StatusVehicle.StatusVehicle.self, decoder: Self.jsonDecoder, length: buffer.readableBytes) {                        
                         DuckieModel.shared.duckieMap.update(vehicleStatus: data)
                         DuckieMapViewModel.shared.duckieMap = DuckieModel.shared.duckieMap
                         DuckiePresentationMapViewModel.shared.duckieMap = DuckieModel.shared.duckieMap
@@ -82,8 +74,8 @@ struct MQTT {
                         print("Error while decoding event - \(String(describing: topicEnum.rawValue))")
                     }
                 case .statusConstructionSite:
+                    //todo: There is something wrong with decode! Have a look why
                     if let data = try? buffer.readJSONDecodable(StatusConstructionSite.StatusConstructionSite.self, length: buffer.readableBytes) {
-                        print(data)
                         
                         let layer: ConstructionLayer = CityModel.shared.map.getLayer()
                         layer.update(constructionSiteStatus: data)
@@ -141,6 +133,7 @@ struct MQTT {
             print("Error while writing event to broker - \(error)")
         }
     }
+    
 }
 
 extension MQTT {
