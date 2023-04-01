@@ -86,6 +86,7 @@ struct MQTT {
                     
                 case .obstacleVehicle:
                     if let data = try? buffer.readJSONDecodable(StatusObstacle.StatusObstacle.self, length: buffer.readableBytes) {
+                        print("Obstacle detected")
                         print(data)
                         
                         let layer: ObstacleLayer = CityModel.shared.map.getLayer()
@@ -147,7 +148,7 @@ extension MQTT {
         case planService = "service/+/plan"
         case statusService = "service/+/status"
         case statusVehicle = "vehicle/+/status"
-        case obstacleVehicle = "vehicle/+/obstacle"
+        case obstacleVehicle = "vehicle/+/obstruction"
         case statusLight = "traffic-light/1/+"
         case none = "none"
         
@@ -156,7 +157,7 @@ extension MQTT {
                 self = .statusVehicle
             } else if topic.contains(try! Regex(#"^construction\/\d+\/status$"#)) {
                 self = .statusConstructionSite
-            } else if topic.contains(try! Regex(#"^vehicle\/\d+\/obstacle$"#)) {
+            } else if topic.contains(try! Regex(#"^vehicle\/\d+\/obstruction$"#)) {
                 self = .obstacleVehicle
             } else if topic.contains(try! Regex(#"^traffic-light\/1\/\d+$"#)) {
                 self = .statusLight

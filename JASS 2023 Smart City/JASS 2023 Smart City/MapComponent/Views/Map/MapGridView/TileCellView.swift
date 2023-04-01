@@ -52,6 +52,7 @@ struct TileCellView: View {
                             .scaledToFit()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 70, height: 70, alignment: .center)
+                            .background(.black)
                         
                         Spacer()
                     }

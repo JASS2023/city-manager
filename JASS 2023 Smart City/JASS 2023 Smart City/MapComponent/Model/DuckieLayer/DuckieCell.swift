@@ -13,7 +13,7 @@ class DuckieCell: Cell, Equatable, Hashable, Identifiable {
     @Published var duckies: [Duckie]
     
     var image: Image {
-        TileType.duckie.image
+        TileType.car.image
     }
     
     init(i: Int, j: Int, duckies: [Duckie] = []) {

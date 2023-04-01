@@ -49,6 +49,7 @@
 		9790F05D29D7885E0051F9FE /* ObstacleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9790F05B29D7885E0051F9FE /* ObstacleLayer.swift */; };
 		9790F05E29D7885E0051F9FE /* ObstacleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9790F05C29D7885E0051F9FE /* ObstacleCell.swift */; };
 		9790F06029D796050051F9FE /* ObstacleMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9790F05F29D796050051F9FE /* ObstacleMapView.swift */; };
+		9790F06529D84C6D0051F9FE /* TouchVisualizer in Frameworks */ = {isa = PBXBuildFile; productRef = 9790F06429D84C6D0051F9FE /* TouchVisualizer */; };
 		97BEA10229D16E61006CA71A /* JASS_2023_Smart_CityApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BEA10129D16E61006CA71A /* JASS_2023_Smart_CityApp.swift */; };
 		97BEA10429D16E61006CA71A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BEA10329D16E61006CA71A /* ContentView.swift */; };
 		97BEA10629D16E63006CA71A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97BEA10529D16E63006CA71A /* Assets.xcassets */; };
@@ -116,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9790F06529D84C6D0051F9FE /* TouchVisualizer in Frameworks */,
 				9778543929D350C0008EC773 /* MQTTNIO in Frameworks */,
 				97BEA11129D1755F006CA71A /* Yams in Frameworks */,
 			);
@@ -390,6 +392,7 @@
 			packageProductDependencies = (
 				97BEA11029D1755F006CA71A /* Yams */,
 				9778543829D350C0008EC773 /* MQTTNIO */,
+				9790F06429D84C6D0051F9FE /* TouchVisualizer */,
 			);
 			productName = "JASS 2023 Smart City";
 			productReference = 97BEA0FE29D16E61006CA71A /* JASS 2023 Smart City.app */;
@@ -423,6 +426,7 @@
 				97BEA10F29D1755F006CA71A /* XCRemoteSwiftPackageReference "Yams" */,
 				9790C7A929D213130051C8BD /* XCRemoteSwiftPackageReference "Starscream" */,
 				9778543729D350C0008EC773 /* XCRemoteSwiftPackageReference "mqtt-nio" */,
+				9790F06329D84C6D0051F9FE /* XCRemoteSwiftPackageReference "TouchVisualizer" */,
 			);
 			productRefGroup = 97BEA0FF29D16E61006CA71A /* Products */;
 			projectDirPath = "";
@@ -714,6 +718,14 @@
 				minimumVersion = 4.0.0;
 			};
 		};
+		9790F06329D84C6D0051F9FE /* XCRemoteSwiftPackageReference "TouchVisualizer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/philippzagar/TouchVisualizer";
+			requirement = {
+				branch = release;
+				kind = branch;
+			};
+		};
 		97BEA10F29D1755F006CA71A /* XCRemoteSwiftPackageReference "Yams" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jpsim/Yams.git";
@@ -729,6 +741,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9778543729D350C0008EC773 /* XCRemoteSwiftPackageReference "mqtt-nio" */;
 			productName = MQTTNIO;
+		};
+		9790F06429D84C6D0051F9FE /* TouchVisualizer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9790F06329D84C6D0051F9FE /* XCRemoteSwiftPackageReference "TouchVisualizer" */;
+			productName = TouchVisualizer;
 		};
 		97BEA11029D1755F006CA71A /* Yams */ = {
 			isa = XCSwiftPackageProductDependency;

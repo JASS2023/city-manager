@@ -15,7 +15,7 @@ struct DuckieMapView: View {
     var body: some View {
         ForEach(self.vm.duckieCells) { duckieCell in
             ForEach(duckieCell.duckies) { duckie in
-                TileType.duckie.image
+                TileType.car.image
                     .resizable()
                     .scaledToFit()
                     .rotationEffect(Angle(degrees: duckie.yaw), anchor: .center)

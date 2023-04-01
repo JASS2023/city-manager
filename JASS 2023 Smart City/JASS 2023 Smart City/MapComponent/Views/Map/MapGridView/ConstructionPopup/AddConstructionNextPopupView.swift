@@ -71,17 +71,17 @@ struct AddConstructionNextPopupView: View {
                     Task {
                         let id = Int.random(in: 1...1000)
                         let start = self.startDate
-                    
+                        
                         if self.endDate <= startDate {
                             self.endDate = startDate.addingTimeInterval(10)
                         }
                         let end = self.endDate
-
+                        
                         // publish planning message
                         await self.model.mqtt?.publish(
                             topic: .planConstructionSite,
                             data: PlanConstructionSite.PlanConstructionSite(
-                                type: "plan_construction_site",
+                                type: PlanConstructionSite.PlanConstructionSite.Message.plan,
                                 data: .init(
                                     id: .init(),
                                     coordinates: [
@@ -112,72 +112,47 @@ struct AddConstructionNextPopupView: View {
                         
                         // publishes built construction site message
                         DispatchQueue.main.asyncAfter(deadline: dispatchStartTime) {
-                            Task.detached {
-                                let constructionSiteAdd = await StatusConstructionSite.ConstructionSite(message: StatusConstructionSite.MessageString.builtConstructionSite.rawValue, id: id, timestamp: Date.now.formatted(),     coordinates: [
+                            Task {
+                                let constructionSiteAdd = StatusConstructionSite.ConstructionSite(message: StatusConstructionSite.MessageString.builtConstructionSite.rawValue, id: id, timestamp: Date.now.formatted(),     coordinates: [
                                     .init(x: selectedCell.tileCell.i, y: selectedCell.tileCell.j,
                                           quadrants: self.mappedCellStates,
                                           x_abs: Double(selectedCell.tileCell.i), y_abs: Double(selectedCell.tileCell.j)
                                          )
                                 ], constructionSiteTime: StatusConstructionSite.ConstructionTime(start: start, end: end)
-                                                                                                        
+                                                                                                  
                                 )
                                 
                                 // publishes built construction site message
                                 await self.model.mqtt?.publish(
                                     topic: .statusConstructionSite,
                                     data:
-                                        StatusConstructionSite.StatusConstructionSite(type: "status_construction_site", data:
+                                        StatusConstructionSite.StatusConstructionSite(type: StatusConstructionSite.StatusConstructionSite.Message.status, data:
                                                                                         constructionSiteAdd),
                                     id: id
                                 )
                                 
                                 // backup: if I did not fix the decode ;(
                                 
-                                layer.update(constructionSiteStatus: StatusConstructionSite.StatusConstructionSite(type: StatusConstructionSite.MessageString.builtConstructionSite.rawValue, data:
-                                                                                                                    constructionSiteAdd))
-                                await CityModel.shared.trigger()
-                            }
-                        }
-                        
-                        
-                        // publishes remove construction site message
-                        DispatchQueue.main.asyncAfter(deadline: dispatchEndTime) {
-                            Task.detached {
-                                let constructionSiteRemoved = await StatusConstructionSite.ConstructionSite(message: StatusConstructionSite.MessageString.removeConstructionSite.rawValue, id: id, timestamp: Date.now.formatted(),     coordinates: [
-                                    .init(x: selectedCell.tileCell.i, y: selectedCell.tileCell.j,
-                                          quadrants: self.mappedCellStates,
-                                          x_abs: Double(selectedCell.tileCell.i), y_abs: Double(selectedCell.tileCell.j)
-                                         )
-                                ], constructionSiteTime: StatusConstructionSite.ConstructionTime(start: start, end: end)
-                                                                                                            
-                                )
-                                // Publish remove messages
-                                await self.model.mqtt?.publish(
-                                    topic: .statusConstructionSite,
-                                    data:
-                                        StatusConstructionSite.StatusConstructionSite(type: "status_construction_site", data:
-                                                                                        constructionSiteRemoved
-                                                                                     )
-                                    ,id: id
-                                )
-                                guard let data = layer.data as? [ConstructionCell] else {
-                                    return
-                                }
-                                data.forEach { cell in
-                                    layer.data.removeAll { cell in
-                                        if let cell = cell as? ConstructionCell {
-                                            if cell.constructionTime.end < .now {
-                                                return true
-                                            }
-                                        }
-                                        return false;
-                                    }
-                                }
                                 
+                                layer.update(constructionSiteStatus: StatusConstructionSite.StatusConstructionSite(type: StatusConstructionSite.StatusConstructionSite.Message.status, data:constructionSiteAdd))
+                                 
+                                CityModel.shared.trigger()
                             }
                         }
+                        /*
+                        
+                        // service constraints ends
+                        DispatchQueue.main.asyncAfter(deadline: dispatchEndTime) {
+                            Task {
+                                // Publish remove service constraints
+                                await layer.scheduleRemoval(id: id, statusService: statusService)
+                            }
+                        }
+                         */
                         
                         
+                        
+                        CityModel.shared.trigger()
                         // Perform your action here
                         showPopup = false
                         // Schedule removal

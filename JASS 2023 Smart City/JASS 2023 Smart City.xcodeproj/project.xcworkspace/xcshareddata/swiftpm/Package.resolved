@@ -73,6 +73,15 @@
       }
     },
     {
+      "identity" : "touchvisualizer",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/philippzagar/TouchVisualizer",
+      "state" : {
+        "branch" : "release",
+        "revision" : "8959bf82ff04d3f788d8fc9219c07720e4ee2309"
+      }
+    },
+    {
       "identity" : "yams",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/jpsim/Yams.git",

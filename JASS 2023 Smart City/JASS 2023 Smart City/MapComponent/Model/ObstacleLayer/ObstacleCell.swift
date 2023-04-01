@@ -34,7 +34,7 @@ class ObstacleCell: Cell, Equatable, Hashable, Identifiable {
 
 extension ObstacleCell {
     public static var defaultObstacle: ObstacleCell {
-        .init(i: 4, j: 12, obstacles: [.defaultObstacle])
+        .init(i: 3, j: 12, obstacles: [.defaultObstacle])
     }
 }
 

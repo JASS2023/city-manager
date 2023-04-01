@@ -26,7 +26,7 @@ class ObstacleLayer: Layer {
                 .defaultObstacle
             )
         case "remove_obstacle":
-            self.data.removeAll()
+            data.removeAll()
         default: break
         }
 

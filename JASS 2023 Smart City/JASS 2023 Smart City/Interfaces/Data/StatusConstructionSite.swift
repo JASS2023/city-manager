@@ -10,8 +10,12 @@ import Foundation
 enum StatusConstructionSite {
     // MARK: - StatusConstructionSite
     struct StatusConstructionSite: Codable {
-        let type: String
+        let type: Self.Message
         let data: ConstructionSite
+        
+        enum Message: String, Codable {
+            case status = "status_construction_site"
+        }
     }
     
     // MARK: - ConstructionSite

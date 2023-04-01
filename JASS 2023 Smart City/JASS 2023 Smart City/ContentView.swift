@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var model: CityModel
+    @State private var selectedTab = 1
+    
     @State var timeNow = ""
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     var dateFormatter: DateFormatter {
@@ -19,21 +21,24 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            TabView {
+            TabView(selection: self.$selectedTab){
                 MapGridView()
                     .tabItem {
                         Label("Overall Map", systemImage: "map")
                     }
+                    .tag(1)
                 
                 MapPresentationGridView()
                     .tabItem {
                         Label("Presentation Map", systemImage: "building")
                     }
+                    .tag(2)
                 
                 TileRowList()
                     .tabItem {
                         Label("Tiles", systemImage: "0.square")
                     }
+                    .tag(3)
                 /*
                  TestImagesView()
                  .tabItem {
@@ -42,6 +47,9 @@ struct ContentView: View {
                  */
             }
             .navigationTitle("JASS 2023 Cyprus - City Manager - " + timeNow)
+            .onAppear {
+                self.selectedTab = 2
+            }
             .onReceive(timer) { _ in
                 self.timeNow = dateFormatter.string(from: Date())
             }
@@ -51,17 +59,6 @@ struct ContentView: View {
             let tileCells = Parser.parse(tilesYAML: "tiles", framesYAML: "frames") ?? ["defaultTile" : TileCell.defaultTile]
             
             let constructionCells: [ConstructionCell] = []
-            /*
-             .init(i: 8, j: 8, quadrants: [
-             .lowerRight,
-             .upperRight
-             ]),
-             .init(i: 8, j: 7, quadrants: [
-             .lowerRight,
-             .upperRight
-             ])
-             ]
-             */
             
             self.model.map = LayeredMap(layers: [
                 TileLayer(data: Array(tileCells.values)),
@@ -79,32 +76,6 @@ struct ContentView: View {
                     MQTT.Topics.obstacleVehicle,
                     MQTT.Topics.statusLight
             )
-            
-            /*
-             await self.model.mqtt?.publish(
-             topic: .planConstructionSite,
-             data: PlanConstructionSite.PlanConstructionSite(
-             type: "plan_construction_site",
-             data: .init(
-             id: .init(),
-             coordinates: [
-             .init(x: 7, y: 8,
-             quadrants: [
-             .upperRight,
-             .lowerRight
-             ],
-             x_abs: 1.1, y_abs: 2.1
-             )
-             ],
-             startDateTime: .now,
-             endDateTime: .now.addingTimeInterval(10),
-             maximumSpeed: 10.1,
-             trafficLights: .init(id1: .init(), id2: .init())
-             )
-             ),
-             id: .init()
-             )
-             */
             
             await self.model.mqtt?.subscribe()
         }

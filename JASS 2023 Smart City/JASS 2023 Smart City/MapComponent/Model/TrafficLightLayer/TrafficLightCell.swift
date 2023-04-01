@@ -36,11 +36,11 @@ class TrafficLightCell: Cell, Equatable, Hashable, Identifiable {
 
 extension TrafficLightCell {
     public static var defaultTrafficLight: TrafficLightCell {
-        TrafficLightCell(i: 4.85, j: 8.9, trafficLight: .red)
+        TrafficLightCell(i: 4.2, j: 7.89, trafficLight: .red)
     }
     
     public static var defaultTrafficLight2: TrafficLightCell {
-        TrafficLightCell(i: 4.4, j: 7.89, trafficLight: .green)
+        TrafficLightCell(i: 4.85, j: 8.5, trafficLight: .red)
     }
 }
 

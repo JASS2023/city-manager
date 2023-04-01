@@ -15,11 +15,11 @@ struct DuckiePresentationMapView: View {
     var body: some View {
         ForEach(self.vm.duckieCells) { duckieCell in
             ForEach(duckieCell.duckies) { duckie in
-                TileType.duckie.image
+                TileType.car.image
                     .resizable()
                     .scaledToFit()
-                    .rotationEffect(Angle(degrees: duckie.yaw), anchor: .center)
-                    .frame(width: 40, height: 40)
+                    .rotationEffect(Angle(degrees: duckie.yaw + 180), anchor: .center)
+                    .frame(width: 70, height: 70)
                     .position(getPosition(for: self.subviewSize, cell: duckie))
             }
         }
@@ -27,7 +27,7 @@ struct DuckiePresentationMapView: View {
     
     func getPosition(for size: CGSize, cell: Duckie) -> CGPoint {
         let widthCell = size.width / 6
-        let heightCell = size.height / 6
+        let heightCell = size.height / 6.6
         
         /*
         print("Width Geometry: \(size.width)")

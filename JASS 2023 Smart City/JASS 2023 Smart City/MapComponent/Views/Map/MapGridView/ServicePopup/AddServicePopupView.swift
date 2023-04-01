@@ -125,7 +125,7 @@ struct AddServicePopupView: View {
                     
                     // service constraints starts
                     DispatchQueue.main.asyncAfter(deadline: dispatchStartTime) {
-                        Task.detached {
+                        Task {
                             // Publish built service constraints
                             await self.model.mqtt?.publish(
                                 topic: .statusService,
@@ -134,7 +134,7 @@ struct AddServicePopupView: View {
                             )
                             
                             // Update service view during constraints
-                            await self.adjecentRoadTiles.forEach { coordinate in
+                            self.adjecentRoadTiles.forEach { coordinate in
                                 serviceLayer.addNewCell(
                                     cell: ServiceCell(
                                         i: coordinate.x,
@@ -153,7 +153,7 @@ struct AddServicePopupView: View {
                     
                     // service constraints ends
                     DispatchQueue.main.asyncAfter(deadline: dispatchEndTime) {
-                        Task.detached {
+                        Task {
                             // Publish remove service constraints
                             await serviceLayer.scheduleRemoval(id: id, statusService: statusService)
                         }
