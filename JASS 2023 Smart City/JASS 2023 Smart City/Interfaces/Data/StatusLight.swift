@@ -26,6 +26,7 @@ enum StatusLight {
             case red = "red"
             case yellow = "yellow"
             case green = "green"
+            case prepare = "prepare"    // red and yellow at the same time
         }
     }
 }

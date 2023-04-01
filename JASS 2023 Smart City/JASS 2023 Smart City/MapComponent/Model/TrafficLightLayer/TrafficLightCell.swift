@@ -17,6 +17,7 @@ class TrafficLightCell: Cell, Equatable, Hashable, Identifiable {
         case .yellow: self.trafficLight = .init(color: .yellow, i: i, j: j)
         case .red: self.trafficLight = .init(color: .red, i: i, j: j)
         case .green: self.trafficLight = .init(color: .green, i: i, j: j)
+        case .prepare: self.trafficLight = .init(color: .prepare, i: i, j: j)
         }
         super.init(i: Int(i), j: Int(j))
     }
@@ -35,16 +36,16 @@ class TrafficLightCell: Cell, Equatable, Hashable, Identifiable {
 
 extension TrafficLightCell {
     public static var defaultTrafficLight: TrafficLightCell {
-        TrafficLightCell(i: 5.85, j: 8.3, trafficLight: .red)
+        TrafficLightCell(i: 4.85, j: 8.9, trafficLight: .red)
     }
     
     public static var defaultTrafficLight2: TrafficLightCell {
-        TrafficLightCell(i: 4.4, j: 7.47, trafficLight: .yellow)
+        TrafficLightCell(i: 4.4, j: 7.89, trafficLight: .green)
     }
 }
 
 struct TrafficLight: Equatable, Hashable {
-    let color: Color
+    let color: StatusLight.DataClass.LightColor
     let i: Double
     let j: Double
 }

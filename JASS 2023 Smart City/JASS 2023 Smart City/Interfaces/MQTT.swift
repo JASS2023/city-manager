@@ -27,7 +27,7 @@ struct MQTT {
     
     init(topics: MQTT.Topics...) async {
         self.client = MQTTClient(
-            host: "192.168.0.223",
+            host: "192.168.0.8",
             port: 1883,
             identifier: "CityManager",
             eventLoopGroupProvider: .createNew
@@ -101,7 +101,7 @@ struct MQTT {
                     
                 case .statusLight:
                     if let data = try? buffer.readJSONDecodable(StatusLight.StatusLight.self, length: buffer.readableBytes) {
-                        print(data)
+                        //print(data)
                         
                         let idTrafficLight = Int(packet.topicName.last?.description ?? "1") ?? 1
                         
